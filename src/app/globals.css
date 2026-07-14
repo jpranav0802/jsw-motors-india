@@ -67,13 +67,30 @@
     /* Set inline by the rem script before paint; this is only a fallback for
        the brief moment before it runs and for JS-disabled clients. */
     font-size: 100px;
-    /* Matches the target. The eight sections live in a sticky full-viewport
-       swiper, so the document itself barely scrolls — only far enough to
-       reveal the footer. */
-    overflow: clip;
+    /* Belt and braces against a stray full-bleed child forcing sideways scroll.
+       Vertical scrolling must keep working, so clip on this axis only. */
+    overflow-x: clip;
+  }
+
+  /* Lenis drives scrolling; native smooth behaviour would fight it. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
   }
 
   body {
     @apply bg-background text-foreground;
+    /* Matches the target's `body { font-size: .16rem }`. Load-bearing: the rem
+       script puts 100px on <html> as the design canvas, so any element without
+       an explicit text-* class would otherwise inherit 100px text. */
+    @apply text-base;
   }
 }

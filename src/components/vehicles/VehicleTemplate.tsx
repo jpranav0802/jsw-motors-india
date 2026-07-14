@@ -1,9 +1,8 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import type { Swiper as SwiperInstance } from "swiper/types";
-import "swiper/css";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
 
 import { CarSwiper } from "@/components/vehicles/CarSwiper";
 import { FirstScreen } from "@/components/vehicles/FirstScreen";
@@ -18,25 +17,13 @@ interface VehicleTemplateProps {
   sections: VehicleSection[];
 }
 
-/**
- * The target advances this swiper from a custom wheel handler rather than
- * Swiper's mousewheel module (its own params have `mousewheel.enabled: false`
- * and `allowTouchMove: false`). Document scroll does not drive it either — the
- * page is only ~1353px tall and `activeIndex` stays at 0 at maximum scroll.
- *
- * The live handler's threshold and debounce could not be measured: synthetic
- * wheel events don't advance it, so it appears to require a trusted event.
- * These values are matched to the 1000ms slide transition and tuned by eye.
- */
-const SLIDE_SPEED = 1000;
-const WHEEL_THRESHOLD = 8;
-
-function renderSection(section: VehicleSection, active: boolean) {
+function renderSection(section: VehicleSection) {
   switch (section.id) {
     case "firstScreen":
       return <FirstScreen data={section.data} />;
     case "3dHall":
-      return <ThreeDHall data={section.data} active={active} />;
+      // Pins and scrubs itself against scroll; see ThreeDHall.
+      return <ThreeDHall data={section.data} />;
     case "carSwiper":
       return <CarSwiper data={section.data} />;
     case "introduction1":
@@ -50,51 +37,52 @@ function renderSection(section: VehicleSection, active: boolean) {
   }
 }
 
+/** The 3dHall pins itself over a long scroll, so it opts out of the shared reveal. */
+const SELF_DRIVEN = new Set<VehicleSection["id"]>(["3dHall"]);
+
 export function VehicleTemplate({ sections }: VehicleTemplateProps) {
-  const swiperRef = useRef<SwiperInstance | null>(null);
-  const lockedUntil = useRef(0);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const rootRef = useRef<HTMLDivElement>(null);
 
-  const handleWheel = useCallback((event: React.WheelEvent<HTMLDivElement>) => {
-    const swiper = swiperRef.current;
-    if (!swiper) return;
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
-    const now = Date.now();
-    if (now < lockedUntil.current) return;
-    if (Math.abs(event.deltaY) < WHEEL_THRESHOLD) return;
+    const ctx = gsap.context(() => {
+      const panels = gsap.utils.toArray<HTMLElement>("[data-reveal]");
 
-    const down = event.deltaY > 0;
-    // Let the document take over past the last slide so the footer is
-    // reachable, and at the top of the first slide when scrolling back up.
-    if (down && swiper.isEnd) return;
-    if (!down && swiper.isBeginning && window.scrollY === 0) return;
+      panels.forEach((panel) => {
+        const targets = panel.querySelectorAll("[data-reveal-item]");
+        if (targets.length === 0) return;
 
-    if (down) swiper.slideNext();
-    else swiper.slidePrev();
-    lockedUntil.current = now + SLIDE_SPEED;
+        gsap.from(targets, {
+          y: 40,
+          opacity: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          stagger: 0.08,
+          scrollTrigger: {
+            trigger: panel,
+            start: "top 70%",
+            // Replays on re-entry, matching the target's `once: false` reveals.
+            toggleActions: "play reverse play reverse",
+          },
+        });
+      });
+    }, rootRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <div className="w-full min-h-svh">
-      <div className="sticky top-0 home-swiper w-full h-svh" onWheel={handleWheel}>
-        <Swiper
-          className="swiper-container w-full h-svh"
-          direction="vertical"
-          slidesPerView={1}
-          speed={SLIDE_SPEED}
-          allowTouchMove={false}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
-          onActiveIndexChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+    <div ref={rootRef} className="w-full">
+      {sections.map((section, index) => (
+        <section
+          key={`${section.id}-${index}`}
+          className="relative w-full"
+          {...(SELF_DRIVEN.has(section.id) ? {} : { "data-reveal": "" })}
         >
-          {sections.map((section, index) => (
-            <SwiperSlide key={`${section.id}-${index}`} className="relative">
-              {renderSection(section, index === activeIndex)}
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+          {renderSection(section)}
+        </section>
+      ))}
     </div>
   );
 }

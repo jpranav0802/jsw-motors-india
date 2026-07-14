@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import type { ThreeDHallData } from "@/types/vehicle";
@@ -18,15 +18,14 @@ const TABS: { id: HallTab; label: string }[] = [
 
 interface ThreeDHallProps {
   data: ThreeDHallData;
-  /** True while this is the swiper's active slide; gates the spin frame preload. */
-  active: boolean;
 }
 
-export function ThreeDHall({ data, active }: ThreeDHallProps) {
+export function ThreeDHall({ data }: ThreeDHallProps) {
   const [tab, setTab] = useState<HallTab>("exterior");
+  const rootRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="w-full h-svh relative overflow-hidden">
+    <div ref={rootRef} className="w-full h-svh relative overflow-hidden">
       <div className="absolute z-2 top-50 md:top-[1.46rem] inset-x-12 md:left-auto md:right-[0.45rem] flex md:flex-col justify-between items-center md:items-start gap-6">
         <div
           role="tablist"
@@ -62,8 +61,10 @@ export function ThreeDHall({ data, active }: ThreeDHallProps) {
         </div>
 
         <Link href={`/${data.id}/specification`} className="w-auto md:w-full">
-          <span className="group relative inline-flex md:w-full items-center justify-center px-6 md:px-0 text-center h-16 md:h-15 text-black">
-            <span className="absolute -inset-[0.02rem] border-[0.02rem] border-black bg-transparent opacity-50 transition-all duration-300 group-hover:bg-white group-hover:opacity-100" />
+          {/* Sizing mirrors the target's Button component CSS: .17rem text,
+              .05rem radius, .02rem border. */}
+          <span className="group relative inline-flex md:w-full items-center justify-center whitespace-nowrap px-6 md:px-0 text-center h-16 md:h-15 text-[0.17rem] text-black rounded-[0.05rem] border-[0.02rem] border-black">
+            <span className="absolute -inset-[0.02rem] rounded-[0.05rem] border-[0.02rem] border-black bg-transparent opacity-50 transition-all duration-300 group-hover:bg-white group-hover:opacity-100" />
             <span className="relative z-10">Specification</span>
           </span>
         </Link>
@@ -75,7 +76,7 @@ export function ThreeDHall({ data, active }: ThreeDHallProps) {
           num={data.num}
           endFrame={data.endFrame}
           colors={data.exteriorList}
-          active={active}
+          pinTarget={rootRef}
         />
       ) : (
         <InteriorPano id={data.id} colors={data.interiorList} />

@@ -7,9 +7,12 @@ interface FirstScreenProps {
   data: FirstScreenData;
 }
 
+// The target's root here is w-screen, which it gets away with because its <html>
+// is overflow:clip. This page really scrolls, so 100vw would overshoot by the
+// scrollbar width and force a horizontal scrollbar; w-full is equivalent here.
 export function FirstScreen({ data }: FirstScreenProps) {
   return (
-    <div className="group relative w-screen h-svh overflow-hidden md:mx-auto text-white">
+    <div className="group relative w-full h-svh overflow-hidden md:mx-auto text-white">
       <picture className="h-full absolute inset-0 w-full h-full object-cover">
         <source media="(min-width: 1024px)" srcSet="/images/vehicles/image/T2.png" />
         <source media="(min-width: 768px)" srcSet="/images/vehicles/image/T2.png" />

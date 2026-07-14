@@ -2,6 +2,8 @@
    src between preloaded frames; next/image would re-run its loader per frame. */
 "use client";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -15,20 +17,24 @@ interface ExteriorSpinProps {
   endFrame: number;
   colors: ColorOption[];
   /**
-   * Whether this slide is the swiper's active one. Every slide mounts up front,
-   * so without this gate the 36 frames (~133MB of decoded bitmaps) are fetched
-   * and decoded on page load, which wedges the renderer — the same failure the
-   * target site exhibits. Frames are only pulled once the slide is reached; on
-   * re-entry they come back from the HTTP cache.
+   * The section to pin while the car spins. Scroll progress across the pin is
+   * scrubbed onto the frame sequence, so the car rotates in step with the
+   * scroll rather than on a timer.
    */
-  active: boolean;
+  pinTarget: React.RefObject<HTMLDivElement | null>;
 }
 
-const INTRO_DURATION_MS = 1400;
 /** Fraction of the stage width the user drags to complete one full rotation. */
 const DRAG_TURN_RATIO = 0.6;
 /** Frames decoded per batch while loading a colour sequence. */
 const PRELOAD_BATCH = 6;
+/**
+ * Extra scroll distance the pin consumes, as a multiple of viewport height.
+ * One full rotation is spread across this, so it sets how fast the car turns.
+ */
+const SPIN_SCROLL_VH = 2.5;
+/** Viewport margin at which the frames start downloading, ahead of the pin. */
+const PRELOAD_MARGIN = "100%";
 
 function frameSrc(id: string, color: string, frame: number): string {
   return `/exterior/${id}/${color}/${String(frame).padStart(2, "0")}.png`;
@@ -39,27 +45,24 @@ function wrapFrame(frame: number, num: number): number {
 }
 
 /**
- * Resolves once the frame is decoded, and never rejects — a missing frame must
+ * Resolves once the frame is fetched, and never rejects — a missing frame must
  * not stall the sequence behind a pending promise.
+ *
+ * Deliberately does not call img.decode(): on a detached <img> Chromium leaves
+ * that promise pending forever, which hangs the batch loop. `onload` already
+ * means the bytes are in the HTTP cache, which is what makes the later src swap
+ * cheap; the decode then happens on paint.
  */
 function preloadFrame(src: string): Promise<HTMLImageElement> {
   return new Promise((resolve) => {
     const img = new window.Image();
-    const settle = () => resolve(img);
-
-    img.onload = () => {
-      if (typeof img.decode === "function") {
-        img.decode().then(settle, settle);
-      } else {
-        settle();
-      }
-    };
-    img.onerror = settle;
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(img);
     img.src = src;
   });
 }
 
-export function ExteriorSpin({ id, num, endFrame, colors, active }: ExteriorSpinProps) {
+export function ExteriorSpin({ id, num, endFrame, colors, pinTarget }: ExteriorSpinProps) {
   const initialColor = colors[0]?.value ?? "";
 
   const [color, setColor] = useState(initialColor);
@@ -68,8 +71,14 @@ export function ExteriorSpin({ id, num, endFrame, colors, active }: ExteriorSpin
   const [renderColor, setRenderColor] = useState(initialColor);
   const [loadState, setLoadState] = useState({ color: initialColor, loaded: 0 });
   const [frame, setFrame] = useState(endFrame);
-  const [introDone, setIntroDone] = useState(false);
   const [dragging, setDragging] = useState(false);
+  /**
+   * Gates the frame download. All eight sections mount at once, so preloading
+   * eagerly would decode 36 frames (~133MB of bitmaps) on page load and wedge
+   * the renderer — the failure the target site itself exhibits. Flipped by a
+   * ScrollTrigger a viewport ahead of the pin, so frames are ready on arrival.
+   */
+  const [nearViewport, setNearViewport] = useState(false);
 
   const loaded = loadState.color === color ? loadState.loaded : 0;
   const ready = num > 0 && loaded >= num;
@@ -90,7 +99,7 @@ export function ExteriorSpin({ id, num, endFrame, colors, active }: ExteriorSpin
   }, [frame]);
 
   useEffect(() => {
-    if (!color || !active) return;
+    if (!color || !nearViewport) return;
 
     let cancelled = false;
     let settled = 0;
@@ -117,36 +126,55 @@ export function ExteriorSpin({ id, num, endFrame, colors, active }: ExteriorSpin
     return () => {
       cancelled = true;
     };
-  }, [id, color, num, active]);
+  }, [id, color, num, nearViewport]);
 
+  /** Starts the download a viewport early so the pin is never reached unloaded. */
   useEffect(() => {
-    if (!ready || introDone) return;
+    const section = pinTarget.current;
+    if (!section) return;
 
-    const from = frameRef.current;
-    const start = performance.now();
-    let raf = 0;
+    gsap.registerPlugin(ScrollTrigger);
+    const trigger = ScrollTrigger.create({
+      trigger: section,
+      start: `top bottom+=${PRELOAD_MARGIN}`,
+      once: true,
+      onEnter: () => setNearViewport(true),
+    });
 
-    const tick = (now: number) => {
-      const t = Math.min((now - start) / INTRO_DURATION_MS, 1);
-      const eased = 1 - Math.pow(1 - t, 3);
+    return () => trigger.kill();
+  }, [pinTarget]);
 
-      if (t < 1) {
-        setFrame(wrapFrame(from + Math.round(eased * num), num));
-        raf = requestAnimationFrame(tick);
-      } else {
-        setFrame(endFrame);
-        setIntroDone(true);
-      }
-    };
+  /**
+   * Pins the section and maps scroll progress onto the frame sequence. Frames
+   * advance from `endFrame` so the car is already at its hero angle when the
+   * pin engages, then completes one rotation across the scrub.
+   */
+  useEffect(() => {
+    const section = pinTarget.current;
+    if (!section || !ready) return;
 
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [ready, introDone, num, endFrame]);
+    gsap.registerPlugin(ScrollTrigger);
+
+    const trigger = ScrollTrigger.create({
+      trigger: section,
+      start: "top top",
+      end: `+=${SPIN_SCROLL_VH * 100}%`,
+      pin: true,
+      pinSpacing: true,
+      scrub: 0.6,
+      onUpdate: (self) => {
+        // Dragging takes over while the pointer is down.
+        if (dragRef.current) return;
+        setFrame(wrapFrame(endFrame + Math.round(self.progress * num), num));
+      },
+    });
+
+    return () => trigger.kill();
+  }, [pinTarget, ready, num, endFrame]);
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!ready) return;
 
-    setIntroDone(true);
     setDragging(true);
     dragRef.current = {
       pointerId: event.pointerId,

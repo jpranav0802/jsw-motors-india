@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SmoothScroll } from "@/components/SmoothScroll";
+
 import "./globals.css";
 
 const harmonyOS = localFont({
@@ -20,9 +25,9 @@ const goldman = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "JETOUR T2, JETOUR T2 price,JETOUR T2 specs, JETOUR T2 review",
+  title: "JSW T2 — Rugged Adventure SUV | JSW Auto",
   description:
-    "JETOUR T2 is a rugged adventure SUV with 1.5/2.0T engine, 2800mm wheelbase and intelligent XWD four-wheel drive.",
+    "The JSW T2 is a rugged adventure SUV with a 1.5/2.0T engine, 2800mm wheelbase and intelligent XWD four-wheel drive.",
   icons: { icon: "/seo/favicon.ico" },
 };
 
@@ -47,7 +52,13 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: REM_SCALE_SCRIPT }} />
       </head>
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <SmoothScroll>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </SmoothScroll>
+      </body>
     </html>
   );
 }
