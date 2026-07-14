@@ -1,21 +1,35 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const harmonyOS = localFont({
+  variable: "--font-harmony",
+  display: "swap",
+  src: [
+    { path: "../../public/fonts/HarmonyOS_Sans_Regular.ttf", weight: "400", style: "normal" },
+    { path: "../../public/fonts/HarmonyOS_Sans_Medium.ttf", weight: "500", style: "normal" },
+    { path: "../../public/fonts/HarmonyOS_Sans_Semibold.ttf", weight: "600", style: "normal" },
+    { path: "../../public/fonts/HarmonyOS_Sans_Bold.ttf", weight: "700", style: "normal" },
+  ],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const goldman = localFont({
+  variable: "--font-goldman",
+  display: "swap",
+  src: [{ path: "../../public/fonts/Goldman-Regular.ttf", weight: "400", style: "normal" }],
 });
 
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  title: "JETOUR T2, JETOUR T2 price,JETOUR T2 specs, JETOUR T2 review",
+  description:
+    "JETOUR T2 is a rugged adventure SUV with 1.5/2.0T engine, 2800mm wheelbase and intelligent XWD four-wheel drive.",
+  icons: { icon: "/seo/favicon.ico" },
 };
+
+// Mirrors the target site's new-static/js/rem.js (lib-flexible pattern).
+// The whole layout is authored against a 1920px desktop / 750px mobile design
+// canvas where 1rem = 100 design px, so every dimension scales with the viewport.
+const REM_SCALE_SCRIPT = `(function(){var d=document.documentElement;function s(){var w=d.clientWidth;d.style.fontSize=(w<768?w/750*100:w/1920*100)+'px'}s();addEventListener('resize',s)})()`;
 
 export default function RootLayout({
   children,
@@ -25,9 +39,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${harmonyOS.variable} ${goldman.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: REM_SCALE_SCRIPT }} />
+      </head>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }
