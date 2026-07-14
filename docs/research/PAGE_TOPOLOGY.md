@@ -90,6 +90,22 @@ screenshot but are different components — don't merge them.
   a language selector and two icon buttons. ~80KB of SSR markup.
 - **Footer** — below the sticky swiper; social icons from `images/home/socials/`.
 
+## Asset quirks worth knowing
+
+- **Every `.png` in this mirror is actually a WebP.** The target serves
+  WebP bytes under a `.png` extension; browsers sniff content so it renders
+  fine, and the mirror preserves the filenames verbatim so paths match the
+  target. Don't "fix" the extensions, and don't trust a PNG header parser on
+  them — use `file`/`sips` if you need dimensions.
+- Native sizes pin down several layouts: `p2_*` and `p4_*` are **904×339**
+  (which forces the Introduction1 grid to `2·padding + gap = 112` at 1920),
+  `p1_*`/`p3_*` and the hero are **1920×1080**, and `p5_1` is **960×1080** —
+  exactly the full-height left column that `row-span-2` produces in
+  Introduction2.
+- Mobile `_m` crops exist only for `p1_1..p1_3`, `p3_1..p3_4` and the hero
+  (`T2_m.png`). `p2_*`, `p4_*` and `p5_*` have none — verified by probing the
+  origin, not assumed.
+
 ## Known gaps
 
 - **Interior tab** — the target embeds a krpano tour (`vtour/tour.js`,
