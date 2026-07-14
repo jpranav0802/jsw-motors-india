@@ -40,6 +40,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${harmonyOS.variable} ${goldman.variable} h-full antialiased`}
+      // The rem script sets an inline font-size on <html> before hydration, so
+      // the client tree legitimately differs from the server's here.
+      suppressHydrationWarning
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: REM_SCALE_SCRIPT }} />

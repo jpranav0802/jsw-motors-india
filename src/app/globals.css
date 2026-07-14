@@ -67,6 +67,10 @@
     /* Set inline by the rem script before paint; this is only a fallback for
        the brief moment before it runs and for JS-disabled clients. */
     font-size: 100px;
+    /* Matches the target. The eight sections live in a sticky full-viewport
+       swiper, so the document itself barely scrolls — only far enough to
+       reveal the footer. */
+    overflow: clip;
   }
 
   body {
