@@ -5,7 +5,7 @@ const LINKS = [
   { label: "Cookies", href: "/cookies" },
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Contact Us", href: "/contact" },
-  { label: "Booking", href: "/book" },
+  { label: "Register", href: "/register" },
 ];
 
 export function SiteFooter() {

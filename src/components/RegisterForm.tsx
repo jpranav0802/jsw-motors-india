@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { submitRegistration } from "@/app/register/actions";
 import { cn } from "@/lib/utils";
 
 const MODELS = ["Jetour T2", "Jaecoo J5", "V23"];
@@ -9,26 +10,25 @@ const MODELS = ["Jetour T2", "Jaecoo J5", "V23"];
 interface Fields {
   name: string;
   email: string;
+  phone: string;
   city: string;
   model: string;
-  date: string;
 }
 
 type Errors = Partial<Record<keyof Fields, string>>;
 
-const EMPTY: Fields = { name: "", email: "", city: "", model: MODELS[0], date: "" };
+const EMPTY: Fields = { name: "", email: "", phone: "", city: "", model: MODELS[0] };
 
 function validate(values: Fields): Errors {
   const errors: Errors = {};
   if (!values.name.trim()) errors.name = "Please tell us your name.";
-  // Deliberately loose: the only thing worth rejecting here is an address with
-  // no hope of delivering, and stricter patterns reject valid addresses.
+  // Deliberately loose: reject only addresses with no hope of delivering.
   if (!/^\S+@\S+\.\S+$/.test(values.email)) errors.email = "Enter a valid email address.";
-  if (!values.city.trim()) errors.city = "Which city should we arrange this in?";
-  if (!values.date) errors.date = "Pick a preferred date.";
-  else if (values.date < new Date().toISOString().slice(0, 10)) {
-    errors.date = "Pick a date in the future.";
+  // At least seven digits, allowing +, spaces, dashes and parens around them.
+  if (values.phone.replace(/[\s()+-]/g, "").length < 7 || !/^[\d\s()+-]+$/.test(values.phone.trim())) {
+    errors.phone = "Enter a valid phone number.";
   }
+  if (!values.city.trim()) errors.city = "Which city are you in?";
   return errors;
 }
 
@@ -36,37 +36,45 @@ const FIELD_CLASS =
   "w-full h-16 md:h-[0.56rem] px-5 md:px-[0.16rem] bg-transparent border border-black/20 text-base " +
   "outline-none transition-colors duration-300 focus:border-black";
 
-export function BookingForm() {
+export function RegisterForm() {
   const [values, setValues] = useState<Fields>(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
+  const [submitting, setSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState<Fields | null>(null);
 
   const set = <K extends keyof Fields>(key: K, value: Fields[K]) => {
     setValues((v) => ({ ...v, [key]: value }));
     setErrors((e) => ({ ...e, [key]: undefined }));
+    setFormError(null);
   };
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const found = validate(values);
     setErrors(found);
     if (Object.keys(found).length > 0) return;
-    // No backend on this build: the booking is confirmed client-side so the
-    // flow is exercisable end to end. Wire this to a real endpoint before use.
-    setSubmitted(values);
+
+    setSubmitting(true);
+    setFormError(null);
+    const result = await submitRegistration(values);
+    setSubmitting(false);
+
+    if (result.ok) {
+      setSubmitted(values);
+    } else {
+      setFormError(result.error);
+    }
   };
 
   if (submitted) {
     return (
-      <div
-        role="status"
-        className="max-w-[6.4rem] border border-black/20 p-10 md:p-[0.32rem]"
-      >
-        <h2 className="font-display text-2xl">Booking received</h2>
+      <div role="status" className="max-w-[6.4rem] border border-black/20 p-10 md:p-[0.32rem]">
+        <h2 className="font-display text-2xl">Interest registered</h2>
         <p className="mt-4 text-base text-black/70">
-          Thanks {submitted.name.trim()} — we&apos;ve got your request for a{" "}
-          {submitted.model} in {submitted.city.trim()} on {submitted.date}. A confirmation
-          is on its way to {submitted.email.trim()}.
+          Thanks {submitted.name.trim()} — we&apos;ve registered your interest in the{" "}
+          {submitted.model}. We&apos;ll reach out to {submitted.email.trim()} as the India launch
+          nears.
         </p>
         <button
           type="button"
@@ -76,7 +84,7 @@ export function BookingForm() {
           }}
           className="mt-8 h-16 md:h-[0.56rem] px-8 md:px-[0.24rem] border border-black text-base cursor-pointer transition-colors duration-300 hover:bg-black hover:text-white"
         >
-          Book another
+          Register another
         </button>
       </div>
     );
@@ -109,6 +117,18 @@ export function BookingForm() {
           />
         </Field>
 
+        <Field id="phone" label="Phone number" error={errors.phone}>
+          <input
+            id="phone"
+            type="tel"
+            autoComplete="tel"
+            value={values.phone}
+            onChange={(e) => set("phone", e.target.value)}
+            aria-invalid={!!errors.phone}
+            className={cn(FIELD_CLASS, errors.phone && "border-red-600")}
+          />
+        </Field>
+
         <Field id="city" label="City" error={errors.city}>
           <input
             id="city"
@@ -121,7 +141,7 @@ export function BookingForm() {
           />
         </Field>
 
-        <Field id="model" label="Model">
+        <Field id="model" label="Model of interest">
           <select
             id="model"
             value={values.model}
@@ -135,24 +155,20 @@ export function BookingForm() {
             ))}
           </select>
         </Field>
-
-        <Field id="date" label="Preferred date" error={errors.date}>
-          <input
-            id="date"
-            type="date"
-            value={values.date}
-            onChange={(e) => set("date", e.target.value)}
-            aria-invalid={!!errors.date}
-            className={cn(FIELD_CLASS, errors.date && "border-red-600")}
-          />
-        </Field>
       </div>
+
+      {formError && (
+        <p className="mt-6 md:mt-[0.2rem] text-sm text-red-600" role="alert">
+          {formError}
+        </p>
+      )}
 
       <button
         type="submit"
-        className="mt-10 md:mt-[0.32rem] h-16 md:h-[0.56rem] px-10 md:px-[0.32rem] bg-black text-white text-base cursor-pointer transition-opacity duration-300 hover:opacity-80"
+        disabled={submitting}
+        className="mt-10 md:mt-[0.32rem] h-16 md:h-[0.56rem] px-10 md:px-[0.32rem] bg-black text-white text-base cursor-pointer transition-opacity duration-300 hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Request booking
+        {submitting ? "Registering…" : "Register interest"}
       </button>
     </form>
   );

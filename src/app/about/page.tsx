@@ -43,9 +43,9 @@ export default function AboutPage() {
           ))}
         </ul>
         <p className="mt-10 md:mt-[0.32rem] text-base text-black/60">
-          Ready to drive one?{" "}
-          <Link href="/book" className="underline underline-offset-2 hover:text-black">
-            Book a test drive
+          Interested?{" "}
+          <Link href="/register" className="underline underline-offset-2 hover:text-black">
+            Register your interest
           </Link>
           .
         </p>

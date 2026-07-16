@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const NAV = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Book", href: "/book" },
+  { label: "Register", href: "/register" },
 ];
 
 interface Vehicle {
@@ -141,8 +141,8 @@ export function SiteHeader() {
             </div>
           </div>
 
-          <Link href="/book" className="md:hidden font-medium" aria-label="Book">
-            Book
+          <Link href="/register" className="md:hidden font-medium" aria-label="Register">
+            Register
           </Link>
         </nav>
 
