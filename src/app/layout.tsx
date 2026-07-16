@@ -52,7 +52,10 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: REM_SCALE_SCRIPT }} />
       </head>
-      <body className="min-h-full">
+      {/* Extensions like Grammarly inject data-gr-* attributes onto <body>
+          before React hydrates; suppress the one-level attribute mismatch they
+          cause so it doesn't surface as a hydration error. */}
+      <body className="min-h-full" suppressHydrationWarning>
         <SmoothScroll>
           <SiteHeader />
           {children}
