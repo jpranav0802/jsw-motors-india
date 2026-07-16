@@ -12,14 +12,14 @@ const SECTIONS: LegalSection[] = [
   {
     heading: "What we collect",
     body: [
-      "When you book a test drive or send us a message, we collect the details you give us — your name, contact details, city and country, the model you are interested in, and anything you write in a message.",
+      "When you register your interest, we collect the details you give us — your name, email, phone number, city and the model you are interested in.",
       "We also collect basic, non-identifying information about how the site is used, but only after you accept analytics cookies. You can read more on our Cookies page.",
     ],
   },
   {
     heading: "Why we collect it",
     body: [
-      "We use your details only to do what you asked: to arrange a booking, to answer an enquiry, and to contact you about it. We do not use them for anything else without telling you first.",
+      "We use your details only to do what you asked: to register your interest and contact you about the vehicle as its India launch nears. We do not use them for anything else without telling you first.",
     ],
   },
   {
@@ -39,7 +39,7 @@ const SECTIONS: LegalSection[] = [
     heading: "Your rights",
     body: [
       "You can ask us to show you the data we hold about you, to correct it, or to delete it. You can also withdraw consent for analytics at any time.",
-      "To make any of these requests, write to us using the details on the Contact page. We will respond within the timeframe your local law requires.",
+      "To make any of these requests, write to us at hello@jswmotors.example. We will respond within the timeframe your local law requires.",
     ],
   },
   {

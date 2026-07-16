@@ -27,7 +27,7 @@ const SECTIONS: LegalSection[] = [
   {
     heading: "Managing cookies",
     body: [
-      "You can accept or decline optional cookies when you first visit, and change your mind at any time. Declining optional cookies will not stop you booking a test drive or contacting us.",
+      "You can accept or decline optional cookies when you first visit, and change your mind at any time. Declining optional cookies will not stop you registering your interest.",
       "You can also clear cookies at any time in your browser settings. Doing so will reset your preferences here.",
     ],
   },

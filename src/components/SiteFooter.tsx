@@ -4,7 +4,6 @@ const LINKS = [
   { label: "FAQs", href: "/faqs" },
   { label: "Cookies", href: "/cookies" },
   { label: "Privacy Policy", href: "/privacy" },
-  { label: "Contact Us", href: "/contact" },
   { label: "Register", href: "/register" },
 ];
 
