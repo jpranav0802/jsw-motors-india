@@ -15,12 +15,13 @@ export type RegistrationResult =
 /**
  * Persists an interest registration to Supabase.
  *
- * Runs server-side (never exposes the key to the client) and talks to Supabase's
- * PostgREST endpoint directly, so no client library is needed. Expects two env
- * vars in `.env.local`:
+ * Runs server-side and talks to Supabase's PostgREST endpoint directly, so no
+ * client library is needed. Uses the anon (public) key, which is safe to expose:
+ * a row-level-security policy lets it insert registrations but not read them.
+ * Expects two env vars in `.env.local`:
  *   SUPABASE_URL=https://<project-ref>.supabase.co
- *   SUPABASE_SERVICE_ROLE_KEY=<service role key>
- * and a `public.registrations` table (see the README/setup notes).
+ *   SUPABASE_ANON_KEY=<anon public key>
+ * and a `public.registrations` table (see docs/SUPABASE_SETUP.md).
  */
 export async function submitRegistration(input: RegistrationInput): Promise<RegistrationResult> {
   // Trust nothing from the client — re-validate here.
@@ -35,7 +36,7 @@ export async function submitRegistration(input: RegistrationInput): Promise<Regi
   }
 
   const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const key = process.env.SUPABASE_ANON_KEY;
   if (!url || !key) {
     return {
       ok: false,
