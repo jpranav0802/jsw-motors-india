@@ -4,8 +4,8 @@ import { LegalDoc, type LegalSection } from "@/components/LegalDoc";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | JSW Auto",
-  description: "How JSW Auto collects, uses, shares and protects your personal data.",
+  title: "Privacy Policy | JSW Motors India",
+  description: "How JSW Motors India collects, uses, shares and protects your personal data.",
 };
 
 const SECTIONS: LegalSection[] = [

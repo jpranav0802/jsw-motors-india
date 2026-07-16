@@ -65,7 +65,7 @@ export function SiteHeader() {
 
       <nav className="flex items-center justify-between px-12 md:px-[0.7rem] h-20 md:h-[0.75rem]">
         <div className="flex items-center gap-18 h-full">
-          <Link href="/" className="cursor-pointer" aria-label="JSW Auto — home">
+          <Link href="/" className="cursor-pointer" aria-label="JSW Motors India — home">
             <span className="font-display text-2xl tracking-[0.12em] leading-none">JSW</span>
           </Link>
 

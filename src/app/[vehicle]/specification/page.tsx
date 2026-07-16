@@ -17,11 +17,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: SpecificationPageProps): Promise<Metadata> {
   const { vehicle } = await params;
   const spec = getSpecification(vehicle);
-  if (!spec) return { title: "Specification | JSW Auto" };
+  if (!spec) return { title: "Specification | JSW Motors India" };
 
   return {
-    title: `JSW ${spec.model} Specification | JSW Auto`,
-    description: `Full specification and trim comparison for the JSW ${spec.model} rugged adventure SUV.`,
+    title: `Jetour ${spec.model} Specification | JSW Motors India`,
+    description: `Full specification and trim comparison for the Jetour ${spec.model} rugged adventure SUV.`,
   };
 }
 

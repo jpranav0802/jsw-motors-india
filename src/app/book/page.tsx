@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { BookingForm } from "@/components/BookingForm";
 import { PageShell } from "@/components/PageShell";
 
-export const metadata: Metadata = { title: "Book | JSW Auto" };
+export const metadata: Metadata = { title: "Book | JSW Motors India" };
 
 export default function BookPage() {
   return (

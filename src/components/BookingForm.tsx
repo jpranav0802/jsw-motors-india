@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 
-const MODELS = ["JSW T2", "JSW T2 i-DM", "JSW T1", "JSW T1 i-DM", "JSW G700"];
+const MODELS = ["Jetour T2", "Jaecoo J5", "V23"];
 
 interface Fields {
   name: string;

@@ -4,9 +4,9 @@ import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: "FAQs | JSW Auto",
+  title: "FAQs | JSW Motors India",
   description:
-    "Answers to common questions about the JSW T2 — engines, XWD, dimensions, warranty, servicing and test drives.",
+    "Answers to common questions about the Jetour T2 — engines, XWD, dimensions, warranty, servicing and test drives.",
 };
 
 const FAQS: FaqItem[] = [

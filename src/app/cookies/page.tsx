@@ -4,9 +4,9 @@ import { LegalDoc, type LegalSection } from "@/components/LegalDoc";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: "Cookies Notice | JSW Auto",
+  title: "Cookies Notice | JSW Motors India",
   description:
-    "How JSW Auto uses cookies to keep the site working and understand how it is used — and how to turn the optional ones off.",
+    "How JSW Motors India uses cookies to keep the site working and understand how it is used — and how to turn the optional ones off.",
 };
 
 const SECTIONS: LegalSection[] = [

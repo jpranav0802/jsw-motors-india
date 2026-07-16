@@ -4,15 +4,15 @@ import { ContactForm } from "@/components/ContactForm";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: "Contact Us | JSW Auto",
+  title: "Contact Us | JSW Motors India",
   description:
-    "Get in touch with JSW Auto. Send us a message and we'll reply within two working days, or reach the right team directly.",
+    "Get in touch with JSW Motors India. Send us a message and we'll reply within two working days, or reach the right team directly.",
 };
 
 const CHANNELS = [
-  { label: "General enquiries", value: "hello@jswauto.example" },
-  { label: "Press", value: "press@jswauto.example" },
-  { label: "Owners support", value: "support@jswauto.example" },
+  { label: "General enquiries", value: "hello@jswmotors.example" },
+  { label: "Press", value: "press@jswmotors.example" },
+  { label: "Owners support", value: "support@jswmotors.example" },
 ];
 
 export default function ContactPage() {
