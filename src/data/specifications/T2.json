@@ -1,0 +1,1470 @@
+{
+  "model": "T2",
+  "header": [
+    "Powertrain",
+    "1.5TD+7DCT",
+    "2.0TD+7DCT(Comfort)",
+    "2.0TD+7DCT(Lux)"
+  ],
+  "sections": [
+    {
+      "title": "Basic parameter",
+      "rows": [
+        {
+          "label": "Engine",
+          "values": [
+            "1.5TD",
+            "2.0TD",
+            "2.0TD"
+          ]
+        },
+        {
+          "label": "Transmission type",
+          "values": [
+            "7DCT",
+            "7DCT",
+            "7DCT"
+          ]
+        },
+        {
+          "label": "Body structure",
+          "values": [
+            "monocoque body",
+            "monocoque body",
+            "monocoque body"
+          ]
+        },
+        {
+          "label": "Maximum speed (km/h)",
+          "values": [
+            "180",
+            "180",
+            "180"
+          ]
+        },
+        {
+          "label": "Appearance color",
+          "values": [
+            "○Lime Green\n○Night Black\n○Sun Orange\n○Silver Snow",
+            "○Lime Green\n○Night Black\n○Sun Orange\n○Silver Snow\n○Misty Cyan",
+            "○Night Black\n○Silver Snow\n○Misty Cyan\n○Sand\n○sandcastle"
+          ]
+        },
+        {
+          "label": "Interior color",
+          "values": [
+            "○Black/Red\n○Green/Orange",
+            "○Black/Red\n○Green/Orange",
+            "○Green/Orange\n○Brown"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Body",
+      "rows": [
+        {
+          "label": "Length (mm)",
+          "values": [
+            "4785（With spare tire cover）/ 4612(No spare tire cover)",
+            "4785（With spare tire cover）/ 4612(No spare tire cover)",
+            "4785（With spare tire cover）/ 4612(No spare tire cover)"
+          ]
+        },
+        {
+          "label": "Width (mm)",
+          "values": [
+            "2006",
+            "2006",
+            "2006"
+          ]
+        },
+        {
+          "label": "Height (mm)",
+          "values": [
+            "1870",
+            "1880",
+            "1880"
+          ]
+        },
+        {
+          "label": "Wheelbase (mm)",
+          "values": [
+            "2800",
+            "2800",
+            "2800"
+          ]
+        },
+        {
+          "label": "Front wheel base (mm)",
+          "values": [
+            "1690",
+            "1685",
+            "1685"
+          ]
+        },
+        {
+          "label": "Rear wheel base (mm)",
+          "values": [
+            "1700",
+            "1695",
+            "1695"
+          ]
+        },
+        {
+          "label": "Front suspension (mm)",
+          "values": [
+            "892",
+            "892",
+            "892"
+          ]
+        },
+        {
+          "label": "Rear suspension (mm)",
+          "values": [
+            "1093",
+            "1093",
+            "1093"
+          ]
+        },
+        {
+          "label": "Minimum ground clearance (mm)",
+          "values": [
+            "220",
+            "220",
+            "220"
+          ]
+        },
+        {
+          "label": "Number of doors (each)",
+          "values": [
+            "5",
+            "5",
+            "5"
+          ]
+        },
+        {
+          "label": "Number of seats (PCS)",
+          "values": [
+            "5",
+            "5",
+            "5"
+          ]
+        },
+        {
+          "label": "Tank volume (L)",
+          "values": [
+            "70",
+            "70",
+            "70"
+          ]
+        },
+        {
+          "label": "Maintenance weight (kg)",
+          "values": [
+            "1700",
+            "1840",
+            "1880"
+          ]
+        },
+        {
+          "label": "Total mass (kg)",
+          "values": [
+            "2075",
+            "2215",
+            "2255"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Engine",
+      "rows": [
+        {
+          "label": "Displacement (mL)",
+          "values": [
+            "1498",
+            "1998",
+            "1998"
+          ]
+        },
+        {
+          "label": "Maximum power (kW)",
+          "values": [
+            "135",
+            "187",
+            "187"
+          ]
+        },
+        {
+          "label": "Maximum power speed (rpm)",
+          "values": [
+            "5500",
+            "5500",
+            "5500"
+          ]
+        },
+        {
+          "label": "Maximum torque (N·m)",
+          "values": [
+            "290",
+            "390",
+            "390"
+          ]
+        },
+        {
+          "label": "Maximum torque speed (rpm)",
+          "values": [
+            "2000-4000",
+            "1750-4000",
+            "1750-4000"
+          ]
+        },
+        {
+          "label": "Fuel form",
+          "values": [
+            "gasoline",
+            "gasoline",
+            "gasoline"
+          ]
+        },
+        {
+          "label": "Environmental protection standard",
+          "values": [
+            "Euro VI B",
+            "Euro VI B",
+            "Euro VI B"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Chassis steering",
+      "rows": [
+        {
+          "label": "Driving form",
+          "values": [
+            "FF",
+            "F4WD",
+            "F4WD"
+          ]
+        },
+        {
+          "label": "Four-wheel drive form",
+          "values": [
+            "-",
+            "Real time 4WD",
+            "Real time 4WD"
+          ]
+        },
+        {
+          "label": "Form Of Front Suspention",
+          "values": [
+            "MacPherson",
+            "MacPherson",
+            "MacPherson"
+          ]
+        },
+        {
+          "label": "Form Of Rear Suspention",
+          "values": [
+            "Multi-link",
+            "Multi-link",
+            "Multi-link"
+          ]
+        },
+        {
+          "label": "Form Of Power-Assisted Steering",
+          "values": [
+            "Electric power",
+            "Electric power",
+            "Electric power"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Wheel braking",
+      "rows": [
+        {
+          "label": "Front brake type",
+          "values": [
+            "Ventilation disk brake",
+            "Ventilation disk brake",
+            "Ventilation disk brake"
+          ]
+        },
+        {
+          "label": "Rear brake type",
+          "values": [
+            "disc type",
+            "disc type",
+            "disc type"
+          ]
+        },
+        {
+          "label": "Parking Braking Mode",
+          "values": [
+            "Electronic Parking (EPB)",
+            "Electronic Parking (EPB)",
+            "Electronic Parking (EPB)"
+          ]
+        },
+        {
+          "label": "Specification Of Tire",
+          "values": [
+            "●235/65 R18",
+            "●255/60 R19",
+            "255/55 R20"
+          ]
+        },
+        {
+          "label": "Tyre type",
+          "values": [
+            "HT",
+            "HT",
+            "HT"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Active/passive security",
+      "rows": [
+        {
+          "label": "Main/copilot driver seat airbag",
+          "values": [
+            "●/●",
+            "●/●",
+            "●/●"
+          ]
+        },
+        {
+          "label": "Main/copilot side airbags",
+          "values": [
+            "●/-",
+            "●/-",
+            "●/-"
+          ]
+        },
+        {
+          "label": "TPMS(Tire Pressure Monitoring System)",
+          "values": [
+            "●Tire pressure display",
+            "●Tire pressure display",
+            "●Tire pressure display"
+          ]
+        },
+        {
+          "label": "Warning For Safety Belt Unlock",
+          "values": [
+            "●Front row",
+            "●Front row",
+            "●Front row"
+          ]
+        },
+        {
+          "label": "Isofix",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "ABS( Anti-lock Brake System)",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "EBD(Electric Brakeforce Distribution)",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "EBA brake assist system",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "TCS(Traction Control System)",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "ESC(Electric stability control)",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "BSD（Blind Spot Detection）",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "LDW (Lane Departure Warning )",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "LKA(Lane Keeping Assist)",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "AEB(Advanced Emergency Braking )",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "FCW(Forward Collision Warning)",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "RCW(Rear Collision Warning)",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "Emergency seat belt lock",
+          "values": [
+            "●Rear row",
+            "●Rear row",
+            "●Rear row"
+          ]
+        },
+        {
+          "label": "Limit Type Safety Belt",
+          "values": [
+            "●Front row",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "label": "Preload limited force seat belt",
+          "values": [
+            "-",
+            "●Front row",
+            "●Front row"
+          ]
+        },
+        {
+          "label": "Manual Child Lock",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "DOW",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "RMI anti-rollover control system",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Cornering Brake Contro",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Front/rear parking radar",
+          "values": [
+            "-/●",
+            "-/●",
+            "●/●"
+          ]
+        },
+        {
+          "label": "Rear View Monitoring",
+          "values": [
+            "●360 Auto panoramic image system",
+            "●360 Auto panoramic image system",
+            "●360 Auto panoramic image system"
+          ]
+        },
+        {
+          "label": "RCTA",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "Cruise control system,",
+          "values": [
+            "●CruiseControlSystem",
+            "●CruiseControlSystem",
+            "●Adaptive Cruise Control"
+          ]
+        },
+        {
+          "label": "TJA（Traffic Jam Assistance）",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "ICA（Integrated Cruise Assistance）",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "Driving Model",
+          "values": [
+            "Sports/Economy/ Standard",
+            "Sports/ Economy/ Standard/ Snow/ Sediment/ Rock/ X Smart Mode",
+            "Sports/ Economy/ Standard/ Snow/ Sediment/ Rock/ X Smart Mode"
+          ]
+        },
+        {
+          "label": "Crawl Control",
+          "values": [
+            "-",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Off-road information display",
+          "values": [
+            "-",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Idle Start Stop System",
+          "values": [
+            "-",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "AUTO HOLD",
+          "values": [
+            "-",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Handbrake type",
+          "values": [
+            "●EPB",
+            "●EPB",
+            "●EPB"
+          ]
+        },
+        {
+          "label": "HHC uphill start assist system",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "HDC Steep slope gentle descent system",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Central Differential",
+          "values": [
+            "-",
+            "●Limited-Slip Differential",
+            "●Limited-Slip Differential"
+          ]
+        },
+        {
+          "label": "Limited Slip Differential At Rear Bridge",
+          "values": [
+            "-",
+            "●Rear electronic limited slip differential",
+            "●Rear electronic limited slip differential"
+          ]
+        },
+        {
+          "label": "Wading sensing system",
+          "values": [
+            "-",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Electronic gear shift",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "External/anti-theft configuration",
+      "rows": [
+        {
+          "label": "Sunroof",
+          "values": [
+            "-",
+            "-",
+            "●Panoramic Sunroof"
+          ]
+        },
+        {
+          "label": "Support Form Of Hood（Air Spring）",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Material Of Rim",
+          "values": [
+            "●Aluminum",
+            "●Aluminum",
+            "●Aluminum"
+          ]
+        },
+        {
+          "label": "Electric suction tail door",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Luggage Rack",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Engine Electronic Security",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "central lock",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Key type",
+          "values": [
+            "●Remote control key(with remote boot)",
+            "●Remote control key(with remote boot)",
+            "●Remote control key(with remote boot)"
+          ]
+        },
+        {
+          "label": "Keyless start system",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Keyless entry system",
+          "values": [
+            "●home driving",
+            "●home driving",
+            "●home driving"
+          ]
+        },
+        {
+          "label": "Side pedal",
+          "values": [
+            "●fixed",
+            "●fixed",
+            "●fixed"
+          ]
+        },
+        {
+          "label": "Front Compartment Trim Cover",
+          "values": [
+            "● （half）",
+            "● （half）",
+            "● （half）"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Internal configuration",
+      "rows": [
+        {
+          "label": "Steering Sheel Material",
+          "values": [
+            "●Leather",
+            "●Leather",
+            "●Leather"
+          ]
+        },
+        {
+          "label": "Steering wheel position adjustment",
+          "values": [
+            "●Manual 4-way",
+            "●Manual 4-way",
+            "●Manual 4-way"
+          ]
+        },
+        {
+          "label": "Multi Function Steering Wheel Button",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Steering Wheel Heating Function",
+          "values": [
+            "●",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "label": "Crystal handle",
+          "values": [
+            "○",
+            "○",
+            "○"
+          ]
+        },
+        {
+          "label": "Paddle",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Roof Material、Guard Column Material",
+          "values": [
+            "Light beige knitted fabric",
+            "Light beige knitted fabric",
+            "Black knitted fabric"
+          ]
+        },
+        {
+          "label": "Glove Box With Light",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Multi-Function Display Screen Size",
+          "values": [
+            "●Chromatic",
+            "●Chromatic",
+            "●Chromatic"
+          ]
+        },
+        {
+          "label": "Full LCD dashboard",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "LCD meter size (English, Spanish, Russian, Arabic, Farsi, Uzbek, Portuguese)",
+          "values": [
+            "●10.25 inches",
+            "●10.25 inches",
+            "●10.25 inches"
+          ]
+        },
+        {
+          "label": "Active noise reduction",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Mobile phone wireless charging",
+          "values": [
+            "-",
+            "●front row",
+            "●front row"
+          ]
+        },
+        {
+          "label": "Trunk metal anchor points",
+          "values": [
+            "6",
+            "8",
+            "8"
+          ]
+        },
+        {
+          "label": "Trunk strap anchor points (2 on the left)",
+          "values": [
+            "6",
+            "6",
+            "6"
+          ]
+        },
+        {
+          "label": "Trunk anchor points",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Trunk storage box",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lighting arrangement",
+      "rows": [
+        {
+          "label": "Low light source",
+          "values": [
+            "●LED",
+            "●LED",
+            "●LED"
+          ]
+        },
+        {
+          "label": "High beam source",
+          "values": [
+            "●LED",
+            "●LED",
+            "●LED"
+          ]
+        },
+        {
+          "label": "Lighting feature",
+          "values": [
+            "●Matrix headlights",
+            "●Matrix headlights",
+            "●Matrix headlights"
+          ]
+        },
+        {
+          "label": "LED daytime running lights",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "JETOUR word light",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "Adaptive near and far light",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "Automatic headlight",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Steering auxiliary light",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "Front fog lights",
+          "values": [
+            "-",
+            "-",
+            "●LED"
+          ]
+        },
+        {
+          "label": "Headlight height adjustable",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Headlamps off delay",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Touch mode reading light",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "Interior ambient light",
+          "values": [
+            "-",
+            "●monochrome",
+            "●Chroma"
+          ]
+        },
+        {
+          "label": "LED tail light",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Air conditioning/Refrigerator",
+      "rows": [
+        {
+          "label": "Air conditioner temperature control mode",
+          "values": [
+            "●Dual Automatic Air Conditioning",
+            "●Dual Automatic Air Conditioning",
+            "●Dual Automatic Air Conditioning"
+          ]
+        },
+        {
+          "label": "CN95 air filter element",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Backseat air outlet",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Temperature differential control",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Bottle opener",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Seat configuration",
+      "rows": [
+        {
+          "label": "Seat layout",
+          "values": [
+            "2+3",
+            "2+3",
+            "2+3"
+          ]
+        },
+        {
+          "label": "Seat material",
+          "values": [
+            "●PVC(black)/●fabric+PVC(dark green)",
+            "●PVC(black)/●fabric+PVC(dark green)",
+            "●fabric+PVC(dark green)/●Nubuck+PVC(Black and brown)"
+          ]
+        },
+        {
+          "label": "Main seat adjustment mode",
+          "values": [
+            "●manual 6-way",
+            "●electric 6-way",
+            "●electric 6-way+Driver's Seat Waist To Electric 4"
+          ]
+        },
+        {
+          "label": "Auxiliary seat adjustment (no leg support, interference with fire extinguisher)",
+          "values": [
+            "●Manual 4-way",
+            "●Manual 4-way",
+            "●electric 4-way"
+          ]
+        },
+        {
+          "label": "Main/passenger seat electric regulation",
+          "values": [
+            "-Driver's Seat /-Passenger's Seat",
+            "●Driver's Seat/-Passenger's Seat",
+            "●Driver's Seat/●Passenger's Seat"
+          ]
+        },
+        {
+          "label": "Main seat function",
+          "values": [
+            "●Seat Electric Heating",
+            "●Ventilated Seats",
+            "●Ventilated Seats"
+          ]
+        },
+        {
+          "label": "Passenger seat function",
+          "values": [
+            "●Seat Electric Heating",
+            "-",
+            "●Ventilated Seats"
+          ]
+        },
+        {
+          "label": "Power seat memory function",
+          "values": [
+            "-",
+            "●Driver's Seat/-Passenger's Seat",
+            "●Driver's Seat/●Passenger's Seat"
+          ]
+        },
+        {
+          "label": "sleep headrest",
+          "values": [
+            "-",
+            "-",
+            "●Front Row"
+          ]
+        },
+        {
+          "label": "Second row seat adjustment mode",
+          "values": [
+            "Angle Manual Adjustment",
+            "Angle Manual Adjustment",
+            "Angle Manual Adjustment"
+          ]
+        },
+        {
+          "label": "Second row seat feature",
+          "values": [
+            "Angle Power Adjustment&Backrest Folding",
+            "Angle Power Adjustment&Backrest Folding",
+            "Angle Power Adjustment&Backrest Folding"
+          ]
+        },
+        {
+          "label": "Rear seat reclining form",
+          "values": [
+            "●Pick a stack",
+            "●Pick a stack",
+            "●Pick a stack"
+          ]
+        },
+        {
+          "label": "Front center armrest",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Rear center ordinary large armrests",
+          "values": [
+            "●",
+            "●",
+            "-"
+          ]
+        },
+        {
+          "label": "Rear center luxurious large armrests",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "Rear cup holder",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Heating and cooling switch (central armrest)",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Multimedia configuration",
+      "rows": [
+        {
+          "label": "Audio And Entertainment Display Touch Panel",
+          "values": [
+            "●Entertainment Display Touch Panel",
+            "●Entertainment Display Touch Panel",
+            "●Entertainment Display Touch Panel"
+          ]
+        },
+        {
+          "label": "Multi-Function Display Screen Size(English, Spanish, Russian, Arabic, Farsi, Ukrainian, Portuguese, etc.)",
+          "values": [
+            "●15.6″",
+            "●15.6″",
+            "●15.6″"
+          ]
+        },
+        {
+          "label": "Bluetooth/car phone",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Carplay",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Voice-controlled region",
+          "values": [
+            "●Driver's Seat +Passenger's Seat+Rear seat",
+            "●Driver's Seat +Passenger's Seat+Rear seat",
+            "●Driver's Seat +Passenger's Seat+Rear seat"
+          ]
+        },
+        {
+          "label": "Intelligent voice control (English, Spanish, Russian, Arabic, Portuguese)",
+          "values": [
+            "● Multimedia system/● Phone/● Air Conditioning",
+            "● Multimedia system/● Phone/● Air Conditioning",
+            "● Multimedia systems/● Phone/● Air Conditioning/● Skylight"
+          ]
+        },
+        {
+          "label": "Multimedia/charging interface",
+          "values": [
+            "●USB",
+            "●USB",
+            "●USB"
+          ]
+        },
+        {
+          "label": "Number of USB/Type-C ports",
+          "values": [
+            "Front row：1USB+1Type-C / Back row：1USB+1Type-C",
+            "Front row：1USB+1Type-C / Back row：1USB+1Type-C",
+            "Front row：1USB+1Type-C / Back row：1USB+1Type-C"
+          ]
+        },
+        {
+          "label": "Trunk 12V (180W) power port",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Brand audio",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "Number of speakers (PCS)",
+          "values": [
+            "●6",
+            "●8",
+            "●12"
+          ]
+        },
+        {
+          "label": "Adjust volume with speed",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Glass/rear view mirror",
+      "rows": [
+        {
+          "label": "Front/rear power Windows",
+          "values": [
+            "●Front/●rear",
+            "●Front/●rear",
+            "●Front/●rear"
+          ]
+        },
+        {
+          "label": "Window one key lift function",
+          "values": [
+            "● All Car",
+            "● All Car",
+            "● All Car"
+          ]
+        },
+        {
+          "label": "Window anti-clamping function",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Multilayer silencing glass at the front door",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Front windshield multilayer mute glasss",
+          "values": [
+            "-",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Exterior rearview mirror function",
+          "values": [
+            "●Adjustable Electric Rearview Mirror Lens/●With Electric Heating Function For Outside Rear-View Mirror/●Outside Rearview Mirror Fold/●laser lamps",
+            "●Adjustable Electric Rearview Mirror Lens/●With Electric Heating Function For Outside Rear-View Mirror/●Outside Rearview Mirror Fold+Automatic folding (including electric folding)/●laser lamps",
+            "●Adjustable Electric Rearview Mirror Lens/●With Electric Heating Function For Outside Rear-View Mirror/●Outside Rearview Mirror Fold+Automatic folding (including electric folding)/●Door Mirrors With Memory Function+Outside rearview mirror reverse over/●laser lamps"
+          ]
+        },
+        {
+          "label": "Internal rearview mirror function",
+          "values": [
+            "●Manual Dimming Rearview Mirror",
+            "●Manual Dimming Rearview Mirror",
+            "●Manual Dimming Rearview Mirror"
+          ]
+        },
+        {
+          "label": "Driver/Copilot visor make-up mirror",
+          "values": [
+            "●Driver's Seat/●Passenger's Seat",
+            "●Driver's Sea+ Light/●Passenger's Seat+ Light",
+            "●Driver's Sea+ Light/●Passenger's Seat+ Light"
+          ]
+        },
+        {
+          "label": "Rear wiper",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Sensor wiper function",
+          "values": [
+            "●Precipitation Rain Fall Sensors",
+            "●Precipitation Rain Fall Sensors",
+            "●Precipitation Rain Fall Sensors"
+          ]
+        },
+        {
+          "label": "Front windshield wiper",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Automatic defogging",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Characteristic configuration",
+      "rows": [
+        {
+          "label": "Dynamic transparent car bottom",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Intellectual dodge",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        },
+        {
+          "label": "Car picnic table",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Rear door light",
+          "values": [
+            "●",
+            "●",
+            "●"
+          ]
+        },
+        {
+          "label": "Trunk subwoofer",
+          "values": [
+            "-",
+            "-",
+            "●"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Learning Products",
+      "rows": [
+        {
+          "label": "Engine chip",
+          "values": [
+            "Qualcomm Snapdragon 8155",
+            "Qualcomm Snapdragon 8155",
+            "Qualcomm Snapdragon 8155"
+          ]
+        }
+      ]
+    }
+  ]
+}

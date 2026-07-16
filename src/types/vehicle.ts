@@ -68,3 +68,28 @@ export type VehicleSection =
   | { id: "introduction"; data: TitledGalleryData }
   | { id: "videoSwiper"; data: VideoItem[] }
   | { id: "introduction2"; data: { image: string }[] };
+
+/**
+ * A single line in the spec sheet: a row label and one value per trim column,
+ * in the same order as `VehicleSpecification.header`'s trim columns. A value may
+ * carry `\n`-separated option lists and the ● (standard) / ○ (optional) / -
+ * (not included) markers the target uses verbatim.
+ */
+export interface VehicleSpecRow {
+  label: string;
+  values: string[];
+}
+
+/** A collapsible category of spec rows, e.g. "Basic parameter", "Engine". */
+export interface VehicleSpecSection {
+  title: string;
+  rows: VehicleSpecRow[];
+}
+
+export interface VehicleSpecification {
+  /** Model code, e.g. "T2". */
+  model: string;
+  /** `[rowHeaderLabel, ...trim column labels]` — the sticky table header. */
+  header: string[];
+  sections: VehicleSpecSection[];
+}
