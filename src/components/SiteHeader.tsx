@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -11,15 +12,19 @@ const NAV = [
   { label: "Book", href: "/book" },
 ];
 
-function GlobeIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
-      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.4" />
-      <ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" strokeWidth="1.4" />
-      <path d="M3 12h18" stroke="currentColor" strokeWidth="1.4" />
-    </svg>
-  );
+interface Vehicle {
+  name: string;
+  /** Omitted for models that have no page yet — shown as "coming soon". */
+  href?: string;
+  image?: string;
 }
+
+const VEHICLES: Vehicle[] = [
+  // The T2 studio shot reuses the exterior spin's sun-orange hero frame.
+  { name: "Jetour T2", href: "/", image: "/exterior/T2/sun_orange/23.png" },
+  { name: "Jaecoo J5" },
+  { name: "V23" },
+];
 
 function ChevronDownIcon({ className }: { className?: string }) {
   return (
@@ -35,80 +40,161 @@ function ChevronDownIcon({ className }: { className?: string }) {
   );
 }
 
+const NAV_LINK =
+  "relative cursor-pointer py-1 font-medium after:content-[''] after:h-[0.02rem] " +
+  "after:bg-current after:absolute after:-bottom-1 after:left-0 after:transition-all " +
+  "after:duration-500 after:ease-out";
+
 export function SiteHeader() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
-  // The home page opens on a full-bleed hero the bar sits over (kept legible by
-  // the scrim below); every other route has no hero, so the bar goes solid black.
-  // Either way it stays fixed and visible from load — it never hides on scroll.
   const overHero = pathname === "/";
 
+  // Close the Vehicles panel on navigation — done as a render-time convergence
+  // (React's documented alternative to a prop-syncing effect) so it never trips
+  // the set-state-in-effect rule.
+  const [lastPath, setLastPath] = useState(pathname);
+  if (pathname !== lastPath) {
+    setLastPath(pathname);
+    if (open) setOpen(false);
+  }
+
+  // Close it on Escape or a click outside the header.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onDown = (e: PointerEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("pointerdown", onDown);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("pointerdown", onDown);
+    };
+  }, [open]);
+
+  // Transparent over the hero, solid black elsewhere, solid white while the
+  // Vehicles panel is open so the bar blends into the panel below it.
+  const navColor = open
+    ? "bg-white text-black"
+    : overHero
+      ? "text-white md:hover:bg-white md:hover:text-black"
+      : "bg-black text-white md:hover:bg-white md:hover:text-black";
+
   return (
-    <header
-      className={cn(
-        "group fixed top-0 left-0 right-0 z-50 duration-300 text-white",
-        "md:hover:bg-white md:hover:text-black",
-        "transition-[background-color,color]",
-        !overHero && "bg-black",
-      )}
-    >
-      {/* The bar is white-on-transparent and floats over sections of any
-          brightness — including the near-white 3D hall, where it would
-          otherwise vanish. This scrim keeps it legible, and retracts on hover
-          because the bar turns solid white then. */}
-      {overHero && (
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 bg-gradient-to-b from-black/55 to-transparent transition-opacity duration-300 group-hover:opacity-0"
-        />
-      )}
+    <header ref={headerRef} className="group fixed top-0 left-0 right-0 z-50">
+      {/* Permanent disclaimer — this is a fan-made clone, not an official site. */}
+      <div className="flex items-center justify-center bg-neutral-950 h-9 md:h-[0.3rem] px-4">
+        <p className="text-center font-mono uppercase tracking-[0.16em] text-[0.14rem] md:text-[0.11rem] text-neutral-400 whitespace-nowrap">
+          Independent registry <span className="text-neutral-600">·</span> Not official JSW/JETOUR{" "}
+          <span className="text-neutral-600">·</span>{" "}
+          <span className="text-brand-lime">No payments, ever</span>
+        </p>
+      </div>
 
-      <nav className="flex items-center justify-between px-12 md:px-[0.7rem] h-20 md:h-[0.75rem]">
-        <div className="flex items-center gap-18 h-full">
-          <Link href="/" className="cursor-pointer" aria-label="JSW Motors India — home">
-            <span className="font-display text-2xl tracking-[0.12em] leading-none">JSW</span>
-          </Link>
+      {/* Nav bar */}
+      <div className={cn("relative transition-[background-color,color] duration-300", navColor)}>
+        {overHero && !open && (
+          <div
+            aria-hidden
+            className="absolute inset-0 -z-10 bg-gradient-to-b from-black/55 to-transparent transition-opacity duration-300 group-hover:opacity-0"
+          />
+        )}
 
-          <div className="hidden md:flex items-center gap-[0.61rem] h-full">
-            {NAV.map((item) => {
-              const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+        <nav className="flex items-center justify-between px-12 md:px-[0.7rem] h-20 md:h-[0.75rem]">
+          <div className="flex items-center gap-14 md:gap-[0.5rem] h-full">
+            <Link href="/" className="cursor-pointer" aria-label="JSW Motors India — home">
+              <span className="font-display text-2xl tracking-[0.1em] leading-none whitespace-nowrap">
+                JSW Motors
+              </span>
+            </Link>
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  aria-current={active ? "page" : undefined}
-                  className={cn(
-                    "relative cursor-pointer py-1 font-medium",
-                    "after:content-[''] after:h-[0.02rem] after:bg-current after:absolute after:-bottom-1 after:left-0",
-                    "after:transition-all after:duration-500 after:ease-out",
-                    active ? "after:w-full" : "after:w-0 hover:after:w-full",
-                  )}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
+            <div className="hidden md:flex items-center gap-[0.5rem] h-full">
+              <button
+                type="button"
+                onClick={() => setOpen((v) => !v)}
+                aria-expanded={open}
+                className={cn(NAV_LINK, "flex items-center gap-[0.06rem]", open ? "after:w-full" : "after:w-0 hover:after:w-full")}
+              >
+                Vehicles
+                <ChevronDownIcon
+                  className={cn("size-[0.16rem] transition-transform duration-300", open && "rotate-180")}
+                />
+              </button>
+
+              {NAV.map((item) => {
+                const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(NAV_LINK, active ? "after:w-full" : "after:w-0 hover:after:w-full")}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-        </div>
 
-        <div className="flex items-center gap-5">
-          <button type="button" className="flex items-center gap-1 cursor-pointer text-base">
-            EN
-            <ChevronDownIcon className="size-4" />
-          </button>
-          <button type="button" aria-label="Language" className="cursor-pointer">
-            <GlobeIcon className="size-6" />
-          </button>
-          <Link
-            href="/book"
-            className="md:hidden font-medium"
-            aria-label="Book"
-          >
+          <Link href="/book" className="md:hidden font-medium" aria-label="Book">
             Book
           </Link>
-        </div>
-      </nav>
+        </nav>
+
+        {/* Vehicles mega-menu */}
+        {open && (
+          <div className="absolute left-0 right-0 top-full bg-white text-black border-t border-black/10 shadow-[0_0.12rem_0.4rem_rgba(0,0,0,0.08)]">
+            <div className="px-12 md:px-[0.7rem] py-10 md:py-[0.4rem]">
+              <p className="font-display text-lg md:text-[0.18rem] text-black/40 mb-8 md:mb-[0.24rem]">
+                All Models
+              </p>
+              <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-[0.24rem]">
+                {VEHICLES.map((vehicle) => (
+                  <li key={vehicle.name}>
+                    <VehicleCard vehicle={vehicle} onNavigate={() => setOpen(false)} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+      </div>
     </header>
   );
+}
+
+function VehicleCard({ vehicle, onNavigate }: { vehicle: Vehicle; onNavigate: () => void }) {
+  const inner = (
+    <>
+      <div className="aspect-video bg-neutral-100 grid place-items-center overflow-hidden">
+        {vehicle.image ? (
+          // eslint-disable-next-line @next/next/no-img-element -- static studio frame, no loader needed
+          <img
+            src={vehicle.image}
+            alt={vehicle.name}
+            className="w-full h-full object-contain transition-transform duration-500 group-hover/card:scale-[1.03]"
+          />
+        ) : (
+          <span className="font-mono text-xs uppercase tracking-widest text-black/30">Coming soon</span>
+        )}
+      </div>
+      <div className="mt-4 md:mt-[0.16rem] text-center font-display text-2xl md:text-[0.24rem]">
+        {vehicle.name}
+      </div>
+    </>
+  );
+
+  if (vehicle.href) {
+    return (
+      <Link href={vehicle.href} onClick={onNavigate} className="block group/card">
+        {inner}
+      </Link>
+    );
+  }
+  return <div className="opacity-60">{inner}</div>;
 }

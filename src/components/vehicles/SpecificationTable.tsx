@@ -40,7 +40,7 @@ export function SpecificationTable({ spec }: SpecificationTableProps) {
             the left so the trim it labels stays anchored on mobile. */}
         <div
           className={cn(
-            "sticky top-20 md:top-[0.75rem] z-12 grid bg-[#39aeb2] text-white font-bold",
+            "sticky top-[1.16rem] md:top-[1.05rem] z-12 grid bg-[#39aeb2] text-white font-bold",
             COLS,
           )}
         >
