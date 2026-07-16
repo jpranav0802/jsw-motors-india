@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -11,9 +10,6 @@ const NAV = [
   { label: "About", href: "/about" },
   { label: "Book", href: "/book" },
 ];
-
-/** Distance scrolled before the bar reveals itself. */
-const REVEAL_AT = 8;
 
 function GlobeIcon({ className }: { className?: string }) {
   return (
@@ -41,27 +37,18 @@ function ChevronDownIcon({ className }: { className?: string }) {
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > REVEAL_AT);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // The home page opens on a full-bleed hero, so the bar hides until scroll the
-  // way the reference does. Every other route has no hero to sit over.
+  // The home page opens on a full-bleed hero the bar sits over (kept legible by
+  // the scrim below); every other route has no hero, so the bar goes solid black.
+  // Either way it stays fixed and visible from load — it never hides on scroll.
   const overHero = pathname === "/";
-  const revealed = !overHero || scrolled;
 
   return (
     <header
       className={cn(
         "group fixed top-0 left-0 right-0 z-50 duration-300 text-white",
         "md:hover:bg-white md:hover:text-black",
-        "transition-[opacity,transform,background-color,color]",
-        revealed ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full",
+        "transition-[background-color,color]",
         !overHero && "bg-black",
       )}
     >

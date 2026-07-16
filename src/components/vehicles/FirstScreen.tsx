@@ -32,7 +32,12 @@ export function FirstScreen({ data }: FirstScreenProps) {
         }}
       />
       <div className="absolute top-90 md:top-[28.42vh] inset-x-8 md:right-auto md:left-1/2 md:-translate-x-1/2 text-center flex flex-col justify-center items-center gap-9">
-        <T2LogoIcon className="text-8xl" />
+        <div className="flex flex-col items-center gap-4 md:gap-[0.14rem]">
+          <span className="font-display text-3xl md:text-[0.34rem] leading-none tracking-[0.18em]">
+            JETOUR
+          </span>
+          <T2LogoIcon className="text-8xl" />
+        </div>
         <h2 className="text-2xl">{data.name}</h2>
       </div>
       <div className="absolute bottom-[9.07vh] inset-x-8 md:right-auto md:left-1/2 md:-translate-x-1/2">
