@@ -2,8 +2,6 @@
    src between preloaded frames; next/image would re-run its loader per frame. */
 "use client";
 
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -16,25 +14,22 @@ interface ExteriorSpinProps {
   num: number;
   endFrame: number;
   colors: ColorOption[];
+  /** 0-1 scroll progress across the section's pin, scrubbed onto the frames. */
+  progress: number;
   /**
-   * The section to pin while the car spins. Scroll progress across the pin is
-   * scrubbed onto the frame sequence, so the car rotates in step with the
-   * scroll rather than on a timer.
+   * Whether to fetch the frame sequence. All eight sections mount at once, so
+   * loading eagerly would pull 36 frames (~133MB of decoded bitmaps) on page
+   * load and wedge the renderer — the failure the target site exhibits.
+   * ThreeDHall flips this a viewport before the pin so frames are ready on
+   * arrival; on re-entry they come back from the HTTP cache.
    */
-  pinTarget: React.RefObject<HTMLDivElement | null>;
+  shouldLoad: boolean;
 }
 
 /** Fraction of the stage width the user drags to complete one full rotation. */
 const DRAG_TURN_RATIO = 0.6;
 /** Frames decoded per batch while loading a colour sequence. */
 const PRELOAD_BATCH = 6;
-/**
- * Extra scroll distance the pin consumes, as a multiple of viewport height.
- * One full rotation is spread across this, so it sets how fast the car turns.
- */
-const SPIN_SCROLL_VH = 2.5;
-/** Viewport margin at which the frames start downloading, ahead of the pin. */
-const PRELOAD_MARGIN = "100%";
 
 function frameSrc(id: string, color: string, frame: number): string {
   return `/exterior/${id}/${color}/${String(frame).padStart(2, "0")}.png`;
@@ -62,7 +57,14 @@ function preloadFrame(src: string): Promise<HTMLImageElement> {
   });
 }
 
-export function ExteriorSpin({ id, num, endFrame, colors, pinTarget }: ExteriorSpinProps) {
+export function ExteriorSpin({
+  id,
+  num,
+  endFrame,
+  colors,
+  progress,
+  shouldLoad,
+}: ExteriorSpinProps) {
   const initialColor = colors[0]?.value ?? "";
 
   const [color, setColor] = useState(initialColor);
@@ -70,15 +72,13 @@ export function ExteriorSpin({ id, num, endFrame, colors, pinTarget }: ExteriorS
    *  decoded, so switching swatches never flashes a half-loaded frame. */
   const [renderColor, setRenderColor] = useState(initialColor);
   const [loadState, setLoadState] = useState({ color: initialColor, loaded: 0 });
-  const [frame, setFrame] = useState(endFrame);
   const [dragging, setDragging] = useState(false);
   /**
-   * Gates the frame download. All eight sections mount at once, so preloading
-   * eagerly would decode 36 frames (~133MB of bitmaps) on page load and wedge
-   * the renderer — the failure the target site itself exhibits. Flipped by a
-   * ScrollTrigger a viewport ahead of the pin, so frames are ready on arrival.
+   * The frame a drag leaves the car on. Non-null while dragging and afterwards,
+   * so the car holds its dragged angle until the next scroll takes over; cleared
+   * the moment scroll progress next changes.
    */
-  const [nearViewport, setNearViewport] = useState(false);
+  const [override, setOverride] = useState<number | null>(null);
 
   const loaded = loadState.color === color ? loadState.loaded : 0;
   const ready = num > 0 && loaded >= num;
@@ -86,6 +86,28 @@ export function ExteriorSpin({ id, num, endFrame, colors, pinTarget }: ExteriorS
   const stageRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef(endFrame);
   const dragRef = useRef<{ pointerId: number; startX: number; startFrame: number } | null>(null);
+
+  /**
+   * Scroll drives the frame; a drag overrides it. The scroll frame is derived
+   * rather than stored so it never needs an effect to stay in sync with the pin.
+   * Frames advance from `endFrame` so the car sits at its hero angle when the pin
+   * engages, then completes one rotation across the scrub.
+   */
+  const scrollFrame = ready ? wrapFrame(endFrame + Math.round(progress * num), num) : endFrame;
+  const frame = override ?? scrollFrame;
+
+  /**
+   * Hand control back to scroll the instant progress changes after a drag. Run
+   * as a render-time convergence — React's documented alternative to a
+   * prop-syncing effect — so it costs no extra render per scroll tick and never
+   * trips the pin, which lives in ThreeDHall (this component unmounts on the
+   * Interior tab, so it must not own scroll-driven state that outlives it).
+   */
+  const [lastProgress, setLastProgress] = useState(progress);
+  if (progress !== lastProgress) {
+    setLastProgress(progress);
+    if (!dragging) setOverride(null);
+  }
   /**
    * Holds the decoded frames of the *active* colour only. Keeping them
    * referenced keeps the decoded bitmaps warm so an src swap is a repaint
@@ -99,7 +121,7 @@ export function ExteriorSpin({ id, num, endFrame, colors, pinTarget }: ExteriorS
   }, [frame]);
 
   useEffect(() => {
-    if (!color || !nearViewport) return;
+    if (!color || !shouldLoad) return;
 
     let cancelled = false;
     let settled = 0;
@@ -126,51 +148,7 @@ export function ExteriorSpin({ id, num, endFrame, colors, pinTarget }: ExteriorS
     return () => {
       cancelled = true;
     };
-  }, [id, color, num, nearViewport]);
-
-  /** Starts the download a viewport early so the pin is never reached unloaded. */
-  useEffect(() => {
-    const section = pinTarget.current;
-    if (!section) return;
-
-    gsap.registerPlugin(ScrollTrigger);
-    const trigger = ScrollTrigger.create({
-      trigger: section,
-      start: `top bottom+=${PRELOAD_MARGIN}`,
-      once: true,
-      onEnter: () => setNearViewport(true),
-    });
-
-    return () => trigger.kill();
-  }, [pinTarget]);
-
-  /**
-   * Pins the section and maps scroll progress onto the frame sequence. Frames
-   * advance from `endFrame` so the car is already at its hero angle when the
-   * pin engages, then completes one rotation across the scrub.
-   */
-  useEffect(() => {
-    const section = pinTarget.current;
-    if (!section || !ready) return;
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    const trigger = ScrollTrigger.create({
-      trigger: section,
-      start: "top top",
-      end: `+=${SPIN_SCROLL_VH * 100}%`,
-      pin: true,
-      pinSpacing: true,
-      scrub: 0.6,
-      onUpdate: (self) => {
-        // Dragging takes over while the pointer is down.
-        if (dragRef.current) return;
-        setFrame(wrapFrame(endFrame + Math.round(self.progress * num), num));
-      },
-    });
-
-    return () => trigger.kill();
-  }, [pinTarget, ready, num, endFrame]);
+  }, [id, color, num, shouldLoad]);
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!ready) return;
@@ -197,7 +175,7 @@ export function ExteriorSpin({ id, num, endFrame, colors, pinTarget }: ExteriorS
     // Frame 00 is the rear, 09 the nose pointing right, 18 the nose at the
     // camera: the index runs clockwise seen from above, so a rightward drag —
     // which sweeps the near side right — walks the sequence backwards.
-    setFrame(wrapFrame(drag.startFrame - delta, num));
+    setOverride(wrapFrame(drag.startFrame - delta, num));
   };
 
   const handlePointerEnd = (event: React.PointerEvent<HTMLDivElement>) => {

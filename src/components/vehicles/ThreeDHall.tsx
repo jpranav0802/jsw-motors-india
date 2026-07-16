@@ -1,13 +1,24 @@
 "use client";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import type { ThreeDHallData } from "@/types/vehicle";
 
 import { ExteriorSpin } from "./ExteriorSpin";
 import { InteriorPano } from "./InteriorPano";
+
+/**
+ * Extra scroll distance the pin consumes, as a multiple of viewport height.
+ * One full rotation of the car is spread across this, so it sets how fast the
+ * car turns per unit of scroll.
+ */
+const SPIN_SCROLL_VH = 2.5;
+/** Viewport margin at which the frame sequence starts downloading. */
+const PRELOAD_MARGIN = "100%";
 
 type HallTab = "exterior" | "interior";
 
@@ -22,7 +33,47 @@ interface ThreeDHallProps {
 
 export function ThreeDHall({ data }: ThreeDHallProps) {
   const [tab, setTab] = useState<HallTab>("exterior");
+  const [progress, setProgress] = useState(0);
+  const [shouldLoad, setShouldLoad] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+
+  /**
+   * The section owns its pin, deliberately — not ExteriorSpin.
+   *
+   * ExteriorSpin unmounts when the user opens the Interior tab. If it owned the
+   * pin, switching tabs would kill it mid-scroll: 2.5 viewports of pin-spacer
+   * vanish under the reader, the scroll position becomes invalid, and Lenis and
+   * ScrollTrigger fight over correcting it until the tab locks up. Creating the
+   * pin once here keeps the section's geometry stable across tab switches.
+   */
+  useEffect(() => {
+    const section = rootRef.current;
+    if (!section) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const preload = ScrollTrigger.create({
+      trigger: section,
+      start: `top bottom+=${PRELOAD_MARGIN}`,
+      once: true,
+      onEnter: () => setShouldLoad(true),
+    });
+
+    const pin = ScrollTrigger.create({
+      trigger: section,
+      start: "top top",
+      end: `+=${SPIN_SCROLL_VH * 100}%`,
+      pin: true,
+      pinSpacing: true,
+      scrub: 0.6,
+      onUpdate: (self) => setProgress(self.progress),
+    });
+
+    return () => {
+      preload.kill();
+      pin.kill();
+    };
+  }, []);
 
   return (
     <div ref={rootRef} className="w-full h-svh relative overflow-hidden">
@@ -76,7 +127,8 @@ export function ThreeDHall({ data }: ThreeDHallProps) {
           num={data.num}
           endFrame={data.endFrame}
           colors={data.exteriorList}
-          pinTarget={rootRef}
+          progress={progress}
+          shouldLoad={shouldLoad}
         />
       ) : (
         <InteriorPano id={data.id} colors={data.interiorList} />
