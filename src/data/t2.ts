@@ -134,7 +134,7 @@ export const t2Sections: VehicleSection[] = [
   {
     id: "videoSwiper",
     data: [
-      { image: "/images/vehicles/cars/T2/video/v000.png", video: "/images/vehicles/cars/T2/video/v000.mp4", title: "JETOUR T2, Advanture Now" },
+      { image: "/images/vehicles/cars/T2/video/v000.png", video: "/images/vehicles/cars/T2/video/v000.mp4", title: "JSW T2, Adventure Now" },
       { image: "/images/vehicles/cars/T2/video/v001.png", video: "/images/vehicles/cars/T2/video/v001.mp4", title: "Adventure in the wilderness" },
       { image: "/images/vehicles/cars/T2/video/v002.png", video: "/images/vehicles/cars/T2/video/v002.mp4", title: "Driving in the Gobi Desert" },
       { image: "/images/vehicles/cars/T2/video/v003.png", video: "/images/vehicles/cars/T2/video/v003.mp4", title: "Advanced Driving Assistance System" },
