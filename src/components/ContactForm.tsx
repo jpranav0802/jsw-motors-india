@@ -213,7 +213,9 @@ function Field({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    // Autofill/password-manager extensions inject attributes and nodes into
+    // these inputs before hydration; suppress the mismatch they cause.
+    <div suppressHydrationWarning>
       <label htmlFor={id} className="block text-sm text-black/60 mb-3 md:mb-[0.08rem]">
         {label}
       </label>

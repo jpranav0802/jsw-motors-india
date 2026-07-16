@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -49,13 +50,16 @@ export default function RootLayout({
       // the client tree legitimately differs from the server's here.
       suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: REM_SCALE_SCRIPT }} />
-      </head>
       {/* Extensions like Grammarly inject data-gr-* attributes onto <body>
           before React hydrates; suppress the one-level attribute mismatch they
           cause so it doesn't surface as a hydration error. */}
       <body className="min-h-full" suppressHydrationWarning>
+        {/* The rem scaler must run before hydration to size the whole page;
+            next/script's beforeInteractive strategy injects it early without
+            React's "script tag in a component" warning. */}
+        <Script id="rem-scale" strategy="beforeInteractive">
+          {REM_SCALE_SCRIPT}
+        </Script>
         <SmoothScroll>
           <SiteHeader />
           {children}
