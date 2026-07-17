@@ -50,6 +50,12 @@ const VIEWS: Record<"exterior" | "interior", View> = {
   },
 };
 
+const STATS = [
+  { value: "207", label: "Power, ps" },
+  { value: "288", label: "Torque Nm" },
+  { value: "248", label: "Range, miles" },
+];
+
 const TABS = ["exterior", "interior"] as const;
 
 export function J5Viewer() {
@@ -58,8 +64,21 @@ export function J5Viewer() {
 
   return (
     <div>
+      {/* Headline stats */}
+      <div className="grid grid-cols-3 gap-6 md:gap-[0.32rem]">
+        {STATS.map((stat) => (
+          <div
+            key={stat.label}
+            className="rounded-[0.16rem] bg-[#e4e8ec] px-6 md:px-[0.3rem] py-12 md:py-[0.7rem] text-center"
+          >
+            <div className="font-display text-4xl md:text-[0.72rem] leading-none">{stat.value}</div>
+            <div className="mt-3 md:mt-[0.18rem] text-sm md:text-[0.16rem] text-black/60">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+
       {/* Exterior / Interior pill toggle */}
-      <div className="mx-auto flex w-fit items-center rounded-full bg-white p-1.5 md:p-[0.05rem] shadow-[0_0.02rem_0.16rem_rgba(0,0,0,0.08)]">
+      <div className="mt-10 md:mt-[0.5rem] mx-auto flex w-fit items-center rounded-full bg-white p-1.5 md:p-[0.05rem] shadow-[0_0.02rem_0.16rem_rgba(0,0,0,0.08)]">
         {TABS.map((t) => (
           <button
             key={t}
