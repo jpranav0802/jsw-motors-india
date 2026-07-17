@@ -22,7 +22,7 @@ interface Vehicle {
 const VEHICLES: Vehicle[] = [
   // The T2 studio shot reuses the exterior spin's sun-orange hero frame.
   { name: "Jetour T2", href: "/", image: "/exterior/T2/sun_orange/23.png" },
-  { name: "Jaecoo J5" },
+  { name: "Jaecoo J5", href: "/jaecoo-j5", image: "/jaecoo-j5/exterior.webp" },
   { name: "V23", href: "/v23", image: "/v23/side-profile.png" },
 ];
 
