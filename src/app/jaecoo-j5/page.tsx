@@ -3,6 +3,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { J5ColorPicker } from "@/components/jaecoo/J5ColorPicker";
+import { J5Slider } from "@/components/jaecoo/J5Slider";
+import { J5Viewer } from "@/components/jaecoo/J5Viewer";
 import { Reveal } from "@/components/jaecoo/Reveal";
 
 export const metadata: Metadata = {
@@ -10,24 +13,6 @@ export const metadata: Metadata = {
   description:
     "The Jaecoo J5 is a fully electric premium SUV — bold design, a silent glass cabin and striking alloys, built for every adventure.",
 };
-
-const FEATURES = [
-  {
-    image: "/jaecoo-j5/ex1.webp",
-    title: "Pure Electric Identity",
-    body: "A clean, sculpted silhouette and full-width light signatures announce a 100% electric identity from every angle.",
-  },
-  {
-    image: "/jaecoo-j5/ex2.webp",
-    title: "Silent Glass",
-    body: "An expansive panoramic glass roof floods the cabin with light, while acoustic glazing keeps the outside world quiet.",
-  },
-  {
-    image: "/jaecoo-j5/ex3.webp",
-    title: "Striking Alloy Wheels",
-    body: "Aero-optimised alloy wheels cut drag and add presence — purpose-built for the electric age.",
-  },
-];
 
 const TRIMS = [
   {
@@ -84,62 +69,73 @@ export default function JaecooJ5Page() {
         </div>
       </section>
 
-      {/* ── Technological design ───────────────────────────────── */}
+      {/* ── Exterior / Interior viewer ─────────────────────────── */}
       <section className="w-full bg-white">
-        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem] text-center">
-          <Reveal>
+        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem]">
+          <Reveal className="text-center">
             <span className="font-mono uppercase tracking-[0.24em] text-sm md:text-[0.13rem] text-[#6b9b37]">
               Technological design
             </span>
             <h2 className="mt-6 md:mt-[0.24rem] mx-auto max-w-[11rem] font-display text-3xl md:text-[0.44rem] leading-[1.15] font-medium">
-              Premium design meets intelligent electric power
+              Mountain-inspired design, intelligent electric power
             </h2>
           </Reveal>
-          <Reveal delay={120}>
-            <img
-              src="/jaecoo-j5/exterior.webp"
-              alt="Jaecoo J5 in Granite White, three-quarter front view"
-              className="mt-12 md:mt-[0.5rem] w-full object-contain"
+          <Reveal delay={120} className="mt-12 md:mt-[0.5rem]">
+            <J5Viewer />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Colour picker ──────────────────────────────────────── */}
+      <section className="w-full bg-[#f6f6f6]">
+        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem]">
+          <Reveal>
+            <h2 className="mx-auto max-w-[12rem] text-center font-display text-3xl md:text-[0.4rem] leading-[1.15] font-medium">
+              Designed to conquer every road, in the shade that fits your vibe
+            </h2>
+          </Reveal>
+          <Reveal delay={120} className="mt-12 md:mt-[0.5rem]">
+            <J5ColorPicker />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Adventure starts here (slider) ─────────────────────── */}
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem]">
+          <Reveal>
+            <h2 className="font-display text-3xl md:text-[0.5rem] leading-none font-medium">
+              Adventure starts here
+            </h2>
+            <p className="mt-6 md:mt-[0.24rem] max-w-[9rem] text-base md:text-[0.18rem] leading-relaxed text-black/55">
+              Rugged styling, advanced technology, luxurious comfort and a class-leading range make the
+              Jaecoo J5 the perfect companion for every adventure.
+            </p>
+          </Reveal>
+          <Reveal delay={120} className="mt-12 md:mt-[0.5rem]">
+            <J5Slider
+              images={[
+                "/jaecoo-j5/gallery-1.webp",
+                "/jaecoo-j5/gallery-2.webp",
+                "/jaecoo-j5/gallery-3.webp",
+                "/jaecoo-j5/gallery-4.webp",
+                "/jaecoo-j5/gallery-5.webp",
+              ]}
             />
           </Reveal>
         </div>
       </section>
 
-      {/* ── Feature cards ──────────────────────────────────────── */}
+      {/* ── New crossover ──────────────────────────────────────── */}
       <section className="w-full bg-[#f6f6f6]">
         <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem]">
-          <div className="grid gap-10 md:gap-[0.32rem] md:grid-cols-3">
-            {FEATURES.map((feature, i) => (
-              <Reveal key={feature.title} delay={i * 120}>
-                <article className="h-full overflow-hidden rounded-[0.16rem] bg-white shadow-[0_0.04rem_0.24rem_rgba(0,0,0,0.06)]">
-                  <div className="aspect-[596/735] overflow-hidden">
-                    <img
-                      src={feature.image}
-                      alt={feature.title}
-                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.04]"
-                    />
-                  </div>
-                  <div className="p-8 md:p-[0.32rem]">
-                    <h3 className="font-display text-xl md:text-[0.24rem] font-medium">{feature.title}</h3>
-                    <p className="mt-4 md:mt-[0.14rem] text-base md:text-[0.16rem] leading-relaxed text-black/60">
-                      {feature.body}
-                    </p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Adventure starts here ──────────────────────────────── */}
-      <section className="relative w-full overflow-hidden">
-        <img src="/jaecoo-j5/adventure.webp" alt="Jaecoo J5 on a snowy landscape" className="w-full object-cover" />
-        <div className="absolute inset-0 flex items-start justify-center pt-16 md:pt-[1rem] bg-gradient-to-b from-black/25 to-transparent">
           <Reveal>
-            <h2 className="font-display text-3xl md:text-[0.5rem] leading-none font-medium text-white text-center drop-shadow-[0_0.02rem_0.1rem_rgba(0,0,0,0.4)]">
-              Adventure starts here
+            <h2 className="text-center font-display text-3xl md:text-[0.44rem] leading-none font-medium">
+              New Jaecoo J5 EV crossover
             </h2>
+          </Reveal>
+          <Reveal delay={120} className="mt-12 md:mt-[0.5rem] overflow-hidden rounded-[0.16rem]">
+            <img src="/jaecoo-j5/crossover.jpg" alt="Jaecoo J5 driving on an open road" className="w-full object-cover" />
           </Reveal>
         </div>
       </section>
