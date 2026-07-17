@@ -40,7 +40,6 @@ export default function JaecooJ5Page() {
             <span className="font-mono uppercase tracking-[0.24em] text-sm md:text-[0.13rem] text-white/80">
               Jaecoo J5 Electric
             </span>
-            <img src="/jaecoo-j5/warranty.webp" alt="7 year warranty" className="h-14 md:h-[0.52rem] w-auto object-contain" />
           </Reveal>
 
           <div className="flex-1" />
