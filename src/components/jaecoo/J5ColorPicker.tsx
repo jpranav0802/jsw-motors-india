@@ -52,15 +52,15 @@ export function J5ColorPicker() {
         ))}
       </div>
 
-      <div className="mt-8 md:mt-[0.3rem] flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-[0.4rem]">
+      <div className="mt-[0.4rem] md:mt-[0.3rem] flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-[0.4rem]">
         <div className="md:max-w-[9rem]">
-          <h3 className="font-display text-2xl md:text-[0.3rem] font-medium">{active.name}</h3>
-          <p className="mt-2 md:mt-[0.08rem] text-base md:text-[0.16rem] leading-relaxed text-black/55">
+          <h3 className="font-display text-[0.5rem] md:text-[0.3rem] font-medium">{active.name}</h3>
+          <p className="mt-[0.1rem] md:mt-[0.08rem] text-[0.3rem] md:text-[0.16rem] leading-relaxed text-black/55">
             {active.caption}
           </p>
         </div>
 
-        <div className="flex items-center gap-4 md:gap-[0.16rem]">
+        <div className="flex items-center gap-[0.2rem] md:gap-[0.16rem]">
           {COLORS.map((c, i) => (
             <button
               key={c.name}
@@ -71,7 +71,7 @@ export function J5ColorPicker() {
               aria-pressed={i === index}
               style={{ background: c.swatch }}
               className={cn(
-                "size-9 md:size-[0.44rem] rounded-full border cursor-pointer transition-transform duration-200",
+                "size-[0.46rem] md:size-[0.44rem] rounded-full border cursor-pointer transition-transform duration-200",
                 i === index
                   ? "border-black scale-110 ring-2 ring-black/25 ring-offset-2 ring-offset-[#f6f6f6]"
                   : "border-black/15 hover:scale-105",

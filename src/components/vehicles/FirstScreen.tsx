@@ -32,29 +32,33 @@ export function FirstScreen({ data }: FirstScreenProps) {
         }}
       />
       <div className="absolute top-90 md:top-[28.42vh] inset-x-8 md:right-auto md:left-1/2 md:-translate-x-1/2 text-center flex flex-col justify-center items-center gap-9">
-        <div className="flex flex-col items-center gap-4 md:gap-[0.14rem]">
-          <span className="font-display text-3xl md:text-[0.34rem] leading-none tracking-[0.18em]">
+        <div className="flex flex-col items-center gap-[0.2rem] md:gap-[0.14rem]">
+          <span className="font-display text-[0.6rem] md:text-[0.34rem] leading-none tracking-[0.18em]">
             JETOUR
           </span>
           <T2LogoIcon className="text-8xl" />
         </div>
-        <div className="flex flex-col items-center gap-4 md:gap-[0.14rem]">
+        <div className="flex flex-col items-center gap-[0.2rem] md:gap-[0.14rem]">
           <h2 className="text-2xl">{data.name}</h2>
           <span className="inline-flex items-center rounded-full border border-brand-lime/60 bg-black/25 backdrop-blur-sm px-5 md:px-[0.18rem] py-1.5 md:py-[0.05rem] font-display text-xs md:text-[0.14rem] tracking-[0.22em] uppercase text-brand-lime">
             Launching this Diwali!
           </span>
         </div>
       </div>
-      <div className="absolute bottom-[9.07vh] inset-x-8 md:right-auto md:left-1/2 md:-translate-x-1/2">
-        <dl className="flex items-center justify-center gap-8 md:gap-12">
+      <div className="absolute bottom-[9.07vh] inset-x-5 md:inset-x-8 md:right-auto md:left-1/2 md:-translate-x-1/2">
+        {/* 2×2 grid on phones (the four stats won't fit in one row), a single
+            divided row from md up. */}
+        <dl className="grid grid-cols-2 gap-x-[0.3rem] gap-y-[0.4rem] md:flex md:items-center md:justify-center md:gap-12">
           {data.data.map((stat, index) => (
             <Fragment key={stat.label}>
-              {index > 0 && <div aria-hidden="true" className="w-px self-stretch bg-white/40" />}
-              <div className="flex flex-col items-center gap-2 text-center">
-                <dd className="font-display text-4xl leading-none whitespace-nowrap">
+              {index > 0 && (
+                <div aria-hidden="true" className="hidden md:block w-px self-stretch bg-white/40" />
+              )}
+              <div className="flex flex-col items-center gap-[0.08rem] md:gap-2 text-center">
+                <dd className="font-display text-[0.4rem] md:text-4xl leading-none whitespace-nowrap">
                   {stat.value}
                 </dd>
-                <dt className="text-sm">{stat.label}</dt>
+                <dt className="text-[0.22rem] md:text-sm">{stat.label}</dt>
               </div>
             </Fragment>
           ))}

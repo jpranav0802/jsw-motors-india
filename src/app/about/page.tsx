@@ -14,7 +14,7 @@ const LINEUP = ["Jetour T2", "Jaecoo J5", "V23"];
 export default function AboutPage() {
   return (
     <PageShell title="About JSW Motors India">
-      <div className="max-w-[7.2rem] space-y-6 md:space-y-[0.24rem] text-base leading-relaxed text-black/70">
+      <div className="max-w-[7.2rem] space-y-[0.3rem] md:space-y-[0.24rem] text-[0.28rem] md:text-base leading-relaxed text-black/70">
         <p>
           JSW Motors is a new Indian passenger vehicle manufacturer established by
           the JSW Group. The company is launching its own brand to focus on “new
@@ -32,17 +32,17 @@ export default function AboutPage() {
 
       {/* Lineup */}
       <section className="mt-20 md:mt-[0.8rem]">
-        <h2 className="font-display text-3xl md:text-[0.32rem]">The lineup</h2>
-        <ul className="mt-8 md:mt-[0.24rem] flex flex-wrap gap-4 md:gap-[0.12rem]">
+        <h2 className="font-display text-[0.6rem] md:text-[0.32rem]">The lineup</h2>
+        <ul className="mt-[0.4rem] md:mt-[0.24rem] flex flex-wrap gap-[0.2rem] md:gap-[0.12rem]">
           {LINEUP.map((model) => (
             <li key={model}>
-              <span className="inline-flex items-center h-16 md:h-[0.5rem] px-6 md:px-[0.2rem] border border-black/20 text-base">
+              <span className="inline-flex items-center h-[1.0rem] md:h-[0.5rem] px-[0.26rem] md:px-[0.2rem] border border-black/20 text-[0.28rem] md:text-base">
                 {model}
               </span>
             </li>
           ))}
         </ul>
-        <p className="mt-10 md:mt-[0.32rem] text-base text-black/60">
+        <p className="mt-[0.5rem] md:mt-[0.32rem] text-[0.28rem] md:text-base text-black/60">
           Interested?{" "}
           <Link href="/register" className="underline underline-offset-2 hover:text-black">
             Register your interest

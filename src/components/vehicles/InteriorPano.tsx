@@ -240,7 +240,7 @@ export function InteriorPano({ colors }: InteriorPanoProps) {
       <div ref={mountRef} className="absolute inset-0 cursor-grab active:cursor-grabbing" />
 
       {loading && (
-        <div className="absolute inset-0 grid place-items-center text-sm text-black/60">
+        <div className="absolute inset-0 grid place-items-center text-[0.24rem] md:text-sm text-black/60">
           Loading interior…
         </div>
       )}

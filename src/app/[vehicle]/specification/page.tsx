@@ -31,7 +31,7 @@ export default async function SpecificationPage({ params }: SpecificationPagePro
   if (!spec) notFound();
 
   return (
-    <main className="min-h-svh bg-white text-black text-2xl md:text-base px-12 md:px-25 pt-[1.5rem] md:pt-[1.35rem] pb-16 md:pb-[0.8rem]">
+    <main className="min-h-svh bg-white text-black text-2xl md:text-base px-12 md:px-25 pt-[1.5rem] md:pt-[1.35rem] pb-[0.8rem] md:pb-[0.8rem]">
       <div className="flex flex-col gap-3.5">
         <T2LogoIcon className="text-8xl" />
         <h1 className="text-6xl font-medium">Specification</h1>

@@ -94,7 +94,7 @@ export function ThreeDHall({ data }: ThreeDHallProps) {
                 aria-selected={active}
                 onClick={() => setTab(item.id)}
                 className={cn(
-                  "relative cursor-pointer whitespace-nowrap pb-2 font-display text-base tracking-wide transition-colors duration-300",
+                  "relative cursor-pointer whitespace-nowrap pb-2 font-display text-[0.28rem] md:text-base tracking-wide transition-colors duration-300",
                   active ? "text-black" : "text-black/40 hover:text-black/70",
                 )}
               >

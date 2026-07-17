@@ -72,7 +72,7 @@ export function J5Slider({ slides }: J5SliderProps) {
       >
         <div
           ref={trackRef}
-          className="flex gap-6 md:gap-[0.32rem] px-12 md:px-[0.7rem] will-change-transform"
+          className="flex gap-[0.28rem] md:gap-[0.32rem] px-[0.45rem] md:px-[0.7rem] will-change-transform"
         >
           {slides.map((slide) => (
             <article
@@ -80,17 +80,17 @@ export function J5Slider({ slides }: J5SliderProps) {
               className="shrink-0 w-[80vw] md:w-[46vw] overflow-hidden rounded-[0.16rem] bg-white shadow-[0_0.04rem_0.24rem_rgba(0,0,0,0.06)]"
             >
               <img src={slide.image} alt="" className="aspect-[16/10] w-full object-cover" />
-              <div className="p-8 md:p-[0.44rem]">
-                <h3 className="font-display text-2xl md:text-[0.36rem] leading-none font-medium">
+              <div className="p-[0.4rem] md:p-[0.44rem]">
+                <h3 className="font-display text-[0.5rem] md:text-[0.36rem] leading-none font-medium">
                   {slide.title}
                 </h3>
-                <ul className="mt-6 md:mt-[0.28rem] space-y-3 md:space-y-[0.14rem]">
+                <ul className="mt-[0.3rem] md:mt-[0.28rem] space-y-[0.16rem] md:space-y-[0.14rem]">
                   {slide.specs.map((spec) => (
                     <li
                       key={spec}
-                      className="flex gap-3 md:gap-[0.12rem] text-base md:text-[0.18rem] leading-relaxed text-black/70"
+                      className="flex gap-[0.16rem] md:gap-[0.12rem] text-[0.3rem] md:text-[0.18rem] leading-relaxed text-black/70"
                     >
-                      <span className="mt-2 md:mt-[0.1rem] size-1.5 md:size-[0.06rem] shrink-0 rounded-full bg-[#6b9b37]" />
+                      <span className="mt-[0.1rem] md:mt-[0.1rem] size-[0.1rem] md:size-[0.06rem] shrink-0 rounded-full bg-[#6b9b37]" />
                       <span>{spec}</span>
                     </li>
                   ))}

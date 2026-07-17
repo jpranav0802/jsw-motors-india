@@ -35,7 +35,7 @@ export function ColorChange({ colors, value, onChange }: ColorChangeProps) {
               />
               <span
                 aria-hidden
-                className="pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1.5 text-xs text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100"
+                className="pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1.5 text-[0.2rem] md:text-xs text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100"
               >
                 {option.label}
               </span>

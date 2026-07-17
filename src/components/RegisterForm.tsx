@@ -33,7 +33,7 @@ function validate(values: Fields): Errors {
 }
 
 const FIELD_CLASS =
-  "w-full h-16 md:h-[0.56rem] px-5 md:px-[0.16rem] bg-transparent border border-black/20 text-base " +
+  "w-full h-[1.0rem] md:h-[0.56rem] px-5 md:px-[0.16rem] bg-transparent border border-black/20 text-[0.28rem] md:text-base " +
   "outline-none transition-colors duration-300 focus:border-black";
 
 export function RegisterForm() {
@@ -69,9 +69,9 @@ export function RegisterForm() {
 
   if (submitted) {
     return (
-      <div role="status" className="max-w-[6.4rem] border border-black/20 p-10 md:p-[0.32rem]">
+      <div role="status" className="max-w-[6.4rem] border border-black/20 p-[0.5rem] md:p-[0.32rem]">
         <h2 className="font-display text-2xl">Interest registered</h2>
-        <p className="mt-4 text-base text-black/70">
+        <p className="mt-4 text-[0.28rem] md:text-base text-black/70">
           Thanks {submitted.name.trim()} — we&apos;ve registered your interest in the{" "}
           {submitted.model}. We&apos;ll reach out to {submitted.email.trim()} as the India launch
           nears.
@@ -82,7 +82,7 @@ export function RegisterForm() {
             setSubmitted(null);
             setValues(EMPTY);
           }}
-          className="mt-8 h-16 md:h-[0.56rem] px-8 md:px-[0.24rem] border border-black text-base cursor-pointer transition-colors duration-300 hover:bg-black hover:text-white"
+          className="mt-8 h-[1.0rem] md:h-[0.56rem] px-[0.34rem] md:px-[0.24rem] border border-black text-[0.28rem] md:text-base cursor-pointer transition-colors duration-300 hover:bg-black hover:text-white"
         >
           Register another
         </button>
@@ -92,7 +92,7 @@ export function RegisterForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate className="max-w-[6.4rem]">
-      <div className="grid gap-8 md:gap-[0.24rem] md:grid-cols-2">
+      <div className="grid gap-[0.36rem] md:gap-[0.24rem] md:grid-cols-2">
         <Field id="name" label="Full name" error={errors.name}>
           <input
             id="name"
@@ -158,7 +158,7 @@ export function RegisterForm() {
       </div>
 
       {formError && (
-        <p className="mt-6 md:mt-[0.2rem] text-sm text-red-600" role="alert">
+        <p className="mt-[0.3rem] md:mt-[0.2rem] text-[0.24rem] md:text-sm text-red-600" role="alert">
           {formError}
         </p>
       )}
@@ -166,7 +166,7 @@ export function RegisterForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="mt-10 md:mt-[0.32rem] h-16 md:h-[0.56rem] px-10 md:px-[0.32rem] bg-black text-white text-base cursor-pointer transition-opacity duration-300 hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="mt-[0.5rem] md:mt-[0.32rem] h-[1.0rem] md:h-[0.56rem] px-[0.4rem] md:px-[0.32rem] bg-black text-white text-[0.28rem] md:text-base cursor-pointer transition-opacity duration-300 hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {submitting ? "Registering…" : "Register interest"}
       </button>
@@ -189,12 +189,12 @@ function Field({
     // Autofill/password-manager extensions inject attributes and nodes into
     // these inputs before hydration; suppress the mismatch they cause.
     <div suppressHydrationWarning>
-      <label htmlFor={id} className="block text-sm text-black/60 mb-3 md:mb-[0.08rem]">
+      <label htmlFor={id} className="block text-[0.24rem] md:text-sm text-black/60 mb-3 md:mb-[0.08rem]">
         {label}
       </label>
       {children}
       {error && (
-        <p className="mt-2 text-sm text-red-600" role="alert">
+        <p className="mt-2 text-[0.24rem] md:text-sm text-red-600" role="alert">
           {error}
         </p>
       )}

@@ -24,7 +24,7 @@ export function Introduction1({ data }: Introduction1Props) {
         </h1>
         <div
           className={cn(
-            "w-full flex-1 min-h-0 mt-8 md:mt-10 px-12 md:px-[0.5rem]",
+            "w-full flex-1 min-h-0 mt-8 md:mt-10 px-[0.45rem] md:px-[0.5rem]",
             "grid grid-cols-1 md:grid-cols-2 grid-rows-4 md:grid-rows-2 gap-3",
           )}
         >

@@ -218,7 +218,7 @@ export function ExteriorSpin({
         />
 
         {!ready && (
-          <span className="relative z-10 font-display text-sm tabular-nums text-black/50">
+          <span className="relative z-10 font-display text-[0.24rem] md:text-sm tabular-nums text-black/50">
             {percent}%
           </span>
         )}

@@ -59,10 +59,10 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
         }}
         placeholder="Quickly find questions and answers"
         aria-label="Search questions"
-        className="w-full h-16 md:h-[0.56rem] px-5 md:px-[0.16rem] bg-transparent border border-black/20 text-base outline-none transition-colors duration-300 focus:border-black"
+        className="w-full h-[1.0rem] md:h-[0.56rem] px-5 md:px-[0.16rem] bg-transparent border border-black/20 text-[0.28rem] md:text-base outline-none transition-colors duration-300 focus:border-black"
       />
 
-      <dl className="mt-10 md:mt-[0.32rem]">
+      <dl className="mt-[0.5rem] md:mt-[0.32rem]">
         {filtered.map((item) => {
           // Index into the original list so toggling stays stable across filtering.
           const index = items.indexOf(item);
@@ -75,9 +75,9 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
                   type="button"
                   onClick={() => setOpen(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="w-full flex items-center justify-between gap-6 py-8 md:py-[0.26rem] text-left cursor-pointer group"
+                  className="w-full flex items-center justify-between gap-6 py-[0.4rem] md:py-[0.26rem] text-left cursor-pointer group"
                 >
-                  <span className="text-lg md:text-[0.2rem] font-medium transition-colors duration-300 group-hover:text-black/60">
+                  <span className="text-[0.34rem] md:text-[0.2rem] font-medium transition-colors duration-300 group-hover:text-black/60">
                     {item.q}
                   </span>
                   <PlusIcon open={isOpen} />
@@ -90,7 +90,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
                 )}
               >
                 <div className="overflow-hidden">
-                  <p className="pb-8 md:pb-[0.26rem] pr-14 text-base text-black/60 leading-relaxed">
+                  <p className="pb-[0.4rem] md:pb-[0.26rem] pr-14 text-[0.28rem] md:text-base text-black/60 leading-relaxed">
                     {item.a}
                   </p>
                 </div>
@@ -100,7 +100,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
         })}
 
         {filtered.length === 0 && (
-          <p className="py-10 text-base text-black/50">
+          <p className="py-10 text-[0.28rem] md:text-base text-black/50">
             No questions match “{query}”. Try a different word.
           </p>
         )}

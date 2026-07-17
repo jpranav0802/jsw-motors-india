@@ -65,20 +65,20 @@ export function J5Viewer() {
   return (
     <div>
       {/* Headline stats */}
-      <div className="grid grid-cols-3 gap-6 md:gap-[0.32rem]">
+      <div className="grid grid-cols-3 gap-[0.28rem] md:gap-[0.32rem]">
         {STATS.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-[0.16rem] bg-[#e4e8ec] px-6 md:px-[0.3rem] py-12 md:py-[0.7rem] text-center"
+            className="rounded-[0.16rem] bg-[#e4e8ec] px-[0.26rem] md:px-[0.3rem] py-[0.6rem] md:py-[0.7rem] text-center"
           >
-            <div className="font-display text-4xl md:text-[0.72rem] leading-none">{stat.value}</div>
-            <div className="mt-3 md:mt-[0.18rem] text-sm md:text-[0.16rem] text-black/60">{stat.label}</div>
+            <div className="font-display text-[0.72rem] md:text-[0.72rem] leading-none">{stat.value}</div>
+            <div className="mt-[0.16rem] md:mt-[0.18rem] text-[0.24rem] md:text-[0.16rem] text-black/60">{stat.label}</div>
           </div>
         ))}
       </div>
 
       {/* Exterior / Interior pill toggle */}
-      <div className="mt-10 md:mt-[0.5rem] mx-auto flex w-fit items-center rounded-full bg-white p-1.5 md:p-[0.05rem] shadow-[0_0.02rem_0.16rem_rgba(0,0,0,0.08)]">
+      <div className="mt-[0.5rem] md:mt-[0.5rem] mx-auto flex w-fit items-center rounded-full bg-white p-[0.06rem] md:p-[0.05rem] shadow-[0_0.02rem_0.16rem_rgba(0,0,0,0.08)]">
         {TABS.map((t) => (
           <button
             key={t}
@@ -86,7 +86,7 @@ export function J5Viewer() {
             onClick={() => setTab(t)}
             aria-pressed={tab === t}
             className={cn(
-              "h-12 md:h-[0.5rem] px-8 md:px-[0.4rem] rounded-full text-base md:text-[0.18rem] font-medium capitalize cursor-pointer transition-colors duration-300",
+              "h-[0.78rem] md:h-[0.5rem] px-[0.34rem] md:px-[0.4rem] rounded-full text-[0.3rem] md:text-[0.18rem] font-medium capitalize cursor-pointer transition-colors duration-300",
               tab === t ? "bg-black text-white" : "text-black/60 hover:text-black",
             )}
           >
@@ -96,7 +96,7 @@ export function J5Viewer() {
       </div>
 
       {/* Car image with hotspots */}
-      <div className="relative mt-10 md:mt-[0.4rem] overflow-hidden rounded-[0.16rem] bg-[#eceded]">
+      <div className="relative mt-[0.5rem] md:mt-[0.4rem] overflow-hidden rounded-[0.16rem] bg-[#eceded]">
         <img src={view.image} alt={`Jaecoo J5 ${tab}`} className="w-full object-cover" />
         {view.hotspots.map((h) => (
           <span
@@ -105,9 +105,9 @@ export function J5Viewer() {
             style={{ left: `${h.x}%`, top: `${h.y}%` }}
             className="group absolute -translate-x-1/2 -translate-y-1/2"
           >
-            <span className="block size-6 md:size-[0.28rem] rounded-full bg-white shadow-[0_0_0_0.06rem_rgba(255,255,255,0.4)]" />
+            <span className="block size-[0.3rem] md:size-[0.28rem] rounded-full bg-white shadow-[0_0_0_0.06rem_rgba(255,255,255,0.4)]" />
             <span className="absolute inset-0 rounded-full bg-white/70 animate-ping" />
-            <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/80 px-3 md:px-[0.12rem] py-1 text-xs md:text-[0.12rem] text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+            <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/80 px-[0.14rem] md:px-[0.12rem] py-1 text-xs md:text-[0.12rem] text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">
               {h.label}
             </span>
           </span>
@@ -115,15 +115,15 @@ export function J5Viewer() {
       </div>
 
       {/* Feature cards for the active view */}
-      <div className="mt-10 md:mt-[0.4rem] grid gap-8 md:gap-[0.32rem] md:grid-cols-3">
+      <div className="mt-[0.5rem] md:mt-[0.4rem] grid gap-[0.36rem] md:gap-[0.32rem] md:grid-cols-3">
         {view.features.map((feature) => (
           <article key={feature.title} className="overflow-hidden rounded-[0.16rem] bg-white shadow-[0_0.04rem_0.24rem_rgba(0,0,0,0.06)]">
             <div className="aspect-[596/735] overflow-hidden">
               <img src={feature.image} alt={feature.title} className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.04]" />
             </div>
-            <div className="p-8 md:p-[0.3rem]">
-              <h3 className="font-display text-xl md:text-[0.22rem] font-medium">{feature.title}</h3>
-              <p className="mt-3 md:mt-[0.12rem] text-base md:text-[0.15rem] leading-relaxed text-black/60">{feature.body}</p>
+            <div className="p-[0.4rem] md:p-[0.3rem]">
+              <h3 className="font-display text-[0.4rem] md:text-[0.22rem] font-medium">{feature.title}</h3>
+              <p className="mt-[0.16rem] md:mt-[0.12rem] text-[0.3rem] md:text-[0.15rem] leading-relaxed text-black/60">{feature.body}</p>
             </div>
           </article>
         ))}

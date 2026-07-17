@@ -30,14 +30,14 @@ export function V23ColorPicker() {
         src="/v23/side-profile.png"
         alt={`JSW V23 in ${active.name}`}
         style={{ filter: active.filter }}
-        className="mt-10 md:mt-[0.3rem] w-full max-w-[13rem] mx-auto object-contain transition-[filter] duration-500 ease-out"
+        className="mt-[0.5rem] md:mt-[0.3rem] w-full max-w-[13rem] mx-auto object-contain transition-[filter] duration-500 ease-out"
       />
 
-      <p className="mt-6 md:mt-[0.24rem] text-base md:text-[0.18rem] text-[#5b564e]">
+      <p className="mt-[0.3rem] md:mt-[0.24rem] text-[0.3rem] md:text-[0.18rem] text-[#5b564e]">
         Color Options : <span className="font-medium text-[#4a4640]">{active.name}</span>
       </p>
 
-      <div className="mt-6 md:mt-[0.24rem] flex items-center justify-center gap-5 md:gap-[0.2rem]">
+      <div className="mt-[0.3rem] md:mt-[0.24rem] flex items-center justify-center gap-5 md:gap-[0.2rem]">
         {SHADES.map((shade, n) => (
           <button
             key={shade.name}

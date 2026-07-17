@@ -13,13 +13,13 @@ interface LegalDocProps {
 export function LegalDoc({ updated, sections }: LegalDocProps) {
   return (
     <div className="max-w-[7.2rem]">
-      <p className="text-sm text-black/40">Last updated {updated}</p>
+      <p className="text-[0.24rem] md:text-sm text-black/40">Last updated {updated}</p>
 
-      <div className="mt-10 md:mt-[0.32rem] space-y-12 md:space-y-[0.4rem]">
+      <div className="mt-[0.5rem] md:mt-[0.32rem] space-y-12 md:space-y-[0.4rem]">
         {sections.map((section) => (
           <section key={section.heading}>
-            <h2 className="font-display text-xl md:text-[0.2rem]">{section.heading}</h2>
-            <div className="mt-4 md:mt-[0.16rem] space-y-4 md:space-y-[0.12rem] text-base leading-relaxed text-black/60">
+            <h2 className="font-display text-[0.4rem] md:text-[0.2rem]">{section.heading}</h2>
+            <div className="mt-[0.2rem] md:mt-[0.16rem] space-y-[0.2rem] md:space-y-[0.12rem] text-[0.28rem] md:text-base leading-relaxed text-black/60">
               {section.body.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}

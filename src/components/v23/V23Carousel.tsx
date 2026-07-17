@@ -15,7 +15,7 @@ interface V23CarouselProps {
 
 function Chevron({ dir }: { dir: "left" | "right" }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-6 md:size-[0.24rem]">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-[0.3rem] md:size-[0.24rem]">
       <path
         d={dir === "left" ? "M15 6l-6 6 6 6" : "M9 6l6 6-6 6"}
         stroke="currentColor"
@@ -51,7 +51,7 @@ export function V23Carousel({ images, aspect = "aspect-[16/9]", className, round
             type="button"
             onClick={() => go(-1)}
             aria-label="Previous"
-            className="absolute left-4 md:left-[0.16rem] top-1/2 -translate-y-1/2 grid place-items-center size-12 md:size-[0.48rem] rounded-[0.06rem] bg-white/85 text-black shadow-md cursor-pointer transition-colors hover:bg-white"
+            className="absolute left-4 md:left-[0.16rem] top-1/2 -translate-y-1/2 grid place-items-center size-[0.6rem] md:size-[0.48rem] rounded-[0.06rem] bg-white/85 text-black shadow-md cursor-pointer transition-colors hover:bg-white"
           >
             <Chevron dir="left" />
           </button>
@@ -59,7 +59,7 @@ export function V23Carousel({ images, aspect = "aspect-[16/9]", className, round
             type="button"
             onClick={() => go(1)}
             aria-label="Next"
-            className="absolute right-4 md:right-[0.16rem] top-1/2 -translate-y-1/2 grid place-items-center size-12 md:size-[0.48rem] rounded-[0.06rem] bg-white/85 text-black shadow-md cursor-pointer transition-colors hover:bg-white"
+            className="absolute right-4 md:right-[0.16rem] top-1/2 -translate-y-1/2 grid place-items-center size-[0.6rem] md:size-[0.48rem] rounded-[0.06rem] bg-white/85 text-black shadow-md cursor-pointer transition-colors hover:bg-white"
           >
             <Chevron dir="right" />
           </button>

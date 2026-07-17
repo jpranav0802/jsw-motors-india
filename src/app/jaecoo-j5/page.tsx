@@ -70,23 +70,23 @@ export default function JaecooJ5Page() {
         <img src="/jaecoo-j5/hero.jpg" alt="Jaecoo J5 electric SUV" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55" />
 
-        <div className="relative mx-auto flex h-full max-w-[19.2rem] flex-col items-center px-12 md:px-[0.7rem] pt-32 md:pt-[1.4rem] pb-16 md:pb-[0.8rem] text-white text-center">
-          <Reveal className="flex flex-col items-center gap-6 md:gap-[0.2rem]">
-            <span className="font-mono uppercase tracking-[0.24em] text-sm md:text-[0.13rem] text-white/80">
+        <div className="relative mx-auto flex h-full max-w-[19.2rem] flex-col items-center px-[0.45rem] md:px-[0.7rem] pt-[1.5rem] md:pt-[1.4rem] pb-[0.8rem] md:pb-[0.8rem] text-white text-center">
+          <Reveal className="flex flex-col items-center gap-[0.28rem] md:gap-[0.2rem]">
+            <span className="font-mono uppercase tracking-[0.24em] text-[0.24rem] md:text-[0.13rem] text-white/80">
               Jaecoo J5 Electric
             </span>
           </Reveal>
 
           <div className="flex-1" />
 
-          <Reveal className="w-full flex flex-col items-center gap-10 md:gap-[0.4rem]" delay={120}>
-            <h1 className="max-w-[11rem] font-display text-3xl md:text-[0.56rem] leading-[1.1] font-medium">
+          <Reveal className="w-full flex flex-col items-center gap-[0.4rem] md:gap-[0.4rem]" delay={120}>
+            <h1 className="max-w-[11rem] font-display text-[0.6rem] md:text-[0.56rem] leading-[1.1] font-medium">
               Go further, fully electric. The Jaecoo J5 is built for every adventure.
             </h1>
-            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-[0.16rem]">
+            <div className="flex flex-wrap items-center justify-center gap-[0.2rem] md:gap-[0.16rem]">
               <Link
                 href="/register"
-                className="inline-flex items-center h-14 md:h-[0.56rem] px-8 md:px-[0.34rem] rounded-full bg-white text-black text-base md:text-[0.16rem] font-medium transition-transform duration-300 hover:scale-105"
+                className="inline-flex items-center h-[0.9rem] md:h-[0.56rem] px-[0.34rem] md:px-[0.34rem] rounded-full bg-white text-black text-[0.3rem] md:text-[0.16rem] font-medium transition-transform duration-300 hover:scale-105"
               >
                 Register interest
               </Link>
@@ -97,16 +97,16 @@ export default function JaecooJ5Page() {
 
       {/* ── Exterior / Interior viewer ─────────────────────────── */}
       <section className="w-full bg-white">
-        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem]">
+        <div className="mx-auto max-w-[19.2rem] px-[0.45rem] md:px-[0.7rem] py-[1.2rem] md:py-[1rem]">
           <Reveal className="text-center">
-            <span className="font-mono uppercase tracking-[0.24em] text-sm md:text-[0.13rem] text-[#6b9b37]">
+            <span className="font-mono uppercase tracking-[0.24em] text-[0.24rem] md:text-[0.13rem] text-[#6b9b37]">
               Technological design
             </span>
-            <h2 className="mt-6 md:mt-[0.24rem] mx-auto max-w-[11rem] font-display text-3xl md:text-[0.44rem] leading-[1.15] font-medium">
+            <h2 className="mt-[0.3rem] md:mt-[0.24rem] mx-auto max-w-[11rem] font-display text-[0.6rem] md:text-[0.44rem] leading-[1.15] font-medium">
               Mountain-inspired design, intelligent electric power
             </h2>
           </Reveal>
-          <Reveal delay={120} className="mt-12 md:mt-[0.5rem]">
+          <Reveal delay={120} className="mt-[0.6rem] md:mt-[0.5rem]">
             <J5Viewer />
           </Reveal>
         </div>
@@ -114,13 +114,13 @@ export default function JaecooJ5Page() {
 
       {/* ── Colour picker ──────────────────────────────────────── */}
       <section className="w-full bg-[#f6f6f6]">
-        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem]">
+        <div className="mx-auto max-w-[19.2rem] px-[0.45rem] md:px-[0.7rem] py-[1.2rem] md:py-[1rem]">
           <Reveal>
-            <h2 className="mx-auto max-w-[12rem] text-center font-display text-3xl md:text-[0.4rem] leading-[1.15] font-medium">
+            <h2 className="mx-auto max-w-[12rem] text-center font-display text-[0.6rem] md:text-[0.4rem] leading-[1.15] font-medium">
               Designed to conquer every road, in the shade that fits your vibe
             </h2>
           </Reveal>
-          <Reveal delay={120} className="mt-12 md:mt-[0.5rem]">
+          <Reveal delay={120} className="mt-[0.6rem] md:mt-[0.5rem]">
             <J5ColorPicker />
           </Reveal>
         </div>
@@ -136,13 +136,13 @@ export default function JaecooJ5Page() {
 
       {/* ── New crossover ──────────────────────────────────────── */}
       <section className="w-full bg-[#f6f6f6]">
-        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem]">
+        <div className="mx-auto max-w-[19.2rem] px-[0.45rem] md:px-[0.7rem] py-[1.2rem] md:py-[1rem]">
           <Reveal>
-            <h2 className="text-center font-display text-3xl md:text-[0.44rem] leading-none font-medium">
+            <h2 className="text-center font-display text-[0.6rem] md:text-[0.44rem] leading-none font-medium">
               New Jaecoo J5 EV crossover
             </h2>
           </Reveal>
-          <Reveal delay={120} className="mt-12 md:mt-[0.5rem] overflow-hidden rounded-[0.16rem]">
+          <Reveal delay={120} className="mt-[0.6rem] md:mt-[0.5rem] overflow-hidden rounded-[0.16rem]">
             <img src="/jaecoo-j5/crossover.jpg" alt="Jaecoo J5 driving on an open road" className="w-full object-cover" />
           </Reveal>
         </div>
@@ -150,11 +150,11 @@ export default function JaecooJ5Page() {
 
       {/* ── Register interest CTA ──────────────────────────────── */}
       <section className="w-full bg-white">
-        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1.4rem] flex justify-center">
+        <div className="mx-auto max-w-[19.2rem] px-[0.45rem] md:px-[0.7rem] py-[1.2rem] md:py-[1.4rem] flex justify-center">
           <Reveal>
             <Link
               href="/register"
-              className="inline-flex items-center h-14 md:h-[0.7rem] px-10 md:px-[0.5rem] rounded-full bg-black text-white text-base md:text-[0.2rem] font-medium transition-opacity duration-300 hover:opacity-85"
+              className="inline-flex items-center h-[0.9rem] md:h-[0.7rem] px-[0.4rem] md:px-[0.5rem] rounded-full bg-black text-white text-[0.3rem] md:text-[0.2rem] font-medium transition-opacity duration-300 hover:opacity-85"
             >
               Register your interest
             </Link>
