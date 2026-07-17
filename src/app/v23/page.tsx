@@ -1,0 +1,169 @@
+/* eslint-disable @next/next/no-img-element -- large studio/scene photos swapped as
+   raw <img>; next/image would re-run its loader and fight the rem-scaled layout. */
+import type { Metadata } from "next";
+import Link from "next/link";
+
+import { V23Carousel } from "@/components/v23/V23Carousel";
+
+export const metadata: Metadata = {
+  title: "V23 — Retro-stylish Electric City Car | JSW Motors India",
+  description:
+    "The CHERY V23 is a 100% electric, retro-style boxy city car — 211 PS, 430 km NEDC range and 2WD & 4WD, built to match your journey and your style.",
+};
+
+const STATS = [
+  { icon: "/v23/icon-power.png", label: "Maximum power (PS)", value: "211" },
+  { icon: "/v23/icon-torque.png", label: "Maximum torque (Nm)", value: "292" },
+  { icon: "/v23/icon-range.png", label: "Maximum Range (NEDC)", value: "430 km" },
+  { icon: "/v23/icon-drivetrain.png", label: "Drivetrain", value: "2WD & 4WD" },
+  { icon: "/v23/icon-accel.png", label: "Acceleration (0-100 km/h)", value: "7.5 s" },
+];
+
+const SHADES = [
+  { name: "Sunburst Orange", color: "#e8622a", active: true },
+  { name: "Pearl White", color: "#eceae5" },
+  { name: "Sky Grey", color: "#9aa2a6" },
+  { name: "Midnight Black", color: "#1c1c1e" },
+  { name: "Forest Green", color: "#3f5a45" },
+];
+
+export default function V23Page() {
+  return (
+    <main className="w-full bg-white text-black">
+      {/* ── Hero ───────────────────────────────────────────────── */}
+      <section className="relative w-full h-[88vh] min-h-[5.6rem] overflow-hidden pt-20 md:pt-[0.75rem]">
+        <img src="/v23/hero.jpg" alt="CHERY V23 driving through the city" className="absolute inset-0 h-full w-full object-cover" />
+
+        <div className="relative mx-auto h-full max-w-[19.2rem] px-12 md:px-[0.7rem]">
+          <div className="absolute left-12 md:left-[0.7rem] top-1/2 -translate-y-1/2 w-full max-w-[5rem] rounded-[0.1rem] bg-white/55 backdrop-blur-md p-10 md:p-[0.4rem] shadow-[0_0.1rem_0.6rem_rgba(0,0,0,0.12)]">
+            <h1 className="font-display text-3xl md:text-[0.42rem] leading-[1.1] font-medium uppercase">
+              The retro-stylish, boxy electric city car
+            </h1>
+            <p className="mt-6 md:mt-[0.24rem] text-base md:text-[0.17rem] leading-relaxed text-black/70">
+              Bring joy to every ride in the CHERY V23 — a 100% electric retro-style car with a bold
+              BOXY design, built to match your journey and your style.
+            </p>
+            <div className="mt-10 md:mt-[0.4rem]">
+              <div className="text-sm md:text-[0.13rem] text-black/50">Start Price</div>
+              <div className="mt-1 flex items-end gap-2">
+                <span className="font-display text-4xl md:text-[0.4rem] leading-none">699,900</span>
+                <span className="text-sm md:text-[0.13rem] text-black/50 pb-1">THB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Spec strip ─────────────────────────────────────────── */}
+      <section className="w-full bg-gradient-to-b from-[#33333a] to-[#0d0d10] text-white">
+        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-14 md:py-[0.56rem]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-x-[0.4rem] md:gap-y-[0.5rem]">
+            {STATS.map((s) => (
+              <div key={s.label} className="flex items-center gap-5 md:gap-[0.2rem]">
+                <img src={s.icon} alt="" className="size-14 md:size-[0.56rem] object-contain shrink-0" />
+                <div>
+                  <div className="text-sm md:text-[0.14rem] text-white/70">{s.label}</div>
+                  <div className="font-display text-2xl md:text-[0.28rem] leading-tight">{s.value}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Play hard, relax more ──────────────────────────────── */}
+      <section className="w-full bg-gradient-to-b from-[#bdb4a3] to-[#ded7ca]">
+        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem] grid gap-12 md:gap-[0.6rem] md:grid-cols-2 items-center">
+          <V23Carousel
+            images={["/v23/interior-1.jpg", "/v23/interior-2.jpg", "/v23/interior-3.jpg"]}
+            aspect="aspect-[1473/1177]"
+          />
+          <div>
+            <h2 className="font-display text-3xl md:text-[0.46rem] leading-[1.05] font-medium uppercase text-[#4a4640]">
+              Play hard, relax more
+            </h2>
+            <p className="mt-6 md:mt-[0.24rem] text-base md:text-[0.18rem] leading-relaxed text-[#5b564e] max-w-[5.4rem]">
+              Enjoy wide-open visibility, a high-roof design, and practical features that make every
+              drive more enjoyable.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Unique boxy design ─────────────────────────────────── */}
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem]">
+          <h2 className="font-display text-3xl md:text-[0.46rem] leading-none font-medium uppercase text-center">
+            Unique boxy design
+          </h2>
+          <div className="mt-12 md:mt-[0.5rem] overflow-hidden rounded-[0.12rem]">
+            <img src="/v23/boxy.jpg" alt="CHERY V23 in a studio, three-quarter front view" className="w-full object-cover" />
+          </div>
+          <div className="mt-8 md:mt-[0.3rem] flex flex-col items-end">
+            <span className="text-sm md:text-[0.16rem] text-black/50">Dimensions (L x W x H) (mm)</span>
+            <span className="font-display text-2xl md:text-[0.3rem] leading-tight">4220 x 1915 x 1845</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Pick the shade ─────────────────────────────────────── */}
+      <section className="w-full bg-gradient-to-b from-[#c3baa9] to-[#e7e1d5]">
+        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem] text-center">
+          <h2 className="font-display text-2xl md:text-[0.34rem] leading-snug font-medium uppercase text-[#4a4640] max-w-[10rem] mx-auto">
+            Pick the shade that fits your vibe and makes every drive uniquely yours
+          </h2>
+          <img
+            src="/v23/side-profile.png"
+            alt="CHERY V23 side profile"
+            className="mt-10 md:mt-[0.3rem] w-full max-w-[13rem] mx-auto object-contain"
+          />
+          <div className="mt-8 md:mt-[0.3rem] flex items-center justify-center gap-5 md:gap-[0.2rem]">
+            {SHADES.map((shade) => (
+              <span
+                key={shade.name}
+                title={shade.name}
+                style={{ background: shade.color }}
+                className={`size-10 md:size-[0.4rem] rounded-full border transition-transform ${
+                  shade.active ? "border-black scale-110" : "border-black/20"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Moments gallery ────────────────────────────────────── */}
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem]">
+          <h2 className="font-display text-3xl md:text-[0.46rem] leading-none font-medium uppercase">
+            Moments gallery
+          </h2>
+          <div className="mt-12 md:mt-[0.5rem]">
+            <V23Carousel
+              images={["/v23/gallery-1.jpg", "/v23/gallery-2.jpg", "/v23/gallery-3.jpg"]}
+              aspect="aspect-[16/7]"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── Register CTA (ties the model into our site) ────────── */}
+      <section className="w-full bg-neutral-950 text-white">
+        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-20 md:py-[0.9rem] flex flex-col items-center text-center gap-8 md:gap-[0.3rem]">
+          <h2 className="font-display text-3xl md:text-[0.42rem] leading-tight font-medium uppercase">
+            Be first in line for the V23
+          </h2>
+          <p className="text-base md:text-[0.18rem] text-white/60 max-w-[6.4rem]">
+            Register your interest and we&apos;ll keep you posted as the V23 nears its India launch.
+          </p>
+          <Link
+            href="/register"
+            className="inline-flex items-center h-16 md:h-[0.56rem] px-10 md:px-[0.36rem] bg-brand-lime text-black text-base md:text-[0.17rem] font-medium rounded-[0.04rem] transition-opacity duration-300 hover:opacity-85"
+          >
+            Register your interest
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
+}
