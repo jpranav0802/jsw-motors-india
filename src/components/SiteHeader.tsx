@@ -17,13 +17,15 @@ interface Vehicle {
   /** Omitted for models that have no page yet — shown as "coming soon". */
   href?: string;
   image?: string;
+  /** Launch-status tagline shown under the model name. */
+  caption?: string;
 }
 
 const VEHICLES: Vehicle[] = [
   // The T2 studio shot reuses the exterior spin's sun-orange hero frame.
-  { name: "Jetour T2", href: "/", image: "/exterior/T2/sun_orange/23.png" },
-  { name: "Jaecoo J5", href: "/jaecoo-j5", image: "/jaecoo-j5/exterior.webp" },
-  { name: "V23", href: "/v23", image: "/v23/side-profile.png" },
+  { name: "Jetour T2", href: "/", image: "/exterior/T2/sun_orange/23.png", caption: "Launching this Diwali!" },
+  { name: "Jaecoo J5", href: "/jaecoo-j5", image: "/jaecoo-j5/exterior.webp", caption: "Coming Soon!" },
+  { name: "V23", href: "/v23", image: "/v23/side-profile.png", caption: "Coming Soon!" },
 ];
 
 function ChevronDownIcon({ className }: { className?: string }) {
@@ -190,6 +192,11 @@ function VehicleCard({ vehicle, onNavigate }: { vehicle: Vehicle; onNavigate: ()
       <div className="mt-4 md:mt-[0.16rem] text-center font-display text-2xl md:text-[0.24rem]">
         {vehicle.name}
       </div>
+      {vehicle.caption && (
+        <div className="mt-1 md:mt-[0.06rem] text-center font-mono uppercase tracking-[0.16em] text-xs md:text-[0.12rem] text-[#6b9b37]">
+          {vehicle.caption}
+        </div>
+      )}
     </>
   );
 
