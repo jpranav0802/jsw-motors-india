@@ -84,6 +84,20 @@ export function SiteHeader() {
       ? "text-white md:hover:bg-white md:hover:text-black"
       : "bg-black text-white md:hover:bg-white md:hover:text-black";
 
+  const renderNavLink = (item: (typeof NAV)[number]) => {
+    const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+    return (
+      <Link
+        key={item.href}
+        href={item.href}
+        aria-current={active ? "page" : undefined}
+        className={cn(NAV_LINK, active ? "after:w-full" : "after:w-0 hover:after:w-full")}
+      >
+        {item.label}
+      </Link>
+    );
+  };
+
   return (
     <header ref={headerRef} className="group fixed top-0 left-0 right-0 z-50">
       {/* Permanent disclaimer — this is a fan-made clone, not an official site. */}
@@ -113,6 +127,8 @@ export function SiteHeader() {
             </Link>
 
             <div className="hidden md:flex items-center gap-[0.5rem] h-full">
+              {renderNavLink(NAV[0])}
+
               <button
                 type="button"
                 onClick={() => setOpen((v) => !v)}
@@ -125,19 +141,7 @@ export function SiteHeader() {
                 />
               </button>
 
-              {NAV.map((item) => {
-                const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    aria-current={active ? "page" : undefined}
-                    className={cn(NAV_LINK, active ? "after:w-full" : "after:w-0 hover:after:w-full")}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
+              {NAV.slice(1).map(renderNavLink)}
             </div>
           </div>
 

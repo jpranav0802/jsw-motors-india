@@ -19,6 +19,7 @@ export const t2Sections: VehicleSection[] = [
         { value: "1.5/2.0T", label: "Engine" },
         { value: 2800, label: "Wheelbase(mm)" },
         { value: "4785*2006*1880", label: "Length*Width*Height (mm)" },
+        { value: "₹25–30L", label: "Expected Price" },
       ],
     },
   },

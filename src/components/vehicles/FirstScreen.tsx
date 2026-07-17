@@ -38,7 +38,12 @@ export function FirstScreen({ data }: FirstScreenProps) {
           </span>
           <T2LogoIcon className="text-8xl" />
         </div>
-        <h2 className="text-2xl">{data.name}</h2>
+        <div className="flex flex-col items-center gap-4 md:gap-[0.14rem]">
+          <h2 className="text-2xl">{data.name}</h2>
+          <span className="inline-flex items-center rounded-full border border-brand-lime/60 bg-black/25 backdrop-blur-sm px-5 md:px-[0.18rem] py-1.5 md:py-[0.05rem] font-display text-xs md:text-[0.14rem] tracking-[0.22em] uppercase text-brand-lime">
+            Launching this Diwali!
+          </span>
+        </div>
       </div>
       <div className="absolute bottom-[9.07vh] inset-x-8 md:right-auto md:left-1/2 md:-translate-x-1/2">
         <dl className="flex items-center justify-center gap-8 md:gap-12">

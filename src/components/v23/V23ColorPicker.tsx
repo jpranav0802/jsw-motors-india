@@ -28,7 +28,7 @@ export function V23ColorPicker() {
     <div className="text-center">
       <img
         src="/v23/side-profile.png"
-        alt={`CHERY V23 in ${active.name}`}
+        alt={`JSW V23 in ${active.name}`}
         style={{ filter: active.filter }}
         className="mt-10 md:mt-[0.3rem] w-full max-w-[13rem] mx-auto object-contain transition-[filter] duration-500 ease-out"
       />

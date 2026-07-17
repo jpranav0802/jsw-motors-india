@@ -9,7 +9,7 @@ import { V23ColorPicker } from "@/components/v23/V23ColorPicker";
 export const metadata: Metadata = {
   title: "V23 — Retro-stylish Electric City Car | JSW Motors India",
   description:
-    "The CHERY V23 is a 100% electric, retro-style boxy city car — 211 PS, 430 km NEDC range and 2WD & 4WD, built to match your journey and your style.",
+    "The JSW V23 is a 100% electric, retro-style boxy city car — 211 PS, 430 km NEDC range and 2WD & 4WD, built to match your journey and your style.",
 };
 
 const STATS = [
@@ -38,20 +38,14 @@ export default function V23Page() {
 
         <div className="relative mx-auto h-full max-w-[19.2rem] px-12 md:px-[0.7rem]">
           <div className="absolute left-12 md:left-[0.7rem] top-1/2 -translate-y-1/2 w-full max-w-[5rem] rounded-[0.1rem] bg-white/55 backdrop-blur-md p-10 md:p-[0.4rem] shadow-[0_0.1rem_0.6rem_rgba(0,0,0,0.12)]">
-            <h1 className="font-display text-3xl md:text-[0.42rem] leading-[1.1] font-medium uppercase">
+            <div className="font-display text-4xl md:text-[0.44rem] leading-none">V23</div>
+            <h1 className="mt-3 md:mt-[0.14rem] font-display text-xl md:text-[0.28rem] leading-[1.2] font-medium uppercase text-black/70">
               The retro-stylish, boxy electric city car
             </h1>
-            <p className="mt-6 md:mt-[0.24rem] text-base md:text-[0.17rem] leading-relaxed text-black/70">
-              Bring joy to every ride in the CHERY V23 — a 100% electric retro-style car with a bold
+            <p className="mt-5 md:mt-[0.2rem] text-base md:text-[0.17rem] leading-relaxed text-black/70">
+              Bring joy to every ride in the JSW V23 — a 100% electric retro-style car with a bold
               BOXY design, built to match your journey and your style.
             </p>
-            <div className="mt-10 md:mt-[0.4rem]">
-              <div className="text-sm md:text-[0.13rem] text-black/50">Start Price</div>
-              <div className="mt-1 flex items-end gap-2">
-                <span className="font-display text-4xl md:text-[0.4rem] leading-none">699,900</span>
-                <span className="text-sm md:text-[0.13rem] text-black/50 pb-1">THB</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -99,7 +93,7 @@ export default function V23Page() {
             Unique boxy design
           </h2>
           <div className="mt-12 md:mt-[0.5rem] overflow-hidden rounded-[0.12rem]">
-            <img src="/v23/boxy.jpg" alt="CHERY V23 in a studio, three-quarter front view" className="w-full object-cover" />
+            <img src="/v23/boxy.jpg" alt="JSW V23 in a studio, three-quarter front view" className="w-full object-cover" />
           </div>
           <div className="mt-8 md:mt-[0.3rem] flex flex-col items-end">
             <span className="text-sm md:text-[0.16rem] text-black/50">Dimensions (L x W x H) (mm)</span>
