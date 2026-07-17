@@ -3,8 +3,14 @@
 
 import { useEffect, useRef } from "react";
 
+export interface J5Slide {
+  image: string;
+  title: string;
+  specs: string[];
+}
+
 interface J5SliderProps {
-  images: string[];
+  slides: J5Slide[];
 }
 
 /**
@@ -23,7 +29,7 @@ interface J5SliderProps {
  * the smooth scroll. (rAF naturally pauses while the tab is hidden — exactly
  * what we want, since nothing needs animating when nobody's looking.)
  */
-export function J5Slider({ images }: J5SliderProps) {
+export function J5Slider({ slides }: J5SliderProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -55,7 +61,7 @@ export function J5Slider({ images }: J5SliderProps) {
     raf = requestAnimationFrame(loop);
 
     return () => cancelAnimationFrame(raf);
-  }, [images.length]);
+  }, [slides.length]);
 
   return (
     // Tall wrapper gives the sticky panel room to translate the track sideways.
@@ -66,15 +72,31 @@ export function J5Slider({ images }: J5SliderProps) {
       >
         <div
           ref={trackRef}
-          className="flex gap-6 md:gap-[0.24rem] px-12 md:px-[0.7rem] will-change-transform"
+          className="flex gap-6 md:gap-[0.32rem] px-12 md:px-[0.7rem] will-change-transform"
         >
-          {images.map((src) => (
-            <div
-              key={src}
-              className="shrink-0 w-[80vw] md:w-[46vw] overflow-hidden rounded-[0.16rem]"
+          {slides.map((slide) => (
+            <article
+              key={slide.image}
+              className="shrink-0 w-[80vw] md:w-[46vw] overflow-hidden rounded-[0.16rem] bg-white shadow-[0_0.04rem_0.24rem_rgba(0,0,0,0.06)]"
             >
-              <img src={src} alt="" className="aspect-[16/10] w-full object-cover" />
-            </div>
+              <img src={slide.image} alt="" className="aspect-[16/10] w-full object-cover" />
+              <div className="p-8 md:p-[0.44rem]">
+                <h3 className="font-display text-2xl md:text-[0.36rem] leading-none font-medium">
+                  {slide.title}
+                </h3>
+                <ul className="mt-6 md:mt-[0.28rem] space-y-3 md:space-y-[0.14rem]">
+                  {slide.specs.map((spec) => (
+                    <li
+                      key={spec}
+                      className="flex gap-3 md:gap-[0.12rem] text-base md:text-[0.18rem] leading-relaxed text-black/70"
+                    >
+                      <span className="mt-2 md:mt-[0.1rem] size-1.5 md:size-[0.06rem] shrink-0 rounded-full bg-[#6b9b37]" />
+                      <span>{spec}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
           ))}
         </div>
       </div>

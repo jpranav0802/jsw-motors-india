@@ -14,16 +14,51 @@ export const metadata: Metadata = {
     "The Jaecoo J5 is a fully electric premium SUV — bold design, a silent glass cabin and striking alloys, built for every adventure.",
 };
 
-const TRIMS = [
+const ADVENTURE_SLIDES = [
   {
-    name: "Pure",
-    price: "£27,505",
-    body: "The essential J5 — premium comfort, a silent electric drive and the full suite of safety tech.",
+    image: "/jaecoo-j5/gallery-1.webp",
+    title: "Adventure starts here",
+    specs: [
+      "Powerful yet Elegant Design",
+      "540° all-terrain view, independent suspension from entry level",
+      "20°/30° approach/departure angle (better than Discovery Sport)",
+    ],
   },
   {
-    name: "Luxury",
-    price: "£30,505",
-    body: "Everything in Pure, plus elevated materials, a bigger glass roof and the top-tier sound system.",
+    image: "/jaecoo-j5/gallery-2.webp",
+    title: "Adventure starts here",
+    specs: [
+      "Best-in-class 1.45㎡ panoramic sunroof",
+      "19 ADAS features, elegant column-mounted gear shifter",
+      "1492mm second-row seating width",
+    ],
+  },
+  {
+    image: "/jaecoo-j5/gallery-3.webp",
+    title: "Adventure starts here",
+    specs: [
+      "Up to 500 km of all-electric range",
+      "30–80% fast charge in around 20 minutes",
+      "15.6-inch high-definition central touchscreen",
+    ],
+  },
+  {
+    image: "/jaecoo-j5/gallery-4.webp",
+    title: "Adventure starts here",
+    specs: [
+      "Eight airbags and a five-star safety pedigree",
+      "50:50 weight distribution for balanced handling",
+      "Immersive Sony premium audio system",
+    ],
+  },
+  {
+    image: "/jaecoo-j5/gallery-5.webp",
+    title: "Adventure starts here",
+    specs: [
+      "Zero-emission electric drivetrain",
+      "Vehicle-to-load (V2L) power for the outdoors",
+      "Seven-year warranty for total peace of mind",
+    ],
   },
 ];
 
@@ -92,29 +127,11 @@ export default function JaecooJ5Page() {
       </section>
 
       {/* ── Adventure starts here (scroll-driven slider) ───────── */}
-      <section className="w-full bg-white pt-24 md:pt-[1rem]">
-        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem]">
-          <Reveal>
-            <h2 className="font-display text-3xl md:text-[0.5rem] leading-none font-medium">
-              Adventure starts here
-            </h2>
-            <p className="mt-6 md:mt-[0.24rem] max-w-[9rem] text-base md:text-[0.18rem] leading-relaxed text-black/55">
-              Rugged styling, advanced technology, luxurious comfort and a class-leading range make the
-              Jaecoo J5 the perfect companion for every adventure.
-            </p>
-          </Reveal>
-        </div>
+      <section className="w-full bg-white">
         {/* Full-bleed, sits outside any transformed ancestor so the sticky
-            panel inside can track the scroll. */}
-        <J5Slider
-          images={[
-            "/jaecoo-j5/gallery-1.webp",
-            "/jaecoo-j5/gallery-2.webp",
-            "/jaecoo-j5/gallery-3.webp",
-            "/jaecoo-j5/gallery-4.webp",
-            "/jaecoo-j5/gallery-5.webp",
-          ]}
-        />
+            panel inside can track the scroll. Each card carries its own
+            "Adventure starts here" title and spec bullets. */}
+        <J5Slider slides={ADVENTURE_SLIDES} />
       </section>
 
       {/* ── New crossover ──────────────────────────────────────── */}
@@ -131,38 +148,17 @@ export default function JaecooJ5Page() {
         </div>
       </section>
 
-      {/* ── Specifications & pricing ───────────────────────────── */}
+      {/* ── Register interest CTA ──────────────────────────────── */}
       <section className="w-full bg-white">
-        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem]">
+        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1.4rem] flex justify-center">
           <Reveal>
-            <h2 className="font-display text-3xl md:text-[0.44rem] leading-none font-medium text-center">
-              Specifications
-            </h2>
+            <Link
+              href="/register"
+              className="inline-flex items-center h-14 md:h-[0.7rem] px-10 md:px-[0.5rem] rounded-full bg-black text-white text-base md:text-[0.2rem] font-medium transition-opacity duration-300 hover:opacity-85"
+            >
+              Register your interest
+            </Link>
           </Reveal>
-          <div className="mt-12 md:mt-[0.5rem] grid gap-8 md:gap-[0.32rem] md:grid-cols-2">
-            {TRIMS.map((trim, i) => (
-              <Reveal key={trim.name} delay={i * 120}>
-                <article className="flex h-full flex-col rounded-[0.16rem] border border-black/10 bg-[#f6f6f6] p-10 md:p-[0.4rem]">
-                  <div className="font-display text-4xl md:text-[0.46rem] leading-none">{trim.price}</div>
-                  <div className="mt-2 md:mt-[0.06rem] font-mono uppercase tracking-[0.2em] text-sm md:text-[0.13rem] text-[#6b9b37]">
-                    {trim.name}
-                  </div>
-                  <p className="mt-6 md:mt-[0.2rem] flex-1 text-base md:text-[0.16rem] leading-relaxed text-black/60">
-                    {trim.body}
-                  </p>
-                  <Link
-                    href="/register"
-                    className="mt-8 md:mt-[0.28rem] inline-flex w-fit items-center h-14 md:h-[0.56rem] px-8 md:px-[0.34rem] rounded-full bg-black text-white text-base md:text-[0.16rem] font-medium transition-opacity duration-300 hover:opacity-85"
-                  >
-                    Register interest
-                  </Link>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-          <p className="mt-8 md:mt-[0.24rem] text-center text-sm md:text-[0.13rem] text-black/40">
-            Prices shown are indicative UK on-the-road figures. India pricing to be confirmed.
-          </p>
         </div>
       </section>
     </main>
