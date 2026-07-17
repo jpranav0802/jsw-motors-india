@@ -56,14 +56,6 @@ export default function JaecooJ5Page() {
               >
                 Register interest
               </Link>
-              {["Find a retailer", "Brochure", "Configure"].map((label) => (
-                <span
-                  key={label}
-                  className="inline-flex items-center h-14 md:h-[0.56rem] px-8 md:px-[0.34rem] rounded-full border border-white/60 text-base md:text-[0.16rem] font-medium text-white/90 cursor-pointer transition-colors duration-300 hover:bg-white/10"
-                >
-                  {label}
-                </span>
-              ))}
             </div>
           </Reveal>
         </div>
@@ -100,9 +92,9 @@ export default function JaecooJ5Page() {
         </div>
       </section>
 
-      {/* ── Adventure starts here (slider) ─────────────────────── */}
-      <section className="w-full bg-white">
-        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem]">
+      {/* ── Adventure starts here (scroll-driven slider) ───────── */}
+      <section className="w-full bg-white pt-24 md:pt-[1rem]">
+        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem]">
           <Reveal>
             <h2 className="font-display text-3xl md:text-[0.5rem] leading-none font-medium">
               Adventure starts here
@@ -112,18 +104,18 @@ export default function JaecooJ5Page() {
               Jaecoo J5 the perfect companion for every adventure.
             </p>
           </Reveal>
-          <Reveal delay={120} className="mt-12 md:mt-[0.5rem]">
-            <J5Slider
-              images={[
-                "/jaecoo-j5/gallery-1.webp",
-                "/jaecoo-j5/gallery-2.webp",
-                "/jaecoo-j5/gallery-3.webp",
-                "/jaecoo-j5/gallery-4.webp",
-                "/jaecoo-j5/gallery-5.webp",
-              ]}
-            />
-          </Reveal>
         </div>
+        {/* Full-bleed, sits outside any transformed ancestor so the sticky
+            panel inside can track the scroll. */}
+        <J5Slider
+          images={[
+            "/jaecoo-j5/gallery-1.webp",
+            "/jaecoo-j5/gallery-2.webp",
+            "/jaecoo-j5/gallery-3.webp",
+            "/jaecoo-j5/gallery-4.webp",
+            "/jaecoo-j5/gallery-5.webp",
+          ]}
+        />
       </section>
 
       {/* ── New crossover ──────────────────────────────────────── */}
