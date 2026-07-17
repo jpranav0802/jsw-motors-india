@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { V23Carousel } from "@/components/v23/V23Carousel";
+import { V23ColorPicker } from "@/components/v23/V23ColorPicker";
 
 export const metadata: Metadata = {
   title: "V23 — Retro-stylish Electric City Car | JSW Motors India",
@@ -19,20 +20,21 @@ const STATS = [
   { icon: "/v23/icon-accel.png", label: "Acceleration (0-100 km/h)", value: "7.5 s" },
 ];
 
-const SHADES = [
-  { name: "Sunburst Orange", color: "#e8622a", active: true },
-  { name: "Pearl White", color: "#eceae5" },
-  { name: "Sky Grey", color: "#9aa2a6" },
-  { name: "Midnight Black", color: "#1c1c1e" },
-  { name: "Forest Green", color: "#3f5a45" },
-];
-
 export default function V23Page() {
   return (
     <main className="w-full bg-white text-black">
       {/* ── Hero ───────────────────────────────────────────────── */}
       <section className="relative w-full h-[88vh] min-h-[5.6rem] overflow-hidden pt-20 md:pt-[0.75rem]">
-        <img src="/v23/hero.jpg" alt="CHERY V23 driving through the city" className="absolute inset-0 h-full w-full object-cover" />
+        {/* Cinematic theme video plays behind the card (poster paints instantly). */}
+        <video
+          src="/v23/theme.mp4"
+          poster="/v23/hero.jpg"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
         <div className="relative mx-auto h-full max-w-[19.2rem] px-12 md:px-[0.7rem]">
           <div className="absolute left-12 md:left-[0.7rem] top-1/2 -translate-y-1/2 w-full max-w-[5rem] rounded-[0.1rem] bg-white/55 backdrop-blur-md p-10 md:p-[0.4rem] shadow-[0_0.1rem_0.6rem_rgba(0,0,0,0.12)]">
@@ -106,29 +108,24 @@ export default function V23Page() {
         </div>
       </section>
 
+      {/* ── Safety / ADAS ──────────────────────────────────────── */}
+      <section className="w-full bg-[#efece7]">
+        <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem]">
+          <img
+            src="/v23/adas.jpg"
+            alt="V23 Safety — 12 Advanced Driver Assistance Systems: Adaptive Cruise Control, Auto Emergency Braking, Blind Spot Detection, Lane Keeping Assist and more"
+            className="w-full rounded-[0.12rem] object-contain"
+          />
+        </div>
+      </section>
+
       {/* ── Pick the shade ─────────────────────────────────────── */}
       <section className="w-full bg-gradient-to-b from-[#c3baa9] to-[#e7e1d5]">
         <div className="mx-auto max-w-[19.2rem] px-12 md:px-[0.7rem] py-24 md:py-[1rem] text-center">
           <h2 className="font-display text-2xl md:text-[0.34rem] leading-snug font-medium uppercase text-[#4a4640] max-w-[10rem] mx-auto">
             Pick the shade that fits your vibe and makes every drive uniquely yours
           </h2>
-          <img
-            src="/v23/side-profile.png"
-            alt="CHERY V23 side profile"
-            className="mt-10 md:mt-[0.3rem] w-full max-w-[13rem] mx-auto object-contain"
-          />
-          <div className="mt-8 md:mt-[0.3rem] flex items-center justify-center gap-5 md:gap-[0.2rem]">
-            {SHADES.map((shade) => (
-              <span
-                key={shade.name}
-                title={shade.name}
-                style={{ background: shade.color }}
-                className={`size-10 md:size-[0.4rem] rounded-full border transition-transform ${
-                  shade.active ? "border-black scale-110" : "border-black/20"
-                }`}
-              />
-            ))}
-          </div>
+          <V23ColorPicker />
         </div>
       </section>
 
@@ -140,8 +137,14 @@ export default function V23Page() {
           </h2>
           <div className="mt-12 md:mt-[0.5rem]">
             <V23Carousel
-              images={["/v23/gallery-1.jpg", "/v23/gallery-2.jpg", "/v23/gallery-3.jpg"]}
-              aspect="aspect-[16/7]"
+              images={[
+                "/v23/color-104.jpg",
+                "/v23/color-109.jpg",
+                "/v23/color-110.jpg",
+                "/v23/color-107.jpg",
+                "/v23/color-108.jpg",
+              ]}
+              aspect="aspect-[16/9]"
             />
           </div>
         </div>
