@@ -66,8 +66,12 @@ export default function JaecooJ5Page() {
   return (
     <main className="w-full bg-[#f6f6f6] text-[#1a1a1a]">
       {/* ── Hero ───────────────────────────────────────────────── */}
-      <section className="relative w-full h-svh min-h-[6rem] overflow-hidden">
-        <img src="/jaecoo-j5/hero.jpg" alt="Jaecoo J5 electric SUV" className="absolute inset-0 h-full w-full object-cover" />
+      <section className="relative w-full h-svh min-h-[6rem] overflow-hidden bg-[#1a1730]">
+        <img
+          src="/jaecoo-j5/hero.jpg"
+          alt="Jaecoo J5 electric SUV"
+          className="absolute inset-0 h-full w-full object-contain md:object-cover md:object-[50%_38%]"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55" />
 
         <div className="relative mx-auto flex h-full max-w-[19.2rem] flex-col items-center px-[0.45rem] md:px-[0.7rem] pt-[1.5rem] md:pt-[1.4rem] pb-[0.8rem] md:pb-[0.8rem] text-white text-center">

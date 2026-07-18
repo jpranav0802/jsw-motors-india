@@ -214,7 +214,7 @@ export function ExteriorSpin({
           src={frameSrc(id, renderColor, frame)}
           alt=""
           draggable={false}
-          className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
+          className="absolute inset-0 w-full h-full object-contain md:object-cover select-none pointer-events-none"
         />
 
         {!ready && (
