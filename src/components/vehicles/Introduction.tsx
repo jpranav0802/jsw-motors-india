@@ -45,11 +45,23 @@ export function Introduction({ data }: IntroductionProps) {
           </picture>
         ))}
       </div>
-      <div className="relative z-1 flex flex-col justify-between h-full overflow-hidden px-12 md:px-15">
+      {/* Scrims (mobile only): white labels sit over a light studio image, so
+          without these they wash out and read as bleeding over the car. A soft
+          top and a stronger bottom gradient give the title and the label column
+          a legible backdrop without touching the desktop overlay. */}
+      <div
+        aria-hidden
+        className="md:hidden absolute inset-x-0 top-0 h-[26%] z-1 bg-gradient-to-b from-black/45 to-transparent pointer-events-none"
+      />
+      <div
+        aria-hidden
+        className="md:hidden absolute inset-x-0 bottom-0 h-[52%] z-1 bg-gradient-to-t from-black/80 via-black/55 to-transparent pointer-events-none"
+      />
+      <div className="relative z-2 flex flex-col justify-between h-full overflow-hidden px-12 md:px-15">
         <div className="relative">
-          <div className="text-[0.6rem] font-medium text-center font-display">{title}</div>
+          <div className="text-[0.5rem] md:text-[0.6rem] font-medium text-center font-display">{title}</div>
         </div>
-        <div className="relative z-2 flex flex-wrap md:flex-nowrap justify-center items-start gap-x-8 gap-y-6 md:gap-x-10">
+        <div className="relative z-2 flex flex-col md:flex-row md:flex-nowrap justify-center items-center md:items-start gap-y-[0.24rem] gap-x-8 md:gap-x-10">
           {items.map((item, index) => (
             <button
               key={item.image}
@@ -57,9 +69,9 @@ export function Introduction({ data }: IntroductionProps) {
               onClick={() => setActiveIndex(index)}
               aria-pressed={index === activeIndex}
               className={cn(
-                "basis-1/2 md:basis-0 md:flex-1 cursor-pointer text-center whitespace-pre-line",
+                "w-full md:basis-0 md:flex-1 cursor-pointer text-center whitespace-pre-line",
                 "text-[0.28rem] md:text-2xl transition-opacity duration-500",
-                index === activeIndex ? "opacity-100" : "opacity-50 hover:opacity-100",
+                index === activeIndex ? "opacity-100" : "opacity-60 hover:opacity-100",
               )}
             >
               {item.title}
