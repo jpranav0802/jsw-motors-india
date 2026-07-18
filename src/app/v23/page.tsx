@@ -37,12 +37,12 @@ export default function V23Page() {
         />
 
         <div className="relative mx-auto h-full max-w-[19.2rem] px-[0.45rem] md:px-[0.7rem]">
-          <div className="absolute left-12 md:left-[0.7rem] top-1/2 -translate-y-1/2 w-full max-w-[5rem] rounded-[0.1rem] bg-white/55 backdrop-blur-md p-[0.5rem] md:p-[0.4rem] shadow-[0_0.1rem_0.6rem_rgba(0,0,0,0.12)]">
-            <div className="font-display text-[0.72rem] md:text-[0.44rem] leading-none">V23</div>
-            <h1 className="mt-[0.16rem] md:mt-[0.14rem] font-display text-[0.4rem] md:text-[0.28rem] leading-[1.2] font-medium uppercase text-black/70">
+          <div className="absolute left-12 md:left-[0.7rem] top-1/2 -translate-y-1/2 w-full max-w-[4rem] md:max-w-[5rem] rounded-[0.1rem] bg-white/55 backdrop-blur-md p-[0.32rem] md:p-[0.4rem] shadow-[0_0.1rem_0.6rem_rgba(0,0,0,0.12)]">
+            <div className="font-display text-[0.5rem] md:text-[0.44rem] leading-none">V23</div>
+            <h1 className="mt-[0.1rem] md:mt-[0.14rem] font-display text-[0.28rem] md:text-[0.28rem] leading-[1.2] font-medium uppercase text-black/70">
               The retro-stylish, boxy electric city car
             </h1>
-            <p className="mt-5 md:mt-[0.2rem] text-[0.3rem] md:text-[0.17rem] leading-relaxed text-black/70">
+            <p className="mt-[0.14rem] md:mt-[0.2rem] text-[0.22rem] md:text-[0.17rem] leading-relaxed text-black/70">
               Bring joy to every ride in the JSW V23 — a 100% electric retro-style car with a bold
               BOXY design, built to match your journey and your style.
             </p>

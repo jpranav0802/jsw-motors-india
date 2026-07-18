@@ -74,16 +74,27 @@ export default function JaecooJ5Page() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55" />
 
-        <div className="relative mx-auto flex h-full max-w-[19.2rem] flex-col items-center px-[0.45rem] md:px-[0.7rem] pt-[1.5rem] md:pt-[1.4rem] pb-[0.8rem] md:pb-[0.8rem] text-white text-center">
-          <Reveal className="flex flex-col items-center gap-[0.28rem] md:gap-[0.2rem]">
-            <span className="font-mono uppercase tracking-[0.24em] text-[0.24rem] md:text-[0.13rem] text-white/80">
+        <div className="relative mx-auto flex h-full max-w-[19.2rem] flex-col items-center px-[0.45rem] md:px-[0.7rem] pt-[2.1rem] md:pt-[1.4rem] pb-[0.8rem] md:pb-[0.8rem] text-white text-center">
+          {/* Not wrapped in Reveal: the hero is above the fold on load, where the
+              fade-in must fire without a scroll event and can get stuck partly
+              hidden — the naming must always be visible. */}
+          <div className="flex flex-col items-center gap-[0.1rem] md:gap-[0.2rem]">
+            {/* Phones: a prominent wordmark fills the space above the car. */}
+            <span className="md:hidden font-display text-[0.82rem] leading-none tracking-[0.04em]">
+              JAECOO J5
+            </span>
+            <span className="md:hidden font-mono uppercase tracking-[0.34em] text-[0.2rem] text-white/70">
+              Electric
+            </span>
+            {/* Desktop keeps the compact eyebrow. */}
+            <span className="hidden md:block font-mono uppercase tracking-[0.24em] text-[0.13rem] text-white/80">
               Jaecoo J5 Electric
             </span>
-          </Reveal>
+          </div>
 
           <div className="flex-1" />
 
-          <Reveal className="w-full flex flex-col items-center gap-[0.4rem] md:gap-[0.4rem]" delay={120}>
+          <div className="w-full flex flex-col items-center gap-[0.4rem] md:gap-[0.4rem]">
             <h1 className="max-w-[11rem] font-display text-[0.6rem] md:text-[0.56rem] leading-[1.1] font-medium">
               Go further, fully electric. The Jaecoo J5 is built for every adventure.
             </h1>
@@ -95,7 +106,7 @@ export default function JaecooJ5Page() {
                 Register interest
               </Link>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
