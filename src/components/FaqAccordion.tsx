@@ -50,7 +50,11 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
 
   return (
     <div className="max-w-[8.4rem]">
+      {/* Form-filler browser extensions stamp their own attributes onto inputs
+          before React hydrates, which trips a hydration mismatch. Everything
+          here is static markup, so there is no real mismatch to hide. */}
       <input
+        suppressHydrationWarning
         type="search"
         value={query}
         onChange={(event) => {

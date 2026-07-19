@@ -95,6 +95,7 @@ export function RegisterForm() {
       <div className="grid gap-[0.36rem] md:gap-[0.24rem] md:grid-cols-2">
         <Field id="name" label="Full name" error={errors.name}>
           <input
+            suppressHydrationWarning
             id="name"
             type="text"
             autoComplete="name"
@@ -107,6 +108,7 @@ export function RegisterForm() {
 
         <Field id="email" label="Email" error={errors.email}>
           <input
+            suppressHydrationWarning
             id="email"
             type="email"
             autoComplete="email"
@@ -119,6 +121,7 @@ export function RegisterForm() {
 
         <Field id="phone" label="Phone number" error={errors.phone}>
           <input
+            suppressHydrationWarning
             id="phone"
             type="tel"
             autoComplete="tel"
@@ -131,6 +134,7 @@ export function RegisterForm() {
 
         <Field id="city" label="City" error={errors.city}>
           <input
+            suppressHydrationWarning
             id="city"
             type="text"
             autoComplete="address-level2"
@@ -143,6 +147,7 @@ export function RegisterForm() {
 
         <Field id="model" label="Model of interest">
           <select
+            suppressHydrationWarning
             id="model"
             value={values.model}
             onChange={(e) => set("model", e.target.value)}
