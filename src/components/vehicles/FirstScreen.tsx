@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Fragment } from "react";
 
 import { T2LogoIcon } from "@/components/icons";
@@ -31,7 +32,7 @@ export function FirstScreen({ data }: FirstScreenProps) {
             "linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, #000 100%)",
         }}
       />
-      <div className="absolute top-90 md:top-[28.42vh] inset-x-8 md:right-auto md:left-1/2 md:-translate-x-1/2 text-center flex flex-col justify-center items-center gap-9">
+      <div className="absolute top-32 md:top-[11vh] inset-x-8 md:right-auto md:left-1/2 md:-translate-x-1/2 text-center flex flex-col justify-center items-center gap-4 md:gap-[0.3rem]">
         <div className="flex flex-col items-center gap-[0.2rem] md:gap-[0.14rem]">
           <span className="font-display text-[0.6rem] md:text-[0.34rem] leading-none tracking-[0.18em]">
             JETOUR
@@ -43,6 +44,12 @@ export function FirstScreen({ data }: FirstScreenProps) {
           <span className="inline-flex items-center rounded-full border border-brand-lime/60 bg-black/25 backdrop-blur-sm px-5 md:px-[0.18rem] py-1.5 md:py-[0.05rem] font-display text-xs md:text-[0.14rem] tracking-[0.22em] uppercase text-brand-lime">
             Launching this Diwali!
           </span>
+          <Link
+            href="/register"
+            className="mt-2 md:mt-[0.12rem] inline-flex items-center h-11 md:h-[0.58rem] px-8 md:px-[0.42rem] bg-white text-black text-sm md:text-[0.17rem] font-semibold rounded-full transition-colors duration-300 hover:bg-white/85"
+          >
+            Register your interest
+          </Link>
         </div>
       </div>
       <div className="absolute bottom-[9.07vh] inset-x-5 md:inset-x-8 md:right-auto md:left-1/2 md:-translate-x-1/2">

@@ -28,7 +28,7 @@ const goldman = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "JSW Motors India",
+  title: "JSW Motors India - Upcoming Cars",
   description:
     "The Jetour T2 is a rugged adventure SUV with a 1.5/2.0T engine, 2800mm wheelbase and intelligent XWD four-wheel drive.",
   icons: { icon: "/seo/favicon.ico" },
