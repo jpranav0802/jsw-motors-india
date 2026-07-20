@@ -72,6 +72,20 @@ export const t2Sections: VehicleSection[] = [
     },
   },
   {
+    id: "plugInHybrid",
+    data: {
+      eyebrow: "Plug-in Hybrid",
+      title: "T2 Super Hybrid",
+      body: "Drive on electricity first for the silent, low-cost daily commute, then let the 1.5T Kunpeng engine step in for the long climb, the deep wade and the open highway. Full XWD capability stays intact — the Super Hybrid climbs and crawls exactly like the rest of the range, now with a plug.",
+      stats: [
+        { value: "100 km", label: "Pure-electric range (expected)" },
+        { value: "1,200 km", label: "Combined range (expected)" },
+        { value: "~20 min", label: "Fast charge 30–80%" },
+      ],
+      image: "/images/vehicles/cars/T2/hybrid-charging.jpg",
+    },
+  },
+  {
     id: "carSwiper",
     data: {
       title: "Attractive Styling",

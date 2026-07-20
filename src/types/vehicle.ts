@@ -60,10 +60,22 @@ export interface CarSwiperData {
   data: (CaptionedImage & { id: string })[];
 }
 
+export interface PlugInHybridData {
+  /** Small pill label above the heading, e.g. "Plug-in Hybrid". */
+  eyebrow: string;
+  title: string;
+  body: string;
+  /** Highlight figures shown under the copy. */
+  stats: SpecStat[];
+  /** Scene photo shown alongside the copy. */
+  image: string;
+}
+
 export type VehicleSection =
   | { id: "firstScreen"; data: FirstScreenData }
   | { id: "3dHall"; data: ThreeDHallData }
   | { id: "carSwiper"; data: CarSwiperData }
+  | { id: "plugInHybrid"; data: PlugInHybridData }
   | { id: "introduction1"; data: TitledGalleryData }
   | { id: "introduction"; data: TitledGalleryData }
   | { id: "videoSwiper"; data: VideoItem[] }

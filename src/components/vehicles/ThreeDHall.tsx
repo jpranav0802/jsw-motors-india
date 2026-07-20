@@ -111,23 +111,14 @@ export function ThreeDHall({ data }: ThreeDHallProps) {
           })}
         </div>
 
-        <div className="flex flex-col items-stretch gap-3 md:w-full">
-          <Link href={`/${data.id}/specification`} className="w-auto md:w-full">
-            {/* Sizing mirrors the target's Button component CSS: .17rem text,
-                .05rem radius, .02rem border. */}
-            <span className="group relative inline-flex md:w-full items-center justify-center whitespace-nowrap px-6 md:px-0 text-center h-16 md:h-15 text-[0.17rem] text-black rounded-[0.05rem] border-[0.02rem] border-black">
-              <span className="absolute -inset-[0.02rem] rounded-[0.05rem] border-[0.02rem] border-black bg-transparent opacity-50 transition-all duration-300 group-hover:bg-white group-hover:opacity-100" />
-              <span className="relative z-10">Specification</span>
-            </span>
-          </Link>
-
-          <Link href={`/${data.id}/hybrid`} className="w-auto md:w-full">
-            <span className="group relative inline-flex md:w-full items-center justify-center whitespace-nowrap px-6 md:px-0 text-center h-16 md:h-15 text-[0.17rem] text-black rounded-[0.05rem] border-[0.02rem] border-black">
-              <span className="absolute -inset-[0.02rem] rounded-[0.05rem] border-[0.02rem] border-black bg-transparent opacity-50 transition-all duration-300 group-hover:bg-white group-hover:opacity-100" />
-              <span className="relative z-10">Plug-in Hybrid</span>
-            </span>
-          </Link>
-        </div>
+        <Link href={`/${data.id}/specification`} className="w-auto md:w-full">
+          {/* Sizing mirrors the target's Button component CSS: .17rem text,
+              .05rem radius, .02rem border. */}
+          <span className="group relative inline-flex md:w-full items-center justify-center whitespace-nowrap px-6 md:px-0 text-center h-16 md:h-15 text-[0.17rem] text-black rounded-[0.05rem] border-[0.02rem] border-black">
+            <span className="absolute -inset-[0.02rem] rounded-[0.05rem] border-[0.02rem] border-black bg-transparent opacity-50 transition-all duration-300 group-hover:bg-white group-hover:opacity-100" />
+            <span className="relative z-10">Specification</span>
+          </span>
+        </Link>
       </div>
 
       {tab === "exterior" ? (

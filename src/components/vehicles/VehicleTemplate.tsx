@@ -9,6 +9,7 @@ import { FirstScreen } from "@/components/vehicles/FirstScreen";
 import { Introduction } from "@/components/vehicles/Introduction";
 import { Introduction1 } from "@/components/vehicles/Introduction1";
 import { Introduction2 } from "@/components/vehicles/Introduction2";
+import { PlugInHybrid } from "@/components/vehicles/PlugInHybrid";
 import { ThreeDHall } from "@/components/vehicles/ThreeDHall";
 import { VideoSwiper } from "@/components/vehicles/VideoSwiper";
 import type { VehicleSection } from "@/types/vehicle";
@@ -26,6 +27,8 @@ function renderSection(section: VehicleSection) {
       return <ThreeDHall data={section.data} />;
     case "carSwiper":
       return <CarSwiper data={section.data} />;
+    case "plugInHybrid":
+      return <PlugInHybrid data={section.data} />;
     case "introduction1":
       return <Introduction1 data={section.data} />;
     case "introduction":
