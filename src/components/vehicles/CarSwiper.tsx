@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { Navigation } from "swiper/modules";
+import { useState } from "react";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { cn } from "@/lib/utils";
@@ -18,28 +18,7 @@ function mobileSrc(src: string): string {
   return src.replace(/(\.[a-z0-9]+)$/i, "_m$1");
 }
 
-function ArrowIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-      className={className}
-    >
-      <path
-        d="M15.5 4.5 8 12l7.5 7.5"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export function CarSwiper({ data }: CarSwiperProps) {
-  const prevRef = useRef<HTMLDivElement>(null);
-  const nextRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -52,16 +31,10 @@ export function CarSwiper({ data }: CarSwiperProps) {
       <div className="relative size-full flex flex-col justify-center items-center">
         <Swiper
           className="size-full"
-          modules={[Navigation]}
+          modules={[Autoplay]}
           slidesPerView={1}
           loop
-          onBeforeInit={(swiper) => {
-            const { navigation } = swiper.params;
-            if (navigation && typeof navigation !== "boolean") {
-              navigation.prevEl = prevRef.current;
-              navigation.nextEl = nextRef.current;
-            }
-          }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
           onRealIndexChange={(swiper) => setActiveIndex(swiper.realIndex)}
         >
           {data.data.map((item) => (
@@ -105,18 +78,6 @@ export function CarSwiper({ data }: CarSwiperProps) {
             </div>
           </div>
         ))}
-        <div
-          ref={prevRef}
-          className="prev-btn flex cursor-pointer absolute top-1/2 -translate-y-1/2 transition-all duration-300 left-12 md:left-20 z-9 [&.swiper-button-disabled]:opacity-30 [&.swiper-button-disabled]:cursor-not-allowed bg-white/10 hover:bg-white/30 rounded-full"
-        >
-          <ArrowIcon className="size-[0.54rem] text-white rtl:rotate-180" />
-        </div>
-        <div
-          ref={nextRef}
-          className="next-btn flex cursor-pointer absolute top-1/2 -translate-y-1/2 transition-all duration-300 right-12 md:right-20 z-9 [&.swiper-button-disabled]:opacity-30 [&.swiper-button-disabled]:cursor-not-allowed bg-white/10 hover:bg-white/30 rounded-full"
-        >
-          <ArrowIcon className="size-[0.54rem] rotate-180 text-white rtl:rotate-0" />
-        </div>
       </div>
     </div>
   );
