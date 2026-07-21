@@ -62,6 +62,15 @@ export default function RootLayout({
         <Script id="rem-scale" strategy="beforeInteractive">
           {REM_SCALE_SCRIPT}
         </Script>
+        {/* Google AdSense loader. Rendered as a plain <script> so React 19
+            hoists it verbatim into the server-rendered <head> on every page —
+            the exact placement AdSense's site-ownership verification checks
+            for. (next/script's beforeInteractive only emits a preload link.) */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7447360085979369"
+          crossOrigin="anonymous"
+        />
         <SmoothScroll>
           <SiteHeader />
           {children}
