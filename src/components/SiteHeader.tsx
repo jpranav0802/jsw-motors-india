@@ -8,8 +8,11 @@ import { cn } from "@/lib/utils";
 
 const NAV = [
   { label: "Home", href: "/" },
+  { label: "News", href: "/news" },
+  { label: "EV Guides", href: "/guides" },
   { label: "About", href: "/about" },
   { label: "Register", href: "/register" },
+  { label: "Contact", href: "/contact" },
 ];
 
 interface Vehicle {
@@ -53,6 +56,7 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
+  // The home page opens on the T2 hero, which the bar sits over transparently.
   const overHero = pathname === "/";
 
   // Close the Vehicles panel on navigation — done as a render-time convergence
@@ -111,10 +115,20 @@ export function SiteHeader() {
     <header ref={headerRef} className="group fixed top-0 left-0 right-0 z-50">
       {/* Permanent disclaimer — this is a fan-made clone, not an official site. */}
       <div className="flex items-center justify-center bg-neutral-950 h-[0.58rem] md:h-[0.3rem] px-4">
+        {/* The strip is a single short line, so the full wording only fits from
+            the desktop canvas up; the phone gets an abbreviated version of the
+            same notice. The full disclaimer sits in the footer on every page. */}
         <p className="text-center font-mono uppercase tracking-[0.16em] text-[0.14rem] md:text-[0.11rem] text-neutral-400 whitespace-nowrap">
-          Independent registry <span className="text-neutral-600">·</span> Not official JSW/JETOUR{" "}
-          <span className="text-neutral-600">·</span>{" "}
-          <span className="text-brand-lime">No payments, ever</span>
+          <span className="md:hidden">
+            Independent <span className="text-neutral-600">·</span> Not JSW-affiliated{" "}
+            <span className="text-neutral-600">·</span>{" "}
+            <span className="text-brand-lime">No payments</span>
+          </span>
+          <span className="hidden md:inline">
+            Independent portal <span className="text-neutral-600">·</span> Not affiliated with JSW
+            Group or JSW MG Motor India <span className="text-neutral-600">·</span>{" "}
+            <span className="text-brand-lime">No payments, ever</span>
+          </span>
         </p>
       </div>
 
@@ -144,7 +158,7 @@ export function SiteHeader() {
                 aria-expanded={open}
                 className={cn(NAV_LINK, "flex items-center gap-[0.06rem]", open ? "after:w-full" : "after:w-0 hover:after:w-full")}
               >
-                Vehicles
+                Models &amp; Specs
                 <ChevronDownIcon
                   className={cn("size-[0.16rem] transition-transform duration-300", open && "rotate-180")}
                 />
@@ -199,6 +213,23 @@ export function SiteHeader() {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-[0.36rem] md:mt-[0.24rem] border-t border-black/10 pt-[0.24rem] md:pt-[0.16rem] flex flex-wrap gap-x-[0.4rem] gap-y-[0.14rem] text-[0.24rem] md:text-sm">
+                <Link
+                  href="/T2/specification"
+                  onClick={() => setOpen(false)}
+                  className="text-black/60 underline underline-offset-4 transition-colors hover:text-black"
+                >
+                  Jetour T2 — full specifications &amp; analysis
+                </Link>
+                <Link
+                  href="/guides"
+                  onClick={() => setOpen(false)}
+                  className="text-black/60 underline underline-offset-4 transition-colors hover:text-black"
+                >
+                  EV guides &amp; comparisons
+                </Link>
+              </div>
             </div>
           </div>
         )}
@@ -212,7 +243,7 @@ export function SiteHeader() {
               </Link>
               <div className="py-[0.3rem] border-b border-black/10">
                 <p className="font-mono uppercase tracking-[0.16em] text-[0.22rem] text-black/40 mb-[0.24rem]">
-                  Vehicles
+                  Models &amp; Specs
                 </p>
                 <ul className="flex flex-col gap-[0.3rem]">
                   {VEHICLES.map((vehicle) => (
@@ -221,9 +252,24 @@ export function SiteHeader() {
                     </li>
                   ))}
                 </ul>
+                <Link
+                  href="/T2/specification"
+                  className="mt-[0.3rem] inline-block text-[0.26rem] text-black/60 underline underline-offset-4"
+                >
+                  Jetour T2 — full specifications
+                </Link>
               </div>
+              <Link href="/news" className="py-[0.3rem] text-[0.34rem] font-medium border-b border-black/10">
+                News
+              </Link>
+              <Link href="/guides" className="py-[0.3rem] text-[0.34rem] font-medium border-b border-black/10">
+                EV Guides
+              </Link>
               <Link href="/about" className="py-[0.3rem] text-[0.34rem] font-medium border-b border-black/10">
                 About
+              </Link>
+              <Link href="/contact" className="py-[0.3rem] text-[0.34rem] font-medium border-b border-black/10">
+                Contact
               </Link>
               <Link
                 href="/register"

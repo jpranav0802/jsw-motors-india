@@ -9,9 +9,9 @@ import { J5Viewer } from "@/components/jaecoo/J5Viewer";
 import { Reveal } from "@/components/jaecoo/Reveal";
 
 export const metadata: Metadata = {
-  title: "Jaecoo J5 — Bold, Premium, All-Electric SUV | JSW Motors India",
+  title: "Jaecoo J5 – Features, Specs & Price in India",
   description:
-    "The Jaecoo J5 is a fully electric premium SUV — bold design, a silent glass cabin and striking alloys, built for every adventure.",
+    "Jaecoo J5 in India — a fully electric premium SUV with up to 500 km range, 19 ADAS features, a panoramic sunroof and Sony audio. Explore features, specs, price and register your interest.",
 };
 
 const ADVENTURE_SLIDES = [

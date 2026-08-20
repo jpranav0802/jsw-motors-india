@@ -1,9 +1,15 @@
-# Connecting the interest registry to Supabase
+# Connecting the signup and contact forms to Supabase
 
-The `/register` form saves each submission to Supabase via a server action
-(`src/app/register/actions.ts`). It talks to Supabase's REST endpoint with the
-**anon (public) key**; a row-level-security policy lets that key insert
-registrations but not read them back. Two steps:
+Two forms write to Supabase via server actions, both into the same
+`public.registrations` table:
+
+- `/register` — the launch-alert signup (`src/app/register/actions.ts`)
+- `/contact` — the contact form (`src/app/contact/actions.ts`), distinguished by
+  `kind = 'contact'` and carrying the free-text `message` column
+
+Both talk to Supabase's REST endpoint with the **anon (public) key**; a
+row-level-security policy lets that key insert rows but not read them back.
+Two steps:
 
 ## 1. Create the table
 
@@ -29,6 +35,28 @@ create policy "public can register interest"
   for insert
   to anon
   with check (true);
+```
+
+### If the table already exists
+
+The contact form adds two columns and relaxes two `not null` constraints, since
+a contact message has no phone number or model. Run this once:
+
+```sql
+alter table public.registrations add column if not exists message text;
+alter table public.registrations add column if not exists kind text not null default 'interest';
+alter table public.registrations alter column phone drop not null;
+alter table public.registrations alter column model drop not null;
+```
+
+`kind` is `'interest'` for launch-alert signups and `'contact'` for messages, so
+you can filter the two apart in the dashboard:
+
+```sql
+select created_at, name, email, message
+from public.registrations
+where kind = 'contact'
+order by created_at desc;
 ```
 
 ## 2. Add the credentials

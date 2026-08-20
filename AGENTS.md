@@ -57,6 +57,19 @@ docs/
 scripts/            # Asset download scripts
 ```
 
+## News Aggregation
+
+`/news` pulls headlines from Indian automotive RSS feeds at runtime
+(`src/lib/news.ts`) and refreshes itself on a 6-hour ISR window — no rebuild
+needed. Feed URLs, the tracked-brand keyword list and the ranking live in that
+one file.
+
+- Check the sources still answer: `node scripts/check-news-feed.mjs`
+- Never add Google News RSS: its copyright notice restricts the feed to
+  personal, non-commercial feed-reader use, and this site carries advertising.
+- Only headline + short snippet + outbound link are shown. Do not extend this
+  to reproduce article bodies.
+
 ## MOST IMPORTANT NOTES
 - When launching Claude Code agent teams, ALWAYS have each teammate work in their own worktree branch and merge everyone's work at the end, resolving any merge conflicts smartly since you are basically serving the orchestrator role and have full context to our goals, work given, work achieved, and desired outcomes.
 - After editing `AGENTS.md`, run `bash scripts/sync-agent-rules.sh` to regenerate platform-specific instruction files.

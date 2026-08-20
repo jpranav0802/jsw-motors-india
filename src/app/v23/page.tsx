@@ -3,13 +3,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { AffiliationNotice } from "@/components/editorial/AffiliationNotice";
+import { DataTable, Paragraphs, SectionHeading } from "@/components/editorial/Prose";
+import { ProsCons } from "@/components/editorial/ProsCons";
 import { V23Carousel } from "@/components/v23/V23Carousel";
 import { V23ColorPicker } from "@/components/v23/V23ColorPicker";
+import { v23Editorial } from "@/data/model-editorial";
 
 export const metadata: Metadata = {
-  title: "V23 — Retro-stylish Electric City Car | JSW Motors India",
+  title: "JSW V23 – Features, Specs, Range & Price in India",
   description:
-    "The JSW V23 is a 100% electric, retro-style boxy city car — 211 PS, 430 km NEDC range and 2WD & 4WD, built to match your journey and your style.",
+    "JSW V23 in India — a 100% electric, retro-style boxy city car with 211 PS, 430 km NEDC range and 2WD & 4WD. Explore features, specs, price and register your interest.",
 };
 
 const STATS = [
@@ -38,14 +42,26 @@ export default function V23Page() {
 
         <div className="relative mx-auto h-full max-w-[19.2rem] px-[0.45rem] md:px-[0.7rem]">
           <div className="absolute left-12 md:left-[0.7rem] top-1/2 -translate-y-1/2 w-full max-w-[4rem] md:max-w-[5rem] rounded-[0.1rem] bg-white/55 backdrop-blur-md p-[0.32rem] md:p-[0.4rem] shadow-[0_0.1rem_0.6rem_rgba(0,0,0,0.12)]">
-            <div className="font-display text-[0.5rem] md:text-[0.44rem] leading-none">V23</div>
-            <h1 className="mt-[0.1rem] md:mt-[0.14rem] font-display text-[0.28rem] md:text-[0.28rem] leading-[1.2] font-medium uppercase text-black/70">
-              The retro-stylish, boxy electric city car
+            {/* One heading spanning the wordmark + tagline so the "V23" keyword
+                sits inside the page's single <h1>. `contents` removes the h1's
+                own box, leaving the two block spans laid out exactly as the
+                original div + h1 were. */}
+            <h1 className="contents">
+              <span className="block font-display text-[0.5rem] md:text-[0.44rem] leading-none">V23</span>
+              <span className="mt-[0.1rem] md:mt-[0.14rem] block font-display text-[0.28rem] md:text-[0.28rem] leading-[1.2] font-medium uppercase text-black/70">
+                The retro-stylish, boxy electric city car
+              </span>
             </h1>
             <p className="mt-[0.14rem] md:mt-[0.2rem] text-[0.22rem] md:text-[0.17rem] leading-relaxed text-black/70">
               Bring joy to every ride in the JSW V23 — a 100% electric retro-style car with a bold
               BOXY design, built to match your journey and your style.
             </p>
+            <Link
+              href="/register"
+              className="mt-[0.24rem] md:mt-[0.24rem] inline-flex items-center h-[0.68rem] md:h-[0.5rem] px-[0.34rem] md:px-[0.3rem] bg-black text-white text-[0.22rem] md:text-[0.16rem] font-medium rounded-full transition-opacity duration-300 hover:opacity-85"
+            >
+              Register your interest
+            </Link>
           </div>
         </div>
       </section>
@@ -144,6 +160,47 @@ export default function V23Page() {
         </div>
       </section>
 
+      {/* ── Written analysis ───────────────────────────────────── */}
+      <section className="w-full bg-white border-t border-black/10">
+        <div className="mx-auto max-w-[19.2rem] px-[0.45rem] md:px-[0.7rem] py-[1rem] md:py-[0.8rem]">
+          <div className="max-w-[8.4rem] space-y-[0.7rem] md:space-y-[0.5rem]">
+            {v23Editorial.overview.map((block, index) => (
+              <section key={index} className="space-y-[0.28rem] md:space-y-[0.2rem]">
+                {block.heading && <SectionHeading>{block.heading}</SectionHeading>}
+                {block.paragraphs && <Paragraphs items={block.paragraphs} />}
+              </section>
+            ))}
+
+            <section className="space-y-[0.28rem] md:space-y-[0.2rem]">
+              <SectionHeading>How the V23 compares with its rivals</SectionHeading>
+              <Paragraphs items={[v23Editorial.comparisonIntro]} />
+              <DataTable table={v23Editorial.comparison} />
+            </section>
+
+            <ProsCons
+              title="Pros & cons"
+              pros={v23Editorial.pros}
+              cons={v23Editorial.cons}
+              note={v23Editorial.prosConsNote}
+            />
+
+            <p className="text-[0.28rem] md:text-base text-black/60">
+              Related reading:{" "}
+              <Link href="/guides/ev-battery-health-indian-summer" className="underline underline-offset-2 hover:text-black">
+                charging practices for Indian summer temperatures
+              </Link>{" "}
+              and{" "}
+              <Link href="/guides/ac-vs-dc-charging-delhi-ncr" className="underline underline-offset-2 hover:text-black">
+                the full AC vs DC charging cost breakdown
+              </Link>
+              .
+            </p>
+
+            <AffiliationNotice />
+          </div>
+        </div>
+      </section>
+
       {/* ── Register CTA (ties the model into our site) ────────── */}
       <section className="w-full bg-neutral-950 text-white">
         <div className="mx-auto max-w-[19.2rem] px-[0.45rem] md:px-[0.7rem] py-[1.0rem] md:py-[0.9rem] flex flex-col items-center text-center gap-[0.36rem] md:gap-[0.3rem]">
@@ -151,7 +208,7 @@ export default function V23Page() {
             Be first in line for the V23
           </h2>
           <p className="text-[0.3rem] md:text-[0.18rem] text-white/60 max-w-[6.4rem]">
-            Register your interest and we&apos;ll keep you posted as the V23 nears its India launch.
+            Register your interest and we&apos;ll keep you posted as the V23 nears its India launch. Free interest registry — no bookings, no deposits.
           </p>
           <Link
             href="/register"

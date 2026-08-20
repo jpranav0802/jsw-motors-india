@@ -72,9 +72,9 @@ export function RegisterForm() {
       <div role="status" className="max-w-[6.4rem] border border-black/20 p-[0.5rem] md:p-[0.32rem]">
         <h2 className="font-display text-2xl">Interest registered</h2>
         <p className="mt-4 text-[0.28rem] md:text-base text-black/70">
-          Thanks {submitted.name.trim()} — we&apos;ve registered your interest in the{" "}
-          {submitted.model}. We&apos;ll reach out to {submitted.email.trim()} as the India launch
-          nears.
+          Thanks {submitted.name.trim()} — we&apos;ve registered your interest in the {submitted.model}.
+          We&apos;ll reach out to {submitted.email.trim()} as the India launch nears. Nothing has been
+          booked and no payment is due; every email carries an unsubscribe link.
         </p>
         <button
           type="button"

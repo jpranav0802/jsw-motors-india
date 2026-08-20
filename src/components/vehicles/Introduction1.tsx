@@ -19,9 +19,9 @@ export function Introduction1({ data }: Introduction1Props) {
   return (
     <div className="w-full h-svh bg-[#AFAFAF] text-white overflow-hidden">
       <div className="h-full flex flex-col justify-center items-center pt-60 md:pt-[15.56vh] pb-40 md:pb-[6.11vh]">
-        <h1 className="text-[0.6rem] leading-none font-medium whitespace-pre-line text-center font-display px-[0.5rem]">
+        <h2 className="text-[0.6rem] leading-none font-medium whitespace-pre-line text-center font-display px-[0.5rem]">
           {data.title}
-        </h1>
+        </h2>
         <div
           className={cn(
             "w-full flex-1 min-h-0 mt-8 md:mt-10 px-[0.45rem] md:px-[0.5rem]",

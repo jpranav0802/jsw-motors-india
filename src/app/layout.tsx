@@ -28,9 +28,14 @@ const goldman = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "JSW Motors India - Upcoming Cars",
+  // `default` is the homepage/brand title (not run through the template);
+  // every child route's own title is suffixed with the brand via `template`.
+  title: {
+    default: "JSW Motors India | Official Site",
+    template: "%s | JSW Motors India",
+  },
   description:
-    "The Jetour T2 is a rugged adventure SUV with a 1.5/2.0T engine, 2800mm wheelbase and intelligent XWD four-wheel drive.",
+    "JSW Motors India — the official site for JSW's new-energy passenger cars. Explore the Jaecoo J5 electric SUV, JSW V23 retro electric city car and Jetour T2 adventure SUV. Features, specs, price and India launch updates.",
   icons: { icon: "/seo/favicon.ico" },
 };
 

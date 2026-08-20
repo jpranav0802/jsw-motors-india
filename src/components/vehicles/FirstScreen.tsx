@@ -14,6 +14,10 @@ interface FirstScreenProps {
 export function FirstScreen({ data }: FirstScreenProps) {
   return (
     <div className="group relative w-full h-svh overflow-hidden md:mx-auto text-white">
+      {/* The page's single primary heading. The visible title cluster below is a
+          brand wordmark + SVG logo, which crawlers can't read, so the keyword
+          heading lives here, screen-reader-only, without altering the hero. */}
+      <h1 className="sr-only">Jetour T2 — {data.name} | JSW Motors India</h1>
       <picture className="h-full absolute inset-0 w-full h-full object-cover">
         <source media="(min-width: 1024px)" srcSet="/images/vehicles/image/T2.png" />
         <source media="(min-width: 768px)" srcSet="/images/vehicles/image/T2.png" />
