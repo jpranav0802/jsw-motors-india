@@ -101,9 +101,9 @@ export default function AboutPage() {
             <a href={`mailto:${contactEmail}`} className="underline underline-offset-2 hover:text-black">
               {contactEmail}
             </a>{" "}
-            · or use the{" "}
+            · more on the{" "}
             <Link href="/contact" className="underline underline-offset-2 hover:text-black">
-              contact form
+              contact page
             </Link>
             .
           </p>

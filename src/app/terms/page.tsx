@@ -22,7 +22,7 @@ const SECTIONS: LegalSection[] = [
   {
     heading: "What the site provides",
     body: [
-      "This site publishes editorial articles, specifications, comparisons and ownership guides about new-energy vehicles in India, together with a free launch-alert mailing list and a contact form.",
+      "This site publishes editorial articles, specifications, comparisons and ownership guides about new-energy vehicles in India, together with a free interest registry and an email contact address.",
       "It does not sell vehicles, take bookings, process payments or act as an agent for any manufacturer or dealer. Nothing on the site constitutes an offer capable of acceptance.",
     ],
   },

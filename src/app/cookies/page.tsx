@@ -30,7 +30,7 @@ const SECTIONS: LegalSection[] = [
     heading: "Analytics cookies",
     body: [
       "Analytics tell us which pages are actually read and where people leave, so we can improve them. This is optional, and nothing is set until you accept it.",
-      "Declining analytics does not stop you reading anything, signing up for launch alerts, or using the contact form.",
+      "Declining analytics does not stop you reading anything or registering your interest.",
     ],
   },
   {

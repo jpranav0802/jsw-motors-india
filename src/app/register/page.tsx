@@ -60,7 +60,7 @@ export default function RegisterPage() {
           <p className="text-[0.28rem] md:text-base text-black/60">
             Questions, corrections or anything that needs a reply?{" "}
             <Link href="/contact" className="underline underline-offset-2 hover:text-black">
-              Use the contact form
+              See the contact page
             </Link>{" "}
             or email{" "}
             <a href={`mailto:${contactEmail}`} className="underline underline-offset-2 hover:text-black">

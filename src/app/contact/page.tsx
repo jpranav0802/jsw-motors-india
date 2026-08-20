@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { ContactForm } from "@/components/ContactForm";
 import { AffiliationNotice } from "@/components/editorial/AffiliationNotice";
 import { Bullets, Paragraphs, SectionHeading } from "@/components/editorial/Prose";
 import { PageShell } from "@/components/PageShell";
@@ -35,13 +34,21 @@ export default function ContactPage() {
     >
       <div className="max-w-[8.4rem] space-y-[0.7rem] md:space-y-[0.5rem]">
         <section className="space-y-[0.28rem] md:space-y-[0.2rem]">
-          <SectionHeading>Send a message</SectionHeading>
+          <SectionHeading>Email us</SectionHeading>
           <Paragraphs
             items={[
-              `Use the form below, or email ${contactEmail} directly if you prefer. Replies normally take two or three working days.`,
+              "Email is the fastest way to reach us, and it goes straight to the editor rather than into a ticketing system. Replies normally take two or three working days.",
             ]}
           />
-          <ContactForm />
+          <a
+            href={`mailto:${contactEmail}`}
+            className="inline-flex items-center h-[1rem] md:h-[0.56rem] px-[0.4rem] md:px-[0.32rem] bg-black text-white text-[0.28rem] md:text-base transition-opacity duration-300 hover:opacity-80"
+          >
+            {contactEmail}
+          </a>
+          <p className="text-[0.24rem] md:text-sm text-black/50">
+            If your mail client does not open, copy the address above.
+          </p>
         </section>
 
         <section className="space-y-[0.28rem] md:space-y-[0.2rem]">
@@ -71,12 +78,6 @@ export default function ContactPage() {
               `${editor.name}, ${editor.role.toLowerCase()}, based in ${editor.location}. Every article on this site carries the same byline, and corrections are published in place with the update date shown.`,
             ]}
           />
-          <p className="text-[0.28rem] md:text-base text-black/70">
-            Email:{" "}
-            <a href={`mailto:${contactEmail}`} className="underline underline-offset-2 hover:text-black">
-              {contactEmail}
-            </a>
-          </p>
         </section>
 
         <AffiliationNotice />

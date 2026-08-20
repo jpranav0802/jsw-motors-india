@@ -22,7 +22,7 @@ const SECTIONS: LegalSection[] = [
   {
     heading: "What we collect",
     body: [
-      "When you sign up for launch alerts or send a message through the contact form, we collect the details you give us — your name, email address, and depending on the form, your phone number, city, the model you are following, and the content of your message.",
+      "When you register your interest, we collect the details you give us — your name, email address, phone number, city and the model you are interested in. If you email us instead, we hold that correspondence in the ordinary way any inbox does.",
       "We also collect basic, non-identifying information about how the site is used, such as which pages are visited and roughly where visitors are in the world. Analytics of this kind are set only after you accept analytics cookies.",
       "Our advertising partners collect information about your visit through their own cookies and similar technologies. That collection is described in the advertising section below and is governed by their own policies.",
     ],
@@ -54,7 +54,7 @@ const SECTIONS: LegalSection[] = [
   {
     heading: "How long we keep it",
     body: [
-      "Mailing-list details are kept until you unsubscribe or ask us to delete them. Contact-form messages are kept for as long as needed to deal with the matter and to keep a record of any correction we published, after which they are deleted.",
+      "Interest-registry details are kept until you ask us to delete them. Email correspondence is kept for as long as needed to deal with the matter and to keep a record of any correction we published, after which it is deleted.",
       "Aggregated analytics data is retained according to our analytics provider's standard retention settings and does not identify you personally.",
     ],
   },
