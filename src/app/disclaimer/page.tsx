@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 
 import { LegalDoc, type LegalSection } from "@/components/LegalDoc";
 import { PageShell } from "@/components/PageShell";
-import { affiliationDisclaimer, contactEmail } from "@/lib/editorial";
+import { affiliationDisclaimer, contactInstruction } from "@/lib/editorial";
 
 export const metadata: Metadata = {
   title: "Disclaimer & Affiliation Notice",
   description:
-    "jswmotorsindia.com is an independent automotive news and enthusiast community portal and is not officially affiliated with JSW Group or JSW MG Motor India. Full disclaimer and editorial notice.",
+    "This site is an independent, unofficial news and enthusiast portal. It is not affiliated with, authorised by or endorsed by JSW Group, JSW MG Motor India, MG, Chery, Jetour or Jaecoo. Full disclaimer and affiliation notice.",
   alternates: { canonical: "/disclaimer" },
 };
 
@@ -25,7 +25,7 @@ const SECTIONS: LegalSection[] = [
     body: [
       "This site does not take bookings, deposits, pre-booking amounts, token payments or money of any kind, and it never will. We do not process transactions and hold no payment infrastructure.",
       "The signup form on this site is a free launch-alert mailing list. It does not reserve a vehicle, does not place you in a delivery queue and creates no obligation on anyone.",
-      `If you encounter any page, message or account claiming to take payment on behalf of this site, it is not us. Please report it to ${contactEmail} so we can warn other readers.`,
+      `If you encounter any page, message or account claiming to take payment on behalf of this site, it is not us. Please report it — ${contactInstruction} — so we can warn other readers.`,
     ],
   },
   {
@@ -75,7 +75,7 @@ const SECTIONS: LegalSection[] = [
   {
     heading: "Corrections",
     body: [
-      `If something here is wrong, tell us. Write to ${contactEmail} with the correction and a source. We publish corrections in place, mark the article as updated, and credit the correction where the sender is willing.`,
+      `If something here is wrong, tell us — ${contactInstruction}, including the correction and a source. We publish corrections in place, mark the article as updated, and credit the correction where the sender is willing.`,
     ],
   },
 ];

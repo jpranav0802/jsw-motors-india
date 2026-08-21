@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { AuthorCard } from "@/components/editorial/AuthorCard";
 import { ArticleCard } from "@/components/editorial/ArticleCard";
 import { PageShell } from "@/components/PageShell";
 import { articles } from "@/data/articles";
@@ -22,10 +21,6 @@ export default function GuidesPage() {
         {articles.map((article) => (
           <ArticleCard key={article.slug} article={article} />
         ))}
-      </div>
-
-      <div className="mt-[0.9rem] md:mt-[0.6rem] max-w-[7.2rem]">
-        <AuthorCard />
       </div>
     </PageShell>
   );

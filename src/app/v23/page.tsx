@@ -11,9 +11,9 @@ import { V23ColorPicker } from "@/components/v23/V23ColorPicker";
 import { v23Editorial } from "@/data/model-editorial";
 
 export const metadata: Metadata = {
-  title: "JSW V23 – Features, Specs, Range & Price in India",
+  title: "iCAR V23 – Features, Specs, Range & Price in India",
   description:
-    "JSW V23 in India — a 100% electric, retro-style boxy city car with 211 PS, 430 km NEDC range and 2WD & 4WD. Explore features, specs, price and register your interest.",
+    "iCAR V23 in India — a 100% electric, retro-style boxy city car with 211 PS, 430 km NEDC range and 2WD & 4WD. Explore features, specs, price and register your interest.",
 };
 
 const STATS = [
@@ -53,7 +53,7 @@ export default function V23Page() {
               </span>
             </h1>
             <p className="mt-[0.14rem] md:mt-[0.2rem] text-[0.22rem] md:text-[0.17rem] leading-relaxed text-black/70">
-              Bring joy to every ride in the JSW V23 — a 100% electric retro-style car with a bold
+              Bring joy to every ride in the iCAR V23 — a 100% electric retro-style car with a bold
               BOXY design, built to match your journey and your style.
             </p>
             <Link
@@ -109,7 +109,7 @@ export default function V23Page() {
             Unique boxy design
           </h2>
           <div className="mt-[0.6rem] md:mt-[0.5rem] overflow-hidden rounded-[0.12rem]">
-            <img src="/v23/boxy.jpg" alt="JSW V23 in a studio, three-quarter front view" className="w-full object-cover" />
+            <img src="/v23/boxy.jpg" alt="iCAR V23 in a studio, three-quarter front view" className="w-full object-cover" />
           </div>
           <div className="mt-[0.4rem] md:mt-[0.3rem] flex flex-col items-end">
             <span className="text-[0.24rem] md:text-[0.16rem] text-black/50">Dimensions (L x W x H) (mm)</span>

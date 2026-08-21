@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
+import { affiliationDisclaimerShort, siteName } from "@/lib/editorial";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -12,7 +13,6 @@ const NAV = [
   { label: "EV Guides", href: "/guides" },
   { label: "About", href: "/about" },
   { label: "Register", href: "/register" },
-  { label: "Contact", href: "/contact" },
 ];
 
 interface Vehicle {
@@ -120,13 +120,11 @@ export function SiteHeader() {
             same notice. The full disclaimer sits in the footer on every page. */}
         <p className="text-center font-mono uppercase tracking-[0.16em] text-[0.14rem] md:text-[0.11rem] text-neutral-400 whitespace-nowrap">
           <span className="md:hidden">
-            Independent <span className="text-neutral-600">·</span> Not JSW-affiliated{" "}
-            <span className="text-neutral-600">·</span>{" "}
+            Independent · unofficial <span className="text-neutral-600">·</span>{" "}
             <span className="text-brand-lime">No payments</span>
           </span>
           <span className="hidden md:inline">
-            Independent portal <span className="text-neutral-600">·</span> Not affiliated with JSW
-            Group or JSW MG Motor India <span className="text-neutral-600">·</span>{" "}
+            {affiliationDisclaimerShort} <span className="text-neutral-600">·</span>{" "}
             <span className="text-brand-lime">No payments, ever</span>
           </span>
         </p>
@@ -143,9 +141,9 @@ export function SiteHeader() {
 
         <nav className="flex items-center justify-between px-[0.45rem] md:px-[0.7rem] h-[1.2rem] md:h-[0.75rem]">
           <div className="flex items-center gap-[0.6rem] md:gap-[0.5rem] h-full">
-            <Link href="/" className="cursor-pointer" aria-label="JSW Motors India — home">
+            <Link href="/" className="cursor-pointer" aria-label={`${siteName} — home`}>
               <span className="font-display text-2xl tracking-[0.1em] leading-none whitespace-nowrap">
-                JSW Motors
+                {siteName}
               </span>
             </Link>
 
@@ -267,9 +265,6 @@ export function SiteHeader() {
               </Link>
               <Link href="/about" className="py-[0.3rem] text-[0.34rem] font-medium border-b border-black/10">
                 About
-              </Link>
-              <Link href="/contact" className="py-[0.3rem] text-[0.34rem] font-medium border-b border-black/10">
-                Contact
               </Link>
               <Link
                 href="/register"

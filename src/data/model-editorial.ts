@@ -80,7 +80,7 @@ export const v23Editorial: ModelEditorial = {
   comparison: {
     caption:
       "Competitive set as of August 2026. Range figures are manufacturer claims on different test cycles and are not directly comparable — treat them as upper bounds.",
-    head: ["", "JSW V23", "Mahindra BE 6", "MG Windsor EV", "Tata Nexon EV"],
+    head: ["", "iCAR V23", "Mahindra BE 6", "MG Windsor EV", "Tata Nexon EV"],
     rows: [
       ["Body style", "Boxy retro SUV", "Coupe-style SUV", "Crossover MPV", "Compact SUV"],
       ["Length", "4,220 mm", "4,371 mm", "4,295 mm", "3,995 mm"],

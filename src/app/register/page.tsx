@@ -5,12 +5,11 @@ import { AffiliationNotice } from "@/components/editorial/AffiliationNotice";
 import { Bullets, Callout, Paragraphs, SectionHeading } from "@/components/editorial/Prose";
 import { PageShell } from "@/components/PageShell";
 import { RegisterForm } from "@/components/RegisterForm";
-import { contactEmail } from "@/lib/editorial";
 
 export const metadata: Metadata = {
   title: "Register Your Interest",
   description:
-    "Register your interest in the Jetour T2, Jaecoo J5 or JSW V23 and we'll keep you posted as the India launch nears. A free interest registry run by an independent portal — no bookings, no deposits, no payments of any kind.",
+    "Register your interest in the Jetour T2, Jaecoo J5 or iCAR V23 and we'll keep you posted as the India launch nears. A free interest registry run by an independent portal — no bookings, no deposits, no payments of any kind.",
   alternates: { canonical: "/register" },
 };
 
@@ -58,15 +57,8 @@ export default function RegisterPage() {
           <SectionHeading>What this is not</SectionHeading>
           <Bullets items={WHAT_THIS_IS_NOT} />
           <p className="text-[0.28rem] md:text-base text-black/60">
-            Questions, corrections or anything that needs a reply?{" "}
-            <Link href="/contact" className="underline underline-offset-2 hover:text-black">
-              See the contact page
-            </Link>{" "}
-            or email{" "}
-            <a href={`mailto:${contactEmail}`} className="underline underline-offset-2 hover:text-black">
-              {contactEmail}
-            </a>
-            .
+            Questions or corrections? Send them through this same form — add the detail in the name
+            field if you need to, and we will pick it up.
           </p>
         </section>
 

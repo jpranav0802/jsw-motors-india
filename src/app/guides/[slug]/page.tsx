@@ -7,9 +7,8 @@ import { notFound } from "next/navigation";
 import { AffiliationNotice } from "@/components/editorial/AffiliationNotice";
 import { ArticleBody } from "@/components/editorial/ArticleBody";
 import { ArticleCard } from "@/components/editorial/ArticleCard";
-import { AuthorCard } from "@/components/editorial/AuthorCard";
 import { articles, articleSlugs, formatArticleDate, getArticle } from "@/data/articles";
-import { editor } from "@/lib/editorial";
+import { editorialByline, siteName } from "@/lib/editorial";
 import { siteUrl } from "@/lib/site";
 
 interface GuidePageProps {
@@ -37,7 +36,7 @@ export async function generateMetadata({ params }: GuidePageProps): Promise<Meta
       url: `${siteUrl}/guides/${article.slug}`,
       publishedTime: article.published,
       modifiedTime: article.updated ?? article.published,
-      authors: [editor.name],
+      authors: [editorialByline],
       images: [`${siteUrl}${article.image}`],
     },
   };
@@ -59,8 +58,8 @@ export default async function GuidePage({ params }: GuidePageProps) {
     image: `${siteUrl}${article.image}`,
     datePublished: article.published,
     dateModified: article.updated ?? article.published,
-    author: { "@type": "Person", name: editor.name },
-    publisher: { "@type": "Organization", name: "JSW Motors India (independent portal)" },
+    author: { "@type": "Organization", name: editorialByline },
+    publisher: { "@type": "Organization", name: siteName },
     mainEntityOfPage: `${siteUrl}/guides/${article.slug}`,
   };
 
@@ -92,7 +91,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
             </p>
 
             <div className="mt-[0.3rem] md:mt-[0.2rem] flex flex-wrap items-center gap-x-[0.24rem] gap-y-[0.1rem] font-mono uppercase tracking-[0.14em] text-[0.18rem] md:text-[0.11rem] text-black/45">
-              <span>By {editor.name}</span>
+              <span>{editorialByline}</span>
               <span aria-hidden>·</span>
               <time dateTime={article.published}>{formatArticleDate(article.published)}</time>
               {article.updated && (
@@ -119,8 +118,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
           </div>
         </article>
 
-        <div className="mt-[0.8rem] md:mt-[0.5rem] max-w-[8.4rem] space-y-[0.4rem] md:space-y-[0.28rem]">
-          <AuthorCard />
+        <div className="mt-[0.8rem] md:mt-[0.5rem] max-w-[8.4rem]">
           <AffiliationNotice />
         </div>
 

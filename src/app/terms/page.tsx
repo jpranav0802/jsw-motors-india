@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 
 import { LegalDoc, type LegalSection } from "@/components/LegalDoc";
 import { PageShell } from "@/components/PageShell";
-import { affiliationDisclaimer, contactEmail } from "@/lib/editorial";
+import { affiliationDisclaimer, ContactInstruction } from "@/lib/editorial";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "The terms on which jswmotorsindia.com is made available — permitted use, intellectual property, user submissions, advertising, liability and governing law.",
+    "The terms on which this site is made available — permitted use, intellectual property, user submissions, advertising, liability and governing law.",
   alternates: { canonical: "/terms" },
 };
 
@@ -86,7 +86,7 @@ const SECTIONS: LegalSection[] = [
     heading: "Governing law and contact",
     body: [
       "These terms are governed by the laws of India, and the courts at Delhi have exclusive jurisdiction over any dispute arising from them.",
-      `Questions about these terms go to ${contactEmail}.`,
+      `${ContactInstruction} for any question about these terms.`,
     ],
   },
 ];

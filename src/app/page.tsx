@@ -5,14 +5,17 @@ import { AffiliationNotice } from "@/components/editorial/AffiliationNotice";
 import { ArticleCard } from "@/components/editorial/ArticleCard";
 import { VehicleTemplate } from "@/components/vehicles/VehicleTemplate";
 import { featuredArticles } from "@/data/articles";
+import { siteName } from "@/lib/editorial";
 import { t2Sections } from "@/data/t2";
 
 export const metadata: Metadata = {
-  // `absolute` opts out of the layout's "%s | JSW Motors India" template, which
-  // would otherwise suffix the brand onto a title that already carries it.
-  title: { absolute: "JSW Motors India | Official Site" },
+  // `absolute` opts out of the layout's "%s | <siteName>" template so the home
+  // page reads as a subject line, not a brand claim.
+  title: {
+    absolute: `Jetour T2 in India — Specs, XWD & Launch Updates | ${siteName}`,
+  },
   description:
-    "The Jetour T2 rugged adventure SUV in India — 1.5T and 2.0T Kunpeng powertrains, automatic XWD, 220 mm ground clearance and 6+X driving modes. Explore the exterior and interior, read the full specification, and follow the JSW MG NEV lineup.",
+    "Independent coverage of the Jetour T2 rugged adventure SUV in India — 1.5T and 2.0T Kunpeng powertrains, automatic XWD, 220 mm ground clearance and 6+X driving modes, plus the wider NEV lineup. Unofficial; not affiliated with JSW, MG, Chery or Jetour.",
   alternates: { canonical: "/" },
 };
 

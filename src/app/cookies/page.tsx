@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { LegalDoc, type LegalSection } from "@/components/LegalDoc";
 import { PageShell } from "@/components/PageShell";
-import { contactEmail } from "@/lib/editorial";
+import { contactInstruction } from "@/lib/editorial";
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
@@ -46,7 +46,7 @@ const SECTIONS: LegalSection[] = [
     heading: "Managing cookies",
     body: [
       "You can accept or decline optional cookies when you first visit and change your mind at any time. You can also clear or block cookies in your browser settings — doing so resets your preferences here, and blocking all cookies may stop parts of the site working.",
-      `If you want to know exactly what is set on a given page, browser developer tools will show you, and you are welcome to write to ${contactEmail} if something does not match this policy.`,
+      `If you want to know exactly what is set on a given page, browser developer tools will show you, and you are welcome to ${contactInstruction} if something does not match this policy.`,
     ],
   },
   {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { affiliationDisclaimer, contactEmail } from "@/lib/editorial";
+import { affiliationDisclaimer, siteName, siteTagline } from "@/lib/editorial";
 
 const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
   {
@@ -9,7 +9,7 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "Jetour T2", href: "/" },
       { label: "T2 specifications", href: "/T2/specification" },
       { label: "Jaecoo J5", href: "/jaecoo-j5" },
-      { label: "JSW V23", href: "/v23" },
+      { label: "iCAR V23", href: "/v23" },
     ],
   },
   {
@@ -29,7 +29,6 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "Cookie Policy", href: "/cookies" },
       { label: "Disclaimer", href: "/disclaimer" },
       { label: "Terms of Service", href: "/terms" },
-      { label: "Contact", href: "/contact" },
     ],
   },
 ];
@@ -42,18 +41,12 @@ export function SiteFooter() {
           <div className="grid gap-[0.6rem] md:gap-[0.4rem] sm:grid-cols-2 md:grid-cols-4">
             <div>
               <p className="font-display text-[0.4rem] md:text-[0.24rem] tracking-[0.06em]">
-                JSW Motors India
+                {siteName}
               </p>
               <p className="mt-[0.16rem] md:mt-[0.1rem] text-[0.24rem] md:text-sm text-black/50 max-w-[4.4rem]">
-                Independent news, specifications, range analysis and buying guides for India&apos;s
-                incoming new-energy vehicles.
+                {siteTagline}. Independent news, specifications, range analysis and buying guides
+                for India&apos;s incoming new-energy vehicles.
               </p>
-              <a
-                href={`mailto:${contactEmail}`}
-                className="mt-[0.2rem] md:mt-[0.12rem] inline-block text-[0.24rem] md:text-sm text-black/60 underline underline-offset-4 transition-colors hover:text-black"
-              >
-                {contactEmail}
-              </a>
             </div>
 
             {COLUMNS.map((column) => (
@@ -82,8 +75,8 @@ export function SiteFooter() {
               {affiliationDisclaimer}
             </p>
             <p className="text-[0.22rem] md:text-[0.13rem] text-black/35">
-              © {new Date().getFullYear()} jswmotorsindia.com · All product and brand names are the
-              property of their respective owners.
+              © {new Date().getFullYear()} {siteName} · All company, product and brand names are
+              the property of their respective owners.
             </p>
           </div>
         </div>

@@ -7,9 +7,9 @@ import { PageShell } from "@/components/PageShell";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "FAQs – JSW MG, ADAPT, Charging, Jetour T2, Jaecoo J5 & JSW V23",
+  title: "FAQs – Platforms, Charging, Jetour T2, Jaecoo J5 & iCAR V23",
   description:
-    "In-depth answers on the JSW–MG joint venture and the ADAPT platform, expected launch and booking timelines, fast-charging in Tier 1 and Tier 2 cities, and the Jetour T2, Jaecoo J5 and JSW V23.",
+    "In-depth answers on the JSW–MG joint venture and the ADAPT platform, expected launch and booking timelines, fast-charging in Tier 1 and Tier 2 cities, and the Jetour T2, Jaecoo J5 and iCAR V23.",
   alternates: { canonical: "/faqs" },
 };
 
@@ -31,7 +31,7 @@ const FAQS: FaqItem[] = [
   // ── Launch, booking and buying ────────────────────────────
   {
     q: "What is the expected launch timeline and booking process for the upcoming EV models?",
-    a: "Launch timing in this segment slips routinely, so treat any date as intent rather than commitment. As of August 2026 the Jetour T2 is the closest to Indian showrooms, with the Jaecoo J5 and JSW V23 following. Bookings for new models in India typically open two to six weeks before price announcement, through authorised dealers or the manufacturer's own site, against a refundable token amount. Deliveries begin after the price announcement and are usually allocated in booking order by variant and colour. This site takes no bookings and holds no deposits — we are an independent portal, and any page asking you for pre-booking money is not us.",
+    a: "Launch timing in this segment slips routinely, so treat any date as intent rather than commitment. As of August 2026 the Jetour T2 is the closest to Indian showrooms, with the Jaecoo J5 and iCAR V23 following. Bookings for new models in India typically open two to six weeks before price announcement, through authorised dealers or the manufacturer's own site, against a refundable token amount. Deliveries begin after the price announcement and are usually allocated in booking order by variant and colour. This site takes no bookings and holds no deposits — we are an independent portal, and any page asking you for pre-booking money is not us.",
   },
   {
     q: "Should I book before prices are announced?",
@@ -88,9 +88,9 @@ const FAQS: FaqItem[] = [
     a: "The J5 is specified with eight airbags, a five-star safety pedigree, 19 ADAS functions and a 50:50 weight distribution, backed by a seven-year warranty. Inside there is a 15.6-inch central touchscreen, a 1.45㎡ panoramic sunroof, a column-mounted gear selector, 1,492 mm of second-row seating width and a Sony premium audio system. On rougher surfaces it has independent suspension from entry level, a 540° all-terrain camera view and 20°/30° approach and departure angles. As with every unlaunched model on this site, India-specific equipment levels and safety ratings should be confirmed against the homologated Indian specification when it is published.",
   },
 
-  // ── JSW V23 ───────────────────────────────────────────────
+  // ── iCAR V23 ───────────────────────────────────────────────
   {
-    q: "What is the JSW V23, and what will it really do on Indian roads?",
+    q: "What is the iCAR V23, and what will it really do on Indian roads?",
     a: "The V23 is a 100% electric, retro-styled boxy city car — 4,220 x 1,915 x 1,845 mm — with 211 PS, 292 Nm, 0–100 km/h in 7.5 seconds, and both two- and four-wheel-drive versions. The claimed maximum range is 430 km on the NEDC cycle, which is the most optimistic of the common cycles. A realistic Indian expectation is roughly 300–340 km in mixed city use on the two-wheel-drive version, and closer to 240–270 km at a sustained 100 km/h with the air conditioning working in summer. The four-wheel-drive version trades roughly 8–10% of that for traction.",
   },
   {
@@ -99,7 +99,7 @@ const FAQS: FaqItem[] = [
   },
   {
     q: "How accurate are the figures on this site?",
-    a: "Specifications come from manufacturer material, published technical documentation and public filings, and we say which. Where a figure is a manufacturer claim on a particular test cycle we name the cycle, because NEDC, MIDC and WLTP are not interchangeable. Where a number is our own estimate — real-world range, expected pricing, likely battery chemistry — it is labelled as an estimate with the reasoning shown, so you can disagree with the assumption rather than the conclusion. Nothing about an unlaunched car is confirmed until the manufacturer homologates it in India. If you find an error, email the editor with a source and we will correct it in place.",
+    a: "Specifications come from manufacturer material, published technical documentation and public filings, and we say which. Where a figure is a manufacturer claim on a particular test cycle we name the cycle, because NEDC, MIDC and WLTP are not interchangeable. Where a number is our own estimate — real-world range, expected pricing, likely battery chemistry — it is labelled as an estimate with the reasoning shown, so you can disagree with the assumption rather than the conclusion. Nothing about an unlaunched car is confirmed until the manufacturer homologates it in India. If you find an error, send it to us with a source and we will correct it in place.",
   },
 ];
 
@@ -140,8 +140,8 @@ export default function FaqsPage() {
             EV guides
           </Link>{" "}
           go further on charging costs, battery care and state incentives, or you can{" "}
-          <Link href="/contact" className="underline underline-offset-2 hover:text-black">
-            write to the editor
+          <Link href="/about" className="underline underline-offset-2 hover:text-black">
+            read how we work
           </Link>
           .
         </p>

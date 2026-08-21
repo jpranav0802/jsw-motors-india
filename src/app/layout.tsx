@@ -7,6 +7,7 @@ import Script from "next/script";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { siteName } from "@/lib/editorial";
 
 import "./globals.css";
 
@@ -28,14 +29,17 @@ const goldman = localFont({
 });
 
 export const metadata: Metadata = {
-  // `default` is the homepage/brand title (not run through the template);
-  // every child route's own title is suffixed with the brand via `template`.
+  // `default` is the homepage title (not run through the template); every child
+  // route's own title is suffixed with the site name via `template`.
+  //
+  // The site name must stay neutral — this is an independent portal and must
+  // never title itself as any manufacturer's official site. See lib/editorial.ts.
   title: {
-    default: "JSW Motors India | Official Site",
-    template: "%s | JSW Motors India",
+    default: `${siteName} — Independent EV & Hybrid Coverage for India`,
+    template: `%s | ${siteName}`,
   },
   description:
-    "JSW Motors India — the official site for JSW's new-energy passenger cars. Explore the Jaecoo J5 electric SUV, JSW V23 retro electric city car and Jetour T2 adventure SUV. Features, specs, price and India launch updates.",
+    "Independent, unofficial news, specifications, range analysis and buying guides on new-energy vehicles for India — including the Jetour T2, Jaecoo J5 and iCAR V23. Not affiliated with JSW Group, JSW MG Motor India, MG, Chery, Jetour or Jaecoo.",
   icons: { icon: "/seo/favicon.ico" },
 };
 

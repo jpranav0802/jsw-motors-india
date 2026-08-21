@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 
 import { LegalDoc, type LegalSection } from "@/components/LegalDoc";
 import { PageShell } from "@/components/PageShell";
-import { affiliationDisclaimer, contactEmail } from "@/lib/editorial";
+import { affiliationDisclaimer, ContactInstruction, siteDomain } from "@/lib/editorial";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "What jswmotorsindia.com collects, why, who we share it with, how long we keep it, and how third-party advertising vendors including Google use cookies on this site.",
+    "What this site collects, why, who we share it with, how long we keep it, and how third-party advertising vendors including Google use cookies here.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -16,7 +16,7 @@ const SECTIONS: LegalSection[] = [
     heading: "Who we are",
     body: [
       affiliationDisclaimer,
-      `This policy covers the website at jswmotorsindia.com. Questions about it, and any request relating to your data, go to ${contactEmail}.`,
+      `This policy covers the website at ${siteDomain}. ${ContactInstruction} for any question about it, or any request relating to your data.`,
     ],
   },
   {
@@ -62,7 +62,7 @@ const SECTIONS: LegalSection[] = [
     heading: "Your rights",
     body: [
       "You can ask us to show you the data we hold about you, to correct it, or to delete it. You can withdraw consent for analytics and advertising cookies at any time, and you can unsubscribe from every email we send using the link it carries.",
-      `To make any of these requests, write to ${contactEmail}. We respond within the timeframe applicable law requires, and we will not make you justify the request.`,
+      `To make any of these requests, ${ContactInstruction.toLowerCase()}. We respond within the timeframe applicable law requires, and we will not make you justify the request.`,
     ],
   },
   {
