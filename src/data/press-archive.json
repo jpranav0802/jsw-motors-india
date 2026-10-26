@@ -1,6 +1,31 @@
 {
-  "updatedAt": "2026-10-26T02:38:01.770Z",
+  "updatedAt": "2026-10-26T09:13:36.691Z",
   "items": [
+    {
+      "title": "Landmark Cars bags LOIs for five JSW Motors dealerships across Ahmedabad, Bhopal",
+      "link": "https://auto.economictimes.indiatimes.com/news/industry/landmark-cars-bags-lois-for-five-jsw-motors-dealerships-across-ahmedabad-bhopal/135206632",
+      "snippet": "The planned network will comprise three showrooms and two workshops, ahead of JSW Motors’ expected passenger vehicle market entry in the next financial quarter.",
+      "source": "ETAuto",
+      "published": "2026-10-26T08:12:31.000Z",
+      "relevance": 2,
+      "models": [
+        "jsw"
+      ]
+    },
+    {
+      "title": "JSW Motors Plans Three New SUVs for India: Combat PHEV, iCar V23 EV and Jaecoo J5 Hybrid",
+      "link": "https://www.autopunditz.com/post/jsw-motors-india-suv-launch-combat-icar-v23-jaecoo-j5",
+      "snippet": "JSW Motors is preparing to enter India's passenger vehicle market with three SUVs featuring plug-in hybrid, fully electric and conventional hybrid powertrains. The lineup is expected to…",
+      "source": "AutoPunditz",
+      "published": "2026-10-26T06:34:13.000Z",
+      "relevance": 2,
+      "models": [
+        "combat",
+        "j5",
+        "v23",
+        "jsw"
+      ]
+    },
     {
       "title": "JSW Motors First Car To Debut On 4 December",
       "link": "https://www.carwale.com/news/jsw-motors-first-car-to-debut-on-4-december/",
