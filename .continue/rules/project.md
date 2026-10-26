@@ -6,9 +6,13 @@ description: Project conventions for AI Website Clone Template
 alwaysApply: true
 ---
 <!-- BEGIN:nextjs-agent-rules -->
+
 # This is NOT the Next.js you know
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
 <!-- END:nextjs-agent-rules -->
 
 # Website Reverse-Engineer Template
@@ -66,10 +70,16 @@ scripts/            # Asset download scripts
 
 ## News Aggregation
 
-`/news` pulls headlines from Indian automotive RSS feeds at runtime
-(`src/lib/news.ts`) and refreshes itself on a 6-hour ISR window — no rebuild
-needed. Feed URLs, the tracked-brand keyword list and the ranking live in that
-one file.
+`/guides` (News & Guides hub; `/news` redirects there) pulls headlines from
+Indian motoring publishers at runtime (`src/lib/news.ts`) and refreshes itself
+on a 6-hour ISR window — no rebuild needed. Feed URLs, the tracked-brand
+keywords and the per-car tags (Combat, Jaecoo J5, iCAR V23) live in that file.
+
+Stories about the tracked cars are also kept in `src/data/press-archive.json`
+so they outlive the publishers' short feeds. `.github/workflows/weekly-news.yml`
+runs `node scripts/update-press-archive.ts` every Monday and commits the file
+to `master`, which redeploys the site. India launch status cards live in
+`src/data/launch-watch.ts` and are edited by hand.
 
 - Check the sources still answer: `node scripts/check-news-feed.mjs`
 - Never add Google News RSS: its copyright notice restricts the feed to

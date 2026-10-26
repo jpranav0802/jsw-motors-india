@@ -9,8 +9,7 @@ import { cn } from "@/lib/utils";
 
 const NAV = [
   { label: "Home", href: "/" },
-  { label: "News", href: "/news" },
-  { label: "EV Guides", href: "/guides" },
+  { label: "News & Guides", href: "/guides" },
   { label: "About", href: "/about" },
   { label: "Register", href: "/register" },
 ];
@@ -25,8 +24,8 @@ interface Vehicle {
 }
 
 const VEHICLES: Vehicle[] = [
-  // The T2 studio shot reuses the exterior spin's sun-orange hero frame.
-  { name: "Jetour T2", href: "/", image: "/exterior/T2/sun_orange/23.png", caption: "Launching this Diwali!" },
+  // The Combat (Jetour T2) studio shot reuses the exterior spin's sun-orange hero frame.
+  { name: "JSW Combat", href: "/", image: "/exterior/T2/sun_orange/23.png", caption: "Unveil 4 Dec 2026" },
   { name: "Jaecoo J5", href: "/jaecoo-j5", image: "/jaecoo-j5/exterior.webp", caption: "Coming Soon!" },
   { name: "V23", href: "/v23", image: "/v23/side-profile.png", caption: "Coming Soon!" },
 ];
@@ -56,7 +55,7 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
-  // The home page opens on the T2 hero, which the bar sits over transparently.
+  // The home page opens on the Combat hero, which the bar sits over transparently.
   const overHero = pathname === "/";
 
   // Close the Vehicles panel on navigation — done as a render-time convergence
@@ -214,11 +213,11 @@ export function SiteHeader() {
 
               <div className="mt-[0.36rem] md:mt-[0.24rem] border-t border-black/10 pt-[0.24rem] md:pt-[0.16rem] flex flex-wrap gap-x-[0.4rem] gap-y-[0.14rem] text-[0.24rem] md:text-sm">
                 <Link
-                  href="/T2/specification"
+                  href="/combat/specification"
                   onClick={() => setOpen(false)}
                   className="text-black/60 underline underline-offset-4 transition-colors hover:text-black"
                 >
-                  Jetour T2 — full specifications &amp; analysis
+                  JSW Combat — full specifications &amp; analysis
                 </Link>
                 <Link
                   href="/guides"
@@ -251,17 +250,14 @@ export function SiteHeader() {
                   ))}
                 </ul>
                 <Link
-                  href="/T2/specification"
+                  href="/combat/specification"
                   className="mt-[0.3rem] inline-block text-[0.26rem] text-black/60 underline underline-offset-4"
                 >
-                  Jetour T2 — full specifications
+                  JSW Combat — full specifications
                 </Link>
               </div>
-              <Link href="/news" className="py-[0.3rem] text-[0.34rem] font-medium border-b border-black/10">
-                News
-              </Link>
               <Link href="/guides" className="py-[0.3rem] text-[0.34rem] font-medium border-b border-black/10">
-                EV Guides
+                News &amp; Guides
               </Link>
               <Link href="/about" className="py-[0.3rem] text-[0.34rem] font-medium border-b border-black/10">
                 About

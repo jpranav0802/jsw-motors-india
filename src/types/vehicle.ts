@@ -37,7 +37,32 @@ export interface VideoItem {
 export interface FirstScreenData {
   id: string;
   name: string;
+  /** Launch-status pill under the tagline, e.g. "Unveil · 4 December 2026". */
+  badge?: string;
+  /** Small line naming the car's global nameplate, when India uses a different one. */
+  globalName?: string;
   data: SpecStat[];
+}
+
+export interface LaunchMilestone {
+  date: string;
+  title: string;
+  note: string;
+  /** The milestone the countdown points at; drawn in the accent colour. */
+  highlight?: boolean;
+}
+
+export interface LaunchBriefData {
+  eyebrow: string;
+  title: string;
+  body: string;
+  /** ISO timestamp with offset, e.g. "2026-12-04T10:00:00+05:30". */
+  countdownTo: string;
+  timeline: LaunchMilestone[];
+  facts: SpecStat[];
+  rivals: string[];
+  /** Press reports the figures come from, linked out. */
+  sources: { label: string; href: string }[];
 }
 
 export interface ThreeDHallData {
@@ -73,6 +98,7 @@ export interface PlugInHybridData {
 
 export type VehicleSection =
   | { id: "firstScreen"; data: FirstScreenData }
+  | { id: "launchBrief"; data: LaunchBriefData }
   | { id: "3dHall"; data: ThreeDHallData }
   | { id: "carSwiper"; data: CarSwiperData }
   | { id: "plugInHybrid"; data: PlugInHybridData }

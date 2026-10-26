@@ -14,9 +14,9 @@ import { readFileSync } from "node:fs";
 
 const source = readFileSync(new URL("../src/lib/news.ts", import.meta.url), "utf8");
 
-const feeds = [...source.matchAll(/\{\s*url:\s*"([^"]+)",\s*source:\s*"([^"]+)"\s*\}/g)].map(
-  ([, url, name]) => ({ url, name }),
-);
+const feeds = [
+  ...source.matchAll(/\{\s*url:\s*"([^"]+)",\s*source:\s*"([^"]+)"(?:,\s*format:\s*"([^"]+)")?\s*\}/g),
+].map(([, url, name, format]) => ({ url, name, format }));
 
 if (feeds.length === 0) {
   console.error("No feeds found in src/lib/news.ts — has the FEEDS shape changed?");
@@ -26,7 +26,7 @@ if (feeds.length === 0) {
 let dead = 0;
 
 await Promise.all(
-  feeds.map(async ({ url, name }) => {
+  feeds.map(async ({ url, name, format }) => {
     try {
       const res = await fetch(url, {
         headers: {
@@ -36,7 +36,8 @@ await Promise.all(
         signal: AbortSignal.timeout(10000),
       });
       const body = res.ok ? await res.text() : "";
-      const items = (body.match(/<item[\s>]/gi) ?? []).length;
+      // Sitemap sources list <url> entries instead of RSS <item>s.
+      const items = (body.match(format === "news-sitemap" ? /<url>/gi : /<item[\s>]/gi) ?? []).length;
       if (!res.ok || items === 0) {
         dead += 1;
         console.log(`DEAD  ${res.status}  items=${items}  ${name}  ${url}`);

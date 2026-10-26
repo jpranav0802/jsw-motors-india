@@ -16,51 +16,84 @@ export interface ModelEditorial {
   prosConsNote: string;
 }
 
+/**
+ * India-spec JSW Combat key figures, as reported ahead of the December 2026
+ * unveil. Shown above the global T2 trim sheet, which covers petrol trims the
+ * Combat is not expected to offer in India.
+ */
+export const combatIndiaSpec: ArticleTable = {
+  caption:
+    "Expected India specification, compiled from Autocar India, CarDekho, CarWale and Rushlane reports (October 2026). Unconfirmed until launch.",
+  head: ["", "JSW Combat (India, expected)"],
+  rows: [
+    ["Global name", "Jetour T2"],
+    ["Unveil", "4 December 2026 (invites issued for 3–4 December)"],
+    ["Launch / prices", "December 2026 – early 2027"],
+    ["Expected price", "₹30–50 lakh ex-showroom (most reports: ₹40–50 lakh)"],
+    ["Powertrain", "Plug-in hybrid: 1.5-litre direct-injection turbo-petrol + two electric motors"],
+    ["Combined output", "360 hp, 610 Nm"],
+    ["Transmission", "3-speed dedicated hybrid transmission (DHT)"],
+    ["Drive", "Front-wheel drive (global T2 also offers XWD all-wheel drive)"],
+    ["Battery", "18.4 kWh"],
+    ["Electric range", "90 km (NEDC, claimed)"],
+    ["Total range", "Up to 1,100 km (claimed)"],
+    ["Charging (global T2)", "6.6 kW AC: 30–100% in ~3 h · 50 kW DC: 30–80% in 27 min"],
+    ["Length × width × height", "4,785 × 2,006 × 1,880 mm"],
+    ["Wheelbase", "2,800 mm"],
+    ["Ground clearance", "220 mm"],
+    ["Boot space", "752 litres"],
+    ["Seating", "5"],
+    ["Wheels", "20-inch alloys, tailgate-mounted spare"],
+    ["Screens", "15.6-inch touchscreen, 10.25-inch digital cluster"],
+    ["Key features", "Panoramic sunroof, ventilated and memory front seats, 12-speaker Sony audio, 50 W wireless charging"],
+    ["Safety", "6 airbags, 540° camera, Level 2 ADAS with adaptive cruise"],
+    ["Colours (expected)", "Night Black, Sand, Sun Orange, Lime Green, Misty Cyan, Silver Snow"],
+    ["Assembly", "JSW plant, Chhatrapati Sambhajinagar, Maharashtra (early units may be imported)"],
+  ],
+};
+
 export const t2Editorial: ModelEditorial = {
   overview: [
     {
-      heading: "Written overview: what the T2 actually is",
+      heading: "Written overview: what the Combat actually is",
       paragraphs: [
-        "The Jetour T2 is a monocoque adventure SUV rather than a ladder-frame off-roader, and almost everything interesting about it follows from that decision. It runs Chery's Kunpeng power units — a 1.5T and a 2.0T, both driving through a 7-speed dual-clutch transmission — with an automatic X Wheel Drive system that shifts between two- and four-wheel drive on its own rather than waiting for a driver to select a transfer case. On the 2.0T there are 6+X driving modes, including Snow, Sediment and Rock settings plus an X Smart mode that reads grip and load itself.",
-        "For India the more consequential version is the plug-in hybrid. In a T2-sized PHEV the architecture is a dedicated hybrid transmission pairing a turbocharged engine with an electric drive unit and a traction pack of roughly 18–20 kWh in this class. Chemistry matters here: packs of this size in adventure-oriented SUVs are typically LFP, which is the right choice for Indian conditions — more tolerant of being charged to full every night, gentler degradation over many cycles, and considerably more relaxed about sitting at 45°C in an open parking lot than an NMC pack would be. The trade is energy density, so a PHEV pack of this size buys you a commute rather than a road trip.",
-        "Real-world electric-only range on Indian roads for a pack in that band works out to roughly 55–70 km in city use, and closer to 40–50 km if you spend the day on a ring road at 80 km/h with the air conditioning fighting a May afternoon. That is enough to cover the daily driving of most owners entirely on electricity while leaving the engine for weekend distance — which is the entire point of the configuration, and why it suits a country with uneven charging far better than a pure EV of the same size would.",
-        "The ADAPT-style design context is worth stating plainly, because it explains the compromises. A body engineered to accept a combustion powertrain, a plug-in hybrid and a battery-electric drivetrain cannot optimise its floor for any one of them. You get a slightly higher floor than a dedicated EV skateboard would give, and a slightly heavier structure than a pure combustion SUV would need. In exchange the manufacturer can build all three on one line and shift the mix as Indian demand actually moves. On a 4,785 mm body with 220 mm of ground clearance and a 2,800 mm wheelbase, that packaging penalty is easily absorbed — which is exactly why flexible architectures show up in large SUVs first.",
+        "The JSW Combat is the India version of the Jetour T2, the boxy adventure SUV Chery sells abroad. It is the first car JSW Motors will sell under its own badge, separate from the JSW MG Motor joint venture. It is built under a licensing and parts deal with Chery and is due to be assembled at JSW's plant in Chhatrapati Sambhajinagar. Reports say India gets the pre-facelift T2 design with small changes: reworked headlamps and bumpers, and COMBAT lettering across the bonnet where the Jetour badge used to be.",
+        "The bigger change is the powertrain. Abroad the T2 is mostly a petrol car with 1.5T and 2.0T engines and XWD all-wheel drive. India is expected to get only the plug-in hybrid. A 1.5-litre direct-injection turbo-petrol works with two electric motors and an 18.4 kWh battery through a 3-speed dedicated hybrid transmission. Combined output is quoted at 360 hp and 610 Nm, sent to the front wheels. The claimed electric range is 90 km on the NEDC cycle, and total range is up to 1,100 km.",
+        "Real-world electric range on Indian roads will be lower than 90 km. Expect roughly 55–70 km in city traffic, and 40–50 km on a fast ring road with the air conditioning running in May. That still covers most owners' daily driving on electricity, with the engine saved for weekends and highway trips. This is why a plug-in hybrid suits a country with uneven public charging. Charging is easy: a 6.6 kW AC point takes the pack from 30% to 100% in about three hours, and 50 kW DC does 30–80% in under half an hour.",
+        "The trade-off is off-road ability. The Combat is a monocoque SUV with 220 mm of ground clearance, a 2,800 mm wheelbase and a body that is 4,785 mm long and 2,006 mm wide, so it handles bad roads and hill tracks with ease. But a front-wheel-drive plug-in hybrid is not a Fortuner substitute on slow, technical terrain. If JSW later brings the global T2's XWD all-wheel drive, that would change. Until then, the Combat is best understood as a large, well-equipped, very low-running-cost family SUV that looks like an off-roader.",
       ],
     },
   ],
   comparisonIntro:
-    "The T2's rivals split into two camps: large monocoque SUVs that prioritise on-road comfort, and ladder-frame vehicles that give up refinement for genuine articulation. The T2 sits deliberately in the first camp with more off-road hardware than its rivals carry.",
+    "The Combat's expected ₹30–50 lakh price puts it against two kinds of car: comfortable monocoque SUVs like the Kia Sorento and Skoda Kodiaq, and diesel ladder-frame SUVs like the Toyota Fortuner and MG Majestor. It is the only plug-in hybrid in the group.",
   comparison: {
     caption:
-      "Competitive set as of August 2026. Prices are indicative ex-showroom bands and vary by trim and state.",
-    head: ["", "Jetour T2", "Mahindra XUV700", "MG Gloster", "Mahindra Thar Roxx"],
+      "Competitive set as of October 2026. Combat figures are expected; confirm rival specifications and prices with dealers.",
+    head: ["", "JSW Combat", "Toyota Fortuner", "Kia Sorento", "MG Majestor"],
     rows: [
-      ["Construction", "Monocoque", "Monocoque", "Ladder frame", "Ladder frame"],
-      ["Length", "4,785 mm", "4,695 mm", "4,985 mm", "4,428 mm"],
-      ["Wheelbase", "2,800 mm", "2,750 mm", "2,950 mm", "2,850 mm"],
-      ["Ground clearance", "220 mm", "200 mm", "210 mm", "~207 mm"],
-      ["Seating", "5", "5 or 7", "6 or 7", "5"],
-      ["Four-wheel drive", "Automatic XWD, 6+X modes", "AWD on top trims", "4WD with low range", "4WD with low range"],
-      ["Powertrain focus", "1.5T / 2.0T petrol, PHEV expected", "Petrol and diesel", "Diesel", "Petrol and diesel"],
-      ["Indicative price band", "~₹30 lakh", "₹14–26 lakh", "₹40–44 lakh", "₹13–23 lakh"],
+      ["Construction", "Monocoque", "Ladder frame", "Monocoque", "Ladder frame"],
+      ["Powertrain", "1.5T plug-in hybrid", "Diesel / petrol", "Hybrid (global)", "Diesel"],
+      ["Electric-only driving", "90 km (NEDC, claimed)", "None", "Short bursts only", "None"],
+      ["Seating", "5", "7", "6 or 7", "7"],
+      ["Drive", "FWD (expected)", "4x2 / 4x4 with low range", "FWD / AWD", "4x2 / 4x4"],
     ],
   },
   pros: [
-    "Genuine off-road hardware — 220 mm of clearance and an automatic XWD system with terrain modes — in a body that rides like a road SUV.",
-    "A monocoque structure means it is far more comfortable on the 98% of driving that is tarmac than any ladder-frame rival here.",
-    "The 2.0T's 6+X mode set, including Rock and Sediment, is more capability than most crossovers at this price offer.",
-    "A plug-in hybrid variant on a flexible platform gives buyers without home charging a route into electrified running.",
-    "Equipment levels on the higher trims — 360° camera, blind-spot detection, adaptive cruise, L2 assistance — are competitive with cars costing more.",
+    "The only plug-in hybrid at this price: most weekday driving can run on electricity, at a fraction of a diesel's running cost.",
+    "360 hp and 610 Nm combined is a lot of performance for a family SUV at this price.",
+    "A big, boxy 4,785 mm body with 220 mm of clearance and a 752-litre boot looks and carries like a proper adventure SUV.",
+    "Expected kit is generous: 15.6-inch screen, panoramic sunroof, ventilated memory seats, 12-speaker Sony audio, 540° camera and Level 2 ADAS.",
+    "A monocoque body should ride far better on tarmac than the ladder-frame Fortuner and Majestor.",
   ],
   cons: [
-    "At an expected ~₹30 lakh it is priced against established seven-seaters that offer a third row the T2 does not have.",
-    "No low-range transfer case, so it is not a substitute for a ladder-frame vehicle on slow technical terrain or repeated recovery work.",
-    "Charging infrastructure compatibility on the PHEV is fine on AC but the pack is small enough that DC fast charging is largely beside the point — plan around a home or office AC point.",
-    "As a new entrant, service network depth outside metros is the open question, and it is the thing that most affects resale in India.",
-    "Ground clearance and dimensions are manufacturer figures; laden clearance and real wading depth should be confirmed with the dealer before you rely on them.",
+    "Five seats only, while the Fortuner, Majestor and Sorento offer a third row at similar money.",
+    "India-spec is expected to be front-wheel drive, with no low range, so it is not a true off-road rival to a 4x4 Fortuner.",
+    "Plug-in hybrids do not get the road-tax waivers that many states give full EVs, so check your state's on-road price.",
+    "JSW Motors is a brand-new car maker in India: service network depth and resale value are open questions.",
+    "Prices, variants and the final India specification are still unconfirmed and could move at the December unveil.",
   ],
   prosConsNote:
-    "Pricing, variant availability and final India specification were not confirmed at the time of writing. This assessment is based on announced specifications and comparable products already on sale, and is updated as official figures are released.",
+    "Pricing, variants and the final India specification had not been announced at the time of writing (late October 2026). This assessment is based on press reports and the global T2's specification, and will be updated when JSW Motors publishes official figures.",
 };
 
 export const v23Editorial: ModelEditorial = {

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { submitRegistration } from "@/app/register/actions";
 import { cn } from "@/lib/utils";
 
-const MODELS = ["Jetour T2", "Jaecoo J5", "V23"];
+const MODELS = ["JSW Combat (Jetour T2)", "Jaecoo J5", "V23"];
 
 interface Fields {
   name: string;

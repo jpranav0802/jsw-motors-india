@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description:
-    "Independent, unofficial news, specifications, range analysis and buying guides on new-energy vehicles for India — including the Jetour T2, Jaecoo J5 and iCAR V23. Not affiliated with JSW Group, JSW MG Motor India, MG, Chery, Jetour or Jaecoo.",
+    "Independent, unofficial news, specifications, range analysis and buying guides on new-energy vehicles for India — including the JSW Combat (Jetour T2), Jaecoo J5 and iCAR V23. Not affiliated with JSW Group, JSW MG Motor India, MG, Chery, Jetour or Jaecoo.",
   icons: { icon: "/seo/favicon.ico" },
 };
 

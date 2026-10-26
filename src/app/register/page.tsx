@@ -9,7 +9,7 @@ import { RegisterForm } from "@/components/RegisterForm";
 export const metadata: Metadata = {
   title: "Register Your Interest",
   description:
-    "Register your interest in the Jetour T2, Jaecoo J5 or iCAR V23 and we'll keep you posted as the India launch nears. A free interest registry run by an independent portal — no bookings, no deposits, no payments of any kind.",
+    "Register your interest in the JSW Combat, Jaecoo J5 or iCAR V23 and we'll keep you posted as the India launch nears. A free interest registry run by an independent portal — no bookings, no deposits, no payments of any kind.",
   alternates: { canonical: "/register" },
 };
 

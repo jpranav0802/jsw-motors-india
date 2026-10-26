@@ -6,8 +6,8 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
   {
     title: "Models & Specs",
     links: [
-      { label: "Jetour T2", href: "/" },
-      { label: "T2 specifications", href: "/T2/specification" },
+      { label: "JSW Combat", href: "/" },
+      { label: "Combat specifications", href: "/combat/specification" },
       { label: "Jaecoo J5", href: "/jaecoo-j5" },
       { label: "iCAR V23", href: "/v23" },
     ],
@@ -15,8 +15,7 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
   {
     title: "Editorial",
     links: [
-      { label: "Auto news", href: "/news" },
-      { label: "EV guides", href: "/guides" },
+      { label: "News & EV guides", href: "/guides" },
       { label: "FAQs", href: "/faqs" },
       { label: "About us", href: "/about" },
       { label: "Register your interest", href: "/register" },
@@ -75,8 +74,7 @@ export function SiteFooter() {
               {affiliationDisclaimer}
             </p>
             <p className="text-[0.22rem] md:text-[0.13rem] text-black/35">
-              © {new Date().getFullYear()} {siteName} · All company, product and brand names are
-              the property of their respective owners.
+              All company, product and brand names are the property of their respective owners.
             </p>
           </div>
         </div>

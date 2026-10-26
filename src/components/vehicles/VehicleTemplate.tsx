@@ -9,6 +9,7 @@ import { FirstScreen } from "@/components/vehicles/FirstScreen";
 import { Introduction } from "@/components/vehicles/Introduction";
 import { Introduction1 } from "@/components/vehicles/Introduction1";
 import { Introduction2 } from "@/components/vehicles/Introduction2";
+import { LaunchBrief } from "@/components/vehicles/LaunchBrief";
 import { PlugInHybrid } from "@/components/vehicles/PlugInHybrid";
 import { ThreeDHall } from "@/components/vehicles/ThreeDHall";
 import { VideoSwiper } from "@/components/vehicles/VideoSwiper";
@@ -22,6 +23,8 @@ function renderSection(section: VehicleSection) {
   switch (section.id) {
     case "firstScreen":
       return <FirstScreen data={section.data} />;
+    case "launchBrief":
+      return <LaunchBrief data={section.data} />;
     case "3dHall":
       // Pins and scrubs itself against scroll; see ThreeDHall.
       return <ThreeDHall data={section.data} />;

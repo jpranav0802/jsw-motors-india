@@ -7,9 +7,9 @@ import { PageShell } from "@/components/PageShell";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "FAQs – Platforms, Charging, Jetour T2, Jaecoo J5 & iCAR V23",
+  title: "FAQs – Platforms, Charging, JSW Combat, Jaecoo J5 & iCAR V23",
   description:
-    "In-depth answers on the JSW–MG joint venture and the ADAPT platform, expected launch and booking timelines, fast-charging in Tier 1 and Tier 2 cities, and the Jetour T2, Jaecoo J5 and iCAR V23.",
+    "In-depth answers on the JSW–MG joint venture and the ADAPT platform, expected launch and booking timelines, fast-charging in Tier 1 and Tier 2 cities, and the JSW Combat (Jetour T2), Jaecoo J5 and iCAR V23.",
   alternates: { canonical: "/faqs" },
 };
 
@@ -31,7 +31,7 @@ const FAQS: FaqItem[] = [
   // ── Launch, booking and buying ────────────────────────────
   {
     q: "What is the expected launch timeline and booking process for the upcoming EV models?",
-    a: "Launch timing in this segment slips routinely, so treat any date as intent rather than commitment. As of August 2026 the Jetour T2 is the closest to Indian showrooms, with the Jaecoo J5 and iCAR V23 following. Bookings for new models in India typically open two to six weeks before price announcement, through authorised dealers or the manufacturer's own site, against a refundable token amount. Deliveries begin after the price announcement and are usually allocated in booking order by variant and colour. This site takes no bookings and holds no deposits — we are an independent portal, and any page asking you for pre-booking money is not us.",
+    a: "Launch timing in this segment slips routinely, so treat any date as intent rather than commitment. As of late October 2026 the JSW Combat (the India name for the Jetour T2) is the closest to Indian showrooms, with an unveil reported for 4 December 2026 and sales expected in December or early 2027. The Jaecoo J5 and iCAR V23 are expected to follow in 2027. Bookings for new models in India typically open two to six weeks before price announcement, through authorised dealers or the manufacturer's own site, against a refundable token amount. Deliveries begin after the price announcement and are usually allocated in booking order by variant and colour. This site takes no bookings and holds no deposits — we are an independent portal, and any page asking you for pre-booking money is not us.",
   },
   {
     q: "Should I book before prices are announced?",
@@ -64,18 +64,30 @@ const FAQS: FaqItem[] = [
     a: "Heat matters more than charging speed. A pack sitting at 45°C in an open parking lot degrades several times faster than the same pack at 25°C, so shaded or basement parking is the single highest-value habit an Indian EV owner can adopt. After that, chemistry decides routine: LFP packs tolerate — and periodically need — a full charge, while NMC packs prefer being kept near 80% for daily use and taken to 100% only before long drives. Charge at night when ambient temperature is lower, schedule the charge to finish close to departure rather than at midnight, and precondition the cabin while still plugged in.",
   },
 
-  // ── Jetour T2 ─────────────────────────────────────────────
+  // ── JSW Combat (Jetour T2) ────────────────────────────────
   {
-    q: "What engines does the Jetour T2 offer, and what is XWD?",
-    a: "The T2 uses Chery's Kunpeng power units — a 1.5T and a 2.0T — both driving through a 7-speed dual-clutch transmission. XWD, or X Wheel Drive, is an automatic all-wheel-drive system that switches between two- and four-wheel drive on its own by reading grip and load, rather than waiting for the driver to select a transfer case. On 2.0T trims it works alongside 6+X driving modes: Sports, Economy, Standard, Snow, Sediment, Rock and an X Smart mode that chooses for you. It is fast-acting and requires nothing of the driver, but it is not a substitute for a low-range transfer case on slow technical terrain.",
+    q: "What is the JSW Combat, and is it the same car as the Jetour T2?",
+    a: "Yes. Combat is the name the Jetour T2 is expected to carry in India. It will be the first car JSW Motors sells under its own badge, separate from the JSW MG Motor joint venture, built under a licensing and parts deal with Chery and assembled at JSW's plant in Chhatrapati Sambhajinagar, Maharashtra. Reports say India gets the pre-facelift T2 design with reworked headlamps and bumpers and COMBAT lettering on the bonnet in place of the Jetour badge.",
   },
   {
-    q: "Is the Jetour T2 a genuine off-roader?",
-    a: "It depends what you mean by off-road. The T2 is a monocoque SUV with 220 mm of ground clearance and an automatic all-wheel-drive system with terrain modes, measuring 4,785 x 2,006 x 1,880 mm on a 2,800 mm wheelbase. That combination handles bad hill roads, forest tracks, wet grass, sand at moderate speed and steep loose gravel without complaint, and it rides far better on tarmac than any ladder-frame rival. What it will not do comfortably is slow-speed rock crawling, deeply rutted articulation or repeated recovery work — those need a separate chassis, a low range and mechanical locking. For the 98% of driving that is road, the monocoque is the better companion.",
+    q: "When does the JSW Combat launch, and what will it cost?",
+    a: "JSW Motors has sent invites for an event on 3–4 December 2026, and most reports put the Combat's unveil on 4 December. The launch was originally planned for Diwali. Prices and bookings are expected around the unveil or in early 2027. Expected pricing ranges from ₹30 lakh to ₹50 lakh ex-showroom, with most recent reports pointing at ₹40–50 lakh. None of this is official until JSW Motors announces it.",
   },
   {
-    q: "Where can I see the T2's full specification?",
-    a: "The specification page lists every figure across all three trims — powertrain, body, chassis, safety and equipment — with a note on what is standard, optional or unavailable per configuration, and it now carries a written overview, a competitor comparison table and an objective pros-and-cons assessment alongside the raw data. Bear in mind that specification tables published before an India launch reflect the manufacturer's global or home-market figures; India-specific trims, equipment and homologated numbers can differ. We update the page when official Indian figures are released and mark what has changed.",
+    q: "What powers the Combat, and how far does it go on electricity?",
+    a: "The India-spec Combat is expected to be sold only as a plug-in hybrid. A 1.5-litre direct-injection turbo-petrol engine works with two electric motors and an 18.4 kWh battery through a 3-speed dedicated hybrid transmission, for a combined 360 hp and 610 Nm sent to the front wheels. The claimed electric-only range is 90 km (NEDC) and total range up to 1,100 km. On Indian roads, plan on roughly 55–70 km of electric driving in the city and less on the highway with the AC running. On the global T2, a 6.6 kW AC charger fills the pack from 30% to 100% in about three hours, and 50 kW DC does 30–80% in 27 minutes.",
+  },
+  {
+    q: "Does the Combat have four-wheel drive? Is it a real off-roader?",
+    a: "Not in India, as far as current reports go. The global T2 offers XWD, an automatic all-wheel-drive system with terrain modes, but the India-spec plug-in hybrid is expected to be front-wheel drive. It is a monocoque SUV with 220 mm of ground clearance, measuring 4,785 x 2,006 x 1,880 mm on a 2,800 mm wheelbase. That handles bad hill roads, forest tracks and gravel easily, but it is not built for slow rock crawling or deep ruts. Those need a ladder frame, low range and locking differentials.",
+  },
+  {
+    q: "What colours and features will the Combat get?",
+    a: "Six colours are listed: Night Black, Sand, Sun Orange, Lime Green, Misty Cyan and Silver Snow. Some may be limited to certain variants. Expected features include a 15.6-inch touchscreen, a 10.25-inch digital cluster, panoramic sunroof, ventilated and memory front seats, a 12-speaker Sony sound system, 50 W wireless charging, six airbags, a 540° camera and Level 2 ADAS with adaptive cruise. It has five seats and a 752-litre boot.",
+  },
+  {
+    q: "Where can I see the Combat's full specification?",
+    a: "The specification page starts with a table of the expected India-spec Combat figures, then a written overview, a comparison with its rivals and a pros-and-cons list. Below that is the full global Jetour T2 trim sheet for reference. That sheet covers petrol trims sold abroad, not the India plug-in hybrid. We update the page when JSW Motors publishes official Indian figures.",
   },
 
   // ── Jaecoo J5 ─────────────────────────────────────────────
@@ -95,7 +107,7 @@ const FAQS: FaqItem[] = [
   },
   {
     q: "Which of the three models should I choose?",
-    a: "Choose the Jetour T2 if you want a large, comfortable SUV with genuine all-weather traction and are content that its off-road ability stops short of a ladder-frame vehicle's. Choose the Jaecoo J5 if you want a long-range premium electric SUV and have reliable charging access, since its case rests on running an electric car as your main vehicle. Choose the V23 if your driving is mostly urban, you charge at home, and you would rather own something that looks like nothing else on the road. Each model page carries the full specification, a written overview and a comparison against its direct rivals.",
+    a: "Choose the JSW Combat if you want a large, powerful five-seat SUV that can run most weekdays on electricity without depending on public chargers, and you don't need true four-wheel drive. Choose the Jaecoo J5 if you want a long-range premium electric SUV and have reliable charging access, since its case rests on running an electric car as your main vehicle. Choose the V23 if your driving is mostly urban, you charge at home, and you would rather own something that looks like nothing else on the road. Each model page carries the full specification, a written overview and a comparison against its direct rivals.",
   },
   {
     q: "How accurate are the figures on this site?",

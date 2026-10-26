@@ -42,7 +42,7 @@ export const jswMgLineupSegmentPositioning: Article = {
         "The lineup as publicly described spans two of these bands rather than sitting in one, which is the correct strategy for a new entrant but a demanding one to execute.",
         "The compact retro electric — the V23 in the range as we track it — is aimed squarely at the lower band, and its case is character rather than pure economics. It is a distinctive-looking, city-sized electric car in a segment where most rivals look like shrunken versions of something bigger. In a market where the sub-₹15 lakh EV buyer has genuine choice, standing out visually is a real commercial asset, and it is one of the few advantages that does not require outspending established rivals on engineering.",
         "The mid-size electric SUV — the J5 as tracked here — sits in the ₹15–25 lakh battleground and faces the hardest fight in the range. That band already contains strong, well-supported, heavily localised products from Tata, Mahindra and Hyundai. Winning there requires either a clear specification advantage or a clear price advantage, and preferably both.",
-        "The larger adventure SUV — the T2 — sits at or above the premium threshold, where the argument is capability and presence rather than economics. Its competition is as much diesel as electric, which changes the conversation completely.",
+        "The larger adventure SUV — the T2, now reported for India as the JSW Combat plug-in hybrid under JSW Motors' own brand — sits at or above the premium threshold, where the argument is capability and presence rather than economics. Its competition is as much diesel as electric, which changes the conversation completely.",
       ],
     },
     {

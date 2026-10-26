@@ -5,9 +5,8 @@ import { notFound } from "next/navigation";
 import { AffiliationNotice } from "@/components/editorial/AffiliationNotice";
 import { DataTable, Paragraphs, SectionHeading } from "@/components/editorial/Prose";
 import { ProsCons } from "@/components/editorial/ProsCons";
-import { T2LogoIcon } from "@/components/icons";
 import { SpecificationTable } from "@/components/vehicles/SpecificationTable";
-import { t2Editorial } from "@/data/model-editorial";
+import { combatIndiaSpec, t2Editorial } from "@/data/model-editorial";
 import { getSpecification, specModels } from "@/data/specifications";
 
 interface SpecificationPageProps {
@@ -25,8 +24,10 @@ export async function generateMetadata({ params }: SpecificationPageProps): Prom
   if (!spec) return { title: "Specifications" };
 
   return {
-    title: `Jetour ${spec.model} Specifications, Trims & Features in India`,
-    description: `Full specification and trim comparison for the Jetour ${spec.model} rugged adventure SUV in India — powertrain, dimensions, chassis, safety and equipment across every trim.`,
+    title: "JSW Combat Specifications — Plug-in Hybrid, Range & Features (Jetour T2)",
+    description:
+      "Expected India specification of the JSW Combat (Jetour T2) plug-in hybrid SUV — 360 hp, 18.4 kWh battery, 90 km electric range, dimensions and features — plus the full global T2 trim sheet.",
+    alternates: { canonical: `/${vehicle}/specification` },
   };
 }
 
@@ -35,15 +36,16 @@ export default async function SpecificationPage({ params }: SpecificationPagePro
   const spec = getSpecification(vehicle);
   if (!spec) notFound();
 
-  // Only the T2 has a written analysis so far; other models fall back to the
+  // Only the Combat has a written analysis so far; other models fall back to the
   // table alone rather than showing another car's commentary.
-  const editorial = vehicle === "T2" ? t2Editorial : null;
+  const editorial = vehicle === "combat" ? t2Editorial : null;
 
   return (
     <main className="min-h-svh bg-white text-black text-2xl md:text-base px-12 md:px-25 pt-[1.5rem] md:pt-[1.35rem] pb-[0.8rem] md:pb-[0.8rem]">
       <div className="flex flex-col gap-3.5">
-        <T2LogoIcon className="text-8xl" />
-        <h1 className="text-6xl font-medium">Jetour {spec.model} Specifications</h1>
+        <p className="font-display text-[0.6rem] md:text-[0.5rem] leading-none tracking-[0.06em]">COMBAT</p>
+        <h1 className="text-6xl font-medium">JSW Combat Specifications</h1>
+        <p className="text-black/60">Known globally as the Jetour T2.</p>
         <p className="text-black/80">
           Note: “●”Standard configuration, “○”Optional, &quot;-&quot;: Not included in this
           configuration
@@ -56,6 +58,11 @@ export default async function SpecificationPage({ params }: SpecificationPagePro
 
       {editorial && (
         <div className="mt-[0.8rem] md:mt-[0.6rem] max-w-[8.4rem] space-y-[0.7rem] md:space-y-[0.5rem]">
+          <section className="space-y-[0.28rem] md:space-y-[0.2rem]">
+            <SectionHeading>India-spec Combat at a glance</SectionHeading>
+            <DataTable table={combatIndiaSpec} />
+          </section>
+
           {editorial.overview.map((block, index) => (
             <section key={index} className="space-y-[0.28rem] md:space-y-[0.2rem]">
               {block.heading && <SectionHeading>{block.heading}</SectionHeading>}
@@ -79,13 +86,23 @@ export default async function SpecificationPage({ params }: SpecificationPagePro
           <p className="text-[0.28rem] md:text-base text-black/60">
             Related reading:{" "}
             <Link href="/guides/t2-vs-thar-roxx-vs-jimny" className="underline underline-offset-2 hover:text-black">
-              T2 vs Thar Roxx vs Jimny off-road comparison
+              Combat vs Thar Roxx vs Jimny off-road comparison
             </Link>{" "}
             and{" "}
             <Link href="/guides/adapt-architecture-explained" className="underline underline-offset-2 hover:text-black">
               the multi-powertrain architecture explained
             </Link>
             .
+          </p>
+        </div>
+      )}
+
+      {editorial && (
+        <div className="mt-[0.8rem] md:mt-[0.6rem] max-w-[8.4rem] space-y-[0.2rem]">
+          <SectionHeading>Global Jetour T2 trim sheet</SectionHeading>
+          <p className="text-[0.28rem] md:text-base text-black/60">
+            For reference: the petrol trims sold outside India. The India-spec Combat is
+            expected to be the plug-in hybrid only, so its figures are in the table above.
           </p>
         </div>
       )}

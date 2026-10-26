@@ -24,7 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes: Route[] = [
     { path: "/", changeFrequency: "weekly", priority: 1 },
-    { path: "/news", changeFrequency: "daily", priority: 0.9 },
     { path: "/guides", changeFrequency: "weekly", priority: 0.9 },
     { path: "/jaecoo-j5", changeFrequency: "monthly", priority: 0.8 },
     { path: "/v23", changeFrequency: "monthly", priority: 0.8 },

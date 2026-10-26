@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- full-bleed scene photo; next/image
    would re-run its loader and fight the rem-scaled layout, as elsewhere on this page. */
+import { CountUp } from "@/components/vehicles/CountUp";
 import type { PlugInHybridData } from "@/types/vehicle";
 
 interface PlugInHybridProps {
@@ -8,8 +9,8 @@ interface PlugInHybridProps {
 
 /**
  * A side-by-side card — copy on the left, photo on the right — dropped into the
- * T2 scroll flow. Styling follows the V23 "Play hard, relax more" band, retoned
- * to the T2's dark, lime-accented palette so it sits naturally between the
+ * Combat scroll flow. Styling follows the V23 "Play hard, relax more" band, retoned
+ * to the Combat's dark, lime-accented palette so it sits naturally between the
  * full-bleed image sections around it. Children carry `data-reveal-item` so they
  * ride the shared VehicleTemplate scroll reveal.
  */
@@ -42,7 +43,9 @@ export function PlugInHybrid({ data }: PlugInHybridProps) {
             {data.stats.map((stat) => (
               <div key={stat.label} className="flex flex-col gap-[0.06rem]">
                 <dt className="order-2 text-[0.24rem] md:text-[0.14rem] text-white/50">{stat.label}</dt>
-                <dd className="order-1 font-display text-[0.5rem] md:text-[0.3rem] leading-none">{stat.value}</dd>
+                <dd className="order-1 font-display text-[0.5rem] md:text-[0.3rem] leading-none">
+                  <CountUp value={stat.value} onScroll />
+                </dd>
               </div>
             ))}
           </dl>

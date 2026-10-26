@@ -12,16 +12,16 @@ export const metadata: Metadata = {
   // `absolute` opts out of the layout's "%s | <siteName>" template so the home
   // page reads as a subject line, not a brand claim.
   title: {
-    absolute: `Jetour T2 in India — Specs, XWD & Launch Updates | ${siteName}`,
+    absolute: `JSW Combat (Jetour T2) — Launch Date, Price & Specs | ${siteName}`,
   },
   description:
-    "Independent coverage of the Jetour T2 rugged adventure SUV in India — 1.5T and 2.0T Kunpeng powertrains, automatic XWD, 220 mm ground clearance and 6+X driving modes, plus the wider NEV lineup. Unofficial; not affiliated with JSW, MG, Chery or Jetour.",
+    "Independent coverage of the JSW Combat, the India name for the Jetour T2: unveil on 4 December 2026, expected ₹30–50 lakh price, 360 hp plug-in hybrid with 90 km electric range, colours and specs. Unofficial; not affiliated with JSW, MG, Chery or Jetour.",
   alternates: { canonical: "/" },
 };
 
 /**
- * The home page is the Jetour T2 experience — it is the headline product and
- * what visitors arrive for. The editorial portal framing lives on /news; the
+ * The home page is the JSW Combat (Jetour T2) experience — it is the headline product and
+ * what visitors arrive for. The editorial portal framing lives on /guides; the
  * strip below just links the two together and carries the site-wide disclaimer.
  */
 export default function Home() {
@@ -45,7 +45,7 @@ export default function Home() {
               </p>
             </div>
             <Link
-              href="/news"
+              href="/guides"
               className="text-[0.26rem] md:text-base underline underline-offset-4 text-black/60 transition-colors hover:text-black"
             >
               All news &amp; guides
