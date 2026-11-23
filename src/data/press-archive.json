@@ -1,6 +1,52 @@
 {
-  "updatedAt": "2026-11-16T11:51:22.499Z",
+  "updatedAt": "2026-11-23T13:26:09.682Z",
   "items": [
+    {
+      "title": "JSW Motors, ARAI sign MoU to develop and validate new energy vehicles",
+      "link": "https://auto.economictimes.indiatimes.com/news/industry/jsw-motors-arai-sign-mou-to-develop-and-validate-new-energy-vehicles/136103532",
+      "snippet": "The partnership will cover vehicle engineering, ADAS, battery systems, functional safety, cybersecurity and homologation ahead of JSW Motors' first SUV launch on December 3.",
+      "source": "ETAuto",
+      "published": "2026-11-23T12:55:23.000Z",
+      "relevance": 2,
+      "models": [
+        "jsw"
+      ]
+    },
+    {
+      "title": "JSW Motors Signs MoU with ARAI for EV Engineering, Safety Testing and Homologation Ahead of December 3 Debut",
+      "link": "https://www.autopunditz.com/post/jsw-motors-arai-partnership-ev-testing-homologation",
+      "snippet": "JSW Motors has signed an MoU with ARAI to strengthen vehicle engineering, ADAS validation, battery testing and homologation capabilities. The partnership comes ahead of the automaker's…",
+      "source": "AutoPunditz",
+      "published": "2026-11-23T10:58:05.000Z",
+      "relevance": 2,
+      "models": [
+        "jsw"
+      ]
+    },
+    {
+      "title": "Chery Exeed RX Patent Drawing Surfaces",
+      "link": "https://www.carwale.com/news/chery-exeed-rx-patent-drawing-surfaces/",
+      "snippet": "This patent comes close to the launch of the JSW Combat, which is a badge-engineered Jetour T2.",
+      "source": "CarWale",
+      "published": "2026-11-23T05:54:28.000Z",
+      "relevance": 2,
+      "models": [
+        "combat",
+        "jsw"
+      ]
+    },
+    {
+      "title": "China's Jetour to start Brazil car production in 2027, plans $69 million investment",
+      "link": "https://auto.economictimes.indiatimes.com/news/passenger-vehicle/chinas-jetour-to-start-brazil-car-production-in-2027-plans-69-million-investment/135978392",
+      "snippet": "Chinese automaker Jetour has announced plans to start vehicle production in Brazil next year. This initiative involves an investment of 400 million reais, building upon a previous…",
+      "source": "ETAuto",
+      "published": "2026-11-19T05:57:12.000Z",
+      "relevance": 2,
+      "models": [
+        "combat",
+        "jsw"
+      ]
+    },
     {
       "title": "JSW Motors launches registration website ahead of December debut",
       "link": "https://auto.economictimes.indiatimes.com/news/passenger-vehicle/jsw-motors-launches-registration-website-ahead-of-december-debut/135885058",
